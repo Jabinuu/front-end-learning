@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            /* 绝对定位的元素用margin左右auto是无效的 */
+            margin: 0 auto;
+            /* 所以想要居中要这样写 */
+            /* 这个只是左边界居中了 */
+             left: 50%;
+            /* margin-left: -150px; */
+            top: 50%;
+            /* margin-top: -150px;  */
+            /* 自动计算宽高的一般，不用自己手动改了 */
+            /* transform的百分比是算的自身 */
+            transform: translate(-50%,-50%);
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        sss
+    </div>
+</body>
+</html>

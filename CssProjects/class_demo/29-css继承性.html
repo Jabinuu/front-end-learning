@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 控制文字的属性都能继承，比如字号 字体 粗细 行高 等等，其他不是控制文字的不能继承 -->
+    <style>
+        /* 不能继承的情况：如果孩子已经有了自己的属性值，那就不继承他爹的，比如超链接就是如此，因为超链接本身就是蓝色的 */
+        /* 另外 标题标签也不会继承他爹的font-size属性，因为他自己已经有了这个属性的值 */
+        div{
+            color: skyblue;
+        }
+
+        p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>dasdada</p>
+        <a href="">adad</a>
+    </div>
+</body>
+</html>

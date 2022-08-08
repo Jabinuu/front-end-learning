@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            margin-top: 200px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点我触发缓动动画1</button>
+    <button>点我触发缓动动画2</button>
+    <div></div>
+
+    <script>
+        var div = document.querySelector('div');
+        var btns = document.querySelectorAll('button');
+        btns[0].addEventListener('click', function () {
+            animation(div, 500);
+        })
+        btns[1].addEventListener('click', function () {
+            animation(div, 800);
+        })
+
+        // 定义的缓动动画函数
+        function animation(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                // 到达目的地则关闭计时器，即关闭动画
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                }
+                // 这个数学公式是实现缓动的核心：每次移动的步长 = （目标位置 - 现在的位置） / x
+                var step = (target - obj.offsetLeft) / 40;
+
+                // 因为px<0.5的时候，计算机在处理时是视为0的，所以会出现到不了target的问题，这时候就需要取整数了
+                // 一来可以避免浮点数，二来可以真正的到达目的地了
+                // 当step是正数时，向上取值，当step是负数时，向下取整（-0.5向上取值是0）
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 10);
+        }
+    </script>
+</body>
+
+</html>

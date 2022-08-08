@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.绝对值方法
+        console.log(Math.abs(-1));
+        console.log(Math.abs('-1'));  //abs方法带有隐式转换
+        console.log(Math.abs('pink')); //这是非数字的字符串，所以变不成数字型， 因此输出Nan
+        
+        // 2.三个取整方法
+        //（1）.向下取整   floor是地板的意思
+        console.log(Math.floor(1.1));
+        console.log(Math.floor(1.9));
+
+        //（2）.向上取整   ceil是天花板的意思
+        console.log(Math.ceil(1.1));
+        console.log(Math.ceil(1.8));
+
+        //(3). 四舍五入  其他所有数字都是正常四舍五入，除了.5特殊  他是往大了入，所以-1.5 在round这里是-1
+        console.log(Math.round(1.5));
+        console.log(Math.round(-1.5));
+        console.log(Math.round(-1.55));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

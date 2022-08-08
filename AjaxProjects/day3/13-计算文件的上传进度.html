@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css">
+</head>
+
+<body>
+    <form action="">
+        <input type="file" name="" id="file1">
+        <button type="submit">上传文件</button>
+        <br>
+        <div class="progress" style="width: 300px; margin:20px 20px;">
+            <div class="progress-bar progress-bar-info" id="progressPer" style="width: 0%">
+                0%
+            </div>
+        </div>
+        <img src="" alt="" width="100px">
+    </form>
+
+    <script>
+        var btn = document.querySelector('button');
+        var file1 = document.querySelector('#file1');
+        var img = document.querySelector('img');
+        var progressPer = document.querySelector('#progressPer');
+
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            // files属性是该文件表单中选中的所有文件，返回一个数组
+            var files = file1.files;
+            if (files.length <= 0) {
+                return alert('请选择要上传的文件！');
+            }
+            var fd = new FormData();
+            // 向FormData对象中添加文件数据，参数1是文件的name，参数二是文件本身
+            fd.append('avatar', files[0]);
+
+            var xhr = new XMLHttpRequest();
+
+            // 给xhr的upload属性添加监听器，注意不是给xhr添加！！！
+            xhr.upload.addEventListener('progress', function (e) {
+                if (e.lengthComputable) {
+                    var percent = Math.ceil((e.loaded / e.total) * 100);
+                    // 进度条
+                    progressPer.style.width = percent + '%';
+                    progressPer.innerHTML = percent + '%';
+                }
+            })
+
+            // 设置上传完成后的进度条的变化
+            xhr.upload.addEventListener('load', function () {
+                progressPer.className = '';
+                progressPer.setAttribute('class', 'progress-bar progress-bar-success')
+            })
+
+            xhr.open('POST', 'http://www.liulongbin.top:3006/api/upload/avatar');
+            xhr.send(fd);
+            xhr.addEventListener('readystatechange', function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    if (data.status === 200) {
+                        img.src = 'http://www.liulongbin.top:3006' + data.url;
+                    }
+                    else {
+                        // 上传文件失败(上传数据非法)
+                        alert(data.message);
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

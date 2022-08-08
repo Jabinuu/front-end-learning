@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // push(数组元素1，数组元素2...)  向数组末尾追加n个元素，返回值为添加后的数组长度
+        var arr = [1, 2, 3, 4, 5];
+        // arr.push(6,'pink');
+        console.log(arr.push(6, 'pink'));
+        console.log(arr);
+
+        // unshift(数组元素1，数组元素2...)  向数组的头部追加n个元素，返回值为添加后的数组长度
+        // arr.unshift('green', 0);
+        console.log(arr.unshift('green', 0));
+        console.log(arr);
+
+        // pop() 删除数组末尾的一个元素，并返回这个元素
+        console.log(arr.pop());
+        console.log(arr);
+
+        // shift() 删除数组头部的一个元素 ，并返回这个元素
+        console.log(arr.shift());
+        console.log(arr);
+
+        //用这些方法和数组就可以实现 栈和队列的各个操作了
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 因为等文档内容都加载完毕后才会触发，所以在这里面写的操作都会在之后开始有效，使得script可以写在标签上面
+        addEventListener('load', function () {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                alert('点击我');
+            })
+        })
+        addEventListener('load', function () {
+            alert(22);
+        })
+        addEventListener('DOMContentLoaded', function () {
+            alert(33);
+        })
+            // load 等页面内容全部加载完毕，包含页面dom元素 图片 flash  css 等等
+            // DOMContentLoaded 是DOM 加载完毕，不包含图片 css 等，只加载html标签就可以执行 加载速度比 load更快一些
+
+            // 所以，如果页面中样式 图片很多的时候，会延迟js的生效事件，为了不影响用户的交互性，就要用DOMContentLoaded事件了，
+            // 因为这个事件就不包括图片和css样式就能触发的
+    </script>
+</head>
+
+<body>
+
+    <button>点击</button>
+
+</body>
+
+</html>

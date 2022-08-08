@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <button id="btnPOST">见我上传数据</button>
+
+    <script>
+        $(function () {
+            $('#btnPOST').on('click', function () {
+                $.ajax({
+                    type: 'POST',
+                    data: { author: 'jiabin', bookname: 'jiaban', publisher: 'sss' },
+                    url: 'http://www.liulongbin.top:3006/api/addbook',
+                    success: function (res) {
+                        console.log(res);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

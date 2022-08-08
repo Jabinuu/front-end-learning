@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* 设置为自减模式 */
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 双伪元素法，解决塌陷和消除浮动 */
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+/* 版心 */
+.wrapper {
+    /* 因为这个网页中所有的有效内容都是宽度1200px居中的，因此在这里直接设置好width */
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 头部*/
+.header {
+    height: 42px;
+    margin: 30px auto;
+}
+
+h1 {
+    float: left;
+}
+
+/* 导航 */
+.nav {
+    float: left;
+    margin-left: 70px;
+    height: 42px;
+}
+
+.nav li {
+    float: left;
+    margin-right: 26px;
+}
+
+.nav li a {
+    display: block;
+    padding: 0 9px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 18px;
+    color: #050505;
+}
+
+.nav li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+
+.search {
+    float: left;
+    margin-left: 59px;
+    width: 412px;
+    height: 40px;
+    border: solid 1px #00a4ff;
+}
+
+.search input {
+    float: left;
+    padding-left: 20px;
+    width: 360px;
+    height: 38px;
+    /* 去除input自带的边框线 */
+    border: 0;
+}
+
+/* 知识点：设置input占位符的样式，一种特殊的选择器 */
+.search input::placeholder {
+    font-size: 14px;
+    color: #bfbfbf;
+}
+
+.search a {
+    display: block;
+    float: left;
+    width: 50px;
+    height: 39px;
+    /* border: 0; */
+    /* 装饰性的东西，用背景图bgi，而不用img */
+    background-image: url(../images/btn.png);
+}
+
+.user {
+    float: right;
+    margin-right: 30px;
+    /* 注意这里不设置宽度，因为用户名字长度不同，有的比较长，所以应按内容决定其宽度 */
+    height: 42px;
+    line-height: 42px;
+}
+
+.user img {
+    /* 设置图片垂直居中，用这个垂直水平属性 */
+    vertical-align: middle;
+}
+
+.banner {
+    height: 420px;
+    background-color: #1c036c;
+}
+
+.banner .wrapper {
+    height: 420px;
+    background-image: url(../images/banner2.png);
+}
+
+.wrapper .left {
+    float: left;
+    width: 190px;
+    height: 420px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.wrapper .right {
+    float: right;
+    margin-top: 50px;
+    width: 231px;
+    height: 300px;
+    background-color: #fff;
+}
+
+.banner .left ul {
+    margin: 13px 20px;
+}
+
+.banner .left li a {
+    line-height: 44px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.banner .left span {
+    float: right;
+}
+
+.banner .left li a:hover {
+    color: #00b4ff;
+}
+
+.banner .right .title {
+    /* 不需要设置宽度，块级元素默认和他爹的宽度一样,但高度不会 */
+    height: 48px;
+    background-color: #9bceea;
+}
+
+.banner .right h2 {
+    line-height: 48px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+}
+
+.banner .right .content {
+    margin: 0 19px;
+}
+
+.banner .right dl {
+    padding: 12px 0;
+    border-bottom: 2px solid #e5e5e5;
+}
+
+.banner .right dt {
+    font-size: 16px;
+    color: #4e4e4e;
+}
+
+.banner .right dd {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.banner .right a {
+    display: block;
+    margin: 4px auto 0;
+    border: 1px solid #00a4ff;
+    width: 200px;
+    height: 41px;
+    background-color: #fff;
+    color: #00a4ff;
+    text-align: center;
+    line-height: 41px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.goods {
+    margin-top: 8px;
+    padding: 21px 26px 34px;
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0px 2px 3px 2px rgba(118, 118, 118, 0.2);
+}
+
+.goods .recommend {
+    float: left;
+    margin-right: 35px;
+    font-size: 16px;
+    color: #00a4ff;
+}
+
+.goods li {
+    float: left;
+    padding-left: 37px;
+    padding-right: 39px;
+    border-left: 1px solid #bfbfbf;
+    /* 因为a自带字体颜色，所以继承没用 */
+    /* color: #050505; */
+}
+
+.goods ul a {
+    font-size: 16px;
+    color: #050505;
+}
+
+.goods .alter {
+    float: right;
+}
+
+.goods .alter a {
+    font-size: 14px;
+    color: #00a4ff;
+}
+
+.course {
+    margin-top: 36px;
+}
+
+.course .box {
+    height: 40px;
+    padding-bottom: 20px;
+}
+
+.course .box .title {
+    float: left;
+    font-size: 20px;
+    color: #494949;
+}
+
+.course .box .more {
+    float: right;
+    margin-right: 36px;
+}
+
+.course .more a {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.course .content a {
+    display: block;
+}
+
+.course .content li {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: 228px;
+    height: 270px;
+    background-color: #fff;
+}
+
+.course .content li:nth-child(5n) {
+    margin-right: 0;
+}
+
+.course .content li h3 {
+    padding: 20px;
+    font-size: 14px;
+    color: #050505;
+}
+
+.course .content li p {
+    margin-left: 20px;
+    font-size: 12px;
+    color: #999999;
+}
+
+.course .content li span {
+    color: #ff7c2d;
+}
+
+.footer {
+    margin-top: 25px;
+    height: 417px;
+    background-color: #fff;
+}
+
+.footer .left_contnet {
+    float: left;
+}
+
+.footer .left_contnet img {
+    margin-top: 34px;
+    margin-bottom: 25px;
+}
+
+.footer .left_contnet p {
+    font-size: 12px;
+    color: #666666;
+}
+
+.footer .left_contnet a {
+    display: block;
+    margin-top: 15px;
+    width: 120px;
+    height: 36px;
+    border: solid 1px #00a4ff;
+    line-height: 36px;
+    text-align: center;
+    font-size: 16px;
+    color: #00a4ff;
+}
+
+.footer dl {
+    float: right;
+    margin-right: 124px;
+    width: 96px;
+    height: 130px;
+}
+
+.footer dl:nth-child(2) {
+    margin-right: 0;
+}
+
+.footer dl {
+    margin-top: 34px;
+}
+
+.footer dt {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.footer dd a {
+    line-height: 21px;
+    font-size: 12px;
+    color: #333333;
+}
+
+.course .content li {
+    position: relative;
+}
+
+.course .content li .hot {
+    position: absolute;
+    top: 4px;
+    right: -4px;
+}

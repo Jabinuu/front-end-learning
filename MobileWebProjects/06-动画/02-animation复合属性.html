@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation复合属性</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            /* step(3)是一种速度曲线，意思是把这个动画过程分成三步走 */
+            /* linear是默认的速度曲线，即匀速变化 */
+            animation: change 1s steps(3);
+
+            /* 2s是延迟时间，初始刷新页面延迟2s动画开始
+               infinite是动画重复次数，infinite是无限次
+               alternate是动画方向，默认是动画完成后直接闪回初始状态，而alternate是会原路返回   
+            */
+            animation: change 1s 2s infinite alternate;
+
+            /* 动画重复有限次数后，要使动画停留在动画结束时的状态就设置动画完毕时状态为forwards */
+            animation: change 1s 5 forwards;
+        }
+
+        @keyframes change {
+            from {
+                width: 200px;
+            }
+            to {
+                width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

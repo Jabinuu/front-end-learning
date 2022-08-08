@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            display: inline-block;
+            width: 18px;
+            height: 24px;
+            /* background-color: pink; */
+            background-image: url(./materials/taobao.png);
+            /* 背景图调整位置 ，水平 垂直方向*/
+            background-position: -3px 0;
+        }
+        .two{
+            display: block;
+            width: 24px;
+            height: 21px;
+            background-position: 0 -90px;
+            background-image: url(./materials/taobao.png);
+        }
+    </style>
+</head>
+<body>
+    <!-- 精灵图一般用行内元素span，因为应用基本是同行显示 -->
+    <span class="one"></span>
+    <span class="two"></span>
+</body>
+</html>

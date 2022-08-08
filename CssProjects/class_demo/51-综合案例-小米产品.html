@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 这个题也可用8个li来解决，注意，当父级标签宽度不够时，子级的浮动标签是会换行的 */
+
+        /* 这个css的作用是主要是为了清除body自带的margin，和顺带清除其他不必要的margin */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            margin: 0 auto;
+            width: 1226px;
+            height: 614px;
+        }
+        .left{
+            float: left;
+            width: 234px;
+            height: 614px;
+            background-color: #800080;
+        }
+        .combo{
+            float: left;
+            margin-left: 14px;
+            width: 234px;
+            height: 614px;
+        }
+        .combo>div{
+            width: 234px;
+            height: 300px;
+            background-color: #87ceeb;
+        }
+        /* 这个写法是正确的，意为combo的所有子元素里的第一个元素，且名为div */
+        .combo>div:first-child{
+            margin-bottom: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="left"></div>
+
+        <div class="combo">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="combo">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="combo">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="combo">
+            <div></div>
+            <div></div>
+        </div>
+
+    </div>
+</body>
+</html>

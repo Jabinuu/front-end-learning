@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* 本题是有固定的总大小的，所以设置为自减模式 */
+            box-sizing: border-box;
+        }
+        .box{
+            width: 500px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            margin-top: 50px;
+            padding: 42px 30px 0;
+        }
+        .box h2{
+            line-height: 1;
+            font-size: 30px;
+            padding-bottom: 9px;
+            border-bottom: 1px solid #ccc;
+        }
+        ul li{
+            height: 50px;
+            line-height: 50px;
+            padding-left: 28px;
+            border-bottom: 1px dashed #ccc;
+            list-style: none;
+            
+        }
+        li a{
+            font-size: 18px;
+            color: #666;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>最新文章/New Articles</h2>
+        <!-- 当遇到一条一条竖着并列的时候，一定要用ul>li列表！！！ -->
+        <ul>
+            <li><a href="#">北京招聘网页设计，平面设计，php</a></li>
+            <li><a href="#">北京招聘网页设计，平面设计，php</a></li>
+            <li><a href="#">北京招聘网页设计，平面设计，php</a></li>
+            <li><a href="#">北京招聘网页设计，平面设计，php</a></li>
+            <li><a href="#">北京招聘网页设计，平面设计，php</a></li>
+        </ul>
+    </div>
+</body>
+</html>

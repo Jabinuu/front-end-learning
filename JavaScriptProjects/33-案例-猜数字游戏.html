@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字</title>
+    <script>
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        var score = 0, total = 5, i = total, num, ans;
+        while (i) {
+            num = prompt('第' + (5 - i + 1) + '回合：猜一个从0到10的整数吧！');
+            ans = getRandom(0, 10);
+            if (ans === parseInt(num)) {
+                score += 20;
+                alert('你猜对了！真厉害！\n当前得分：' + score);
+            }
+            else if (ans > parseInt(num)) {
+                score -= 8;
+                alert('不对！猜小了哦~ 答案是' + ans + '\n当前得分：' + score);
+            }
+            else {
+                score -= 8;
+                alert('不对！猜大了哦~ 答案是' + ans + '\n当前得分：' + score);
+            }
+            i--;
+        }
+        alert('您的最终得分为：' + score + '分')
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

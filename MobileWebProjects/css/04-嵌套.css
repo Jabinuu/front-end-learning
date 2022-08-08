@@ -1,0 +1,12 @@
+.father {
+  width: 100px;
+}
+.father .sn .sy {
+  color: pink;
+}
+.father .sn .sy:hover {
+  color: green;
+}
+.father:hover {
+  color: orange;
+}

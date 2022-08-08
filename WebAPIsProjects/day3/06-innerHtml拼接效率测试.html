@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var start = +new Date();
+        for (var i = 0; i < 5000; i++) {
+            // 因字符串的不可变性，这种方式占用大量内存，而且因为每次都要开辟空间，所以也很耗时（最慢）
+            document.body.innerHTML += '<div style="width:100px; height:2px; border:1px solid blue;"></div>';
+        }
+        var end = +new Date();
+        console.log(end - start);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 自己定义一个回调函数
+        function abc(data) {
+            console.log(data);
+        }
+    </script>
+
+    <!-- callback就是回调函数参数，指定接口调用哪个回调函数 -->
+    <!-- 注意：jsonp和ajax毫无关系，打开网络监测就能看到，xhr对象是空的，所以也就不是ajax请求
+                并且，jsonp有个缺点是只能发起get请求 -->
+    <script src="http://www.liulongbin.top:3006/api/jsonp?callback=abc"></script>
+</body>
+
+</html>

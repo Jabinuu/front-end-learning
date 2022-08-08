@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 使用弹性盒子的伸缩比flex属性，可以使的在不同的设备尺寸中，网页都有自适应的宽高尺寸，因为他不是写死的 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            display: flex;
+
+            height: 300px;
+            border: 1px solid #000;
+        }
+
+        .box div {
+            height: 200px;
+            margin: 0 20px;
+            background-color: pink;
+        }
+
+        .box div:first-child{
+            width: 50px;
+        }
+        /* 在flex容器的剩余可用的部分里将其分为1+2=3份，第二个分一份，第三个分两份 */
+        .box div:nth-child(2){
+            flex: 1;
+        }
+        .box div:last-child{
+            flex: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 由于url中不能存在中文字符，所以浏览器会自动将中文字符进行编码，转为字母和百分号。一个汉字是3个百分号
+        var str = '贾宾';
+        console.log(encodeURI(str));
+
+        console.log(decodeURI('%E8%B4%BE'));
+    </script>
+</body>
+
+</html>

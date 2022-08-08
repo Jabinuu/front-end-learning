@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+
+    </ul>
+    <ol>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ol>
+
+    <div class="demo">
+        <div class="box">
+            <span class="erweima">×</span>
+        </div>
+    </div>
+
+    <script>
+        var ul = document.querySelector('ul');
+        // .childNodes返回的是所有类型的节点，即包括了元素节点，属性节点和文本节点，而实际开发中通常是需要元素节点，所以这个不好用
+        console.log(ul.childNodes);
+        console.log(ul.childNodes[0].nodeType);
+        // .children这个好用, 因为只返回元素节点
+        console.log(ul.children);
+
+        // 返回第一个元素和最后一个元素（实际开发中很常用）  √√√
+        console.log(ul.children[0]);
+        console.log(ul.children[ul.children.length-1]);
+
+        // .firstChild这个一般不用，因为它是返回的所有类型的元素中的第一个     XXXX
+        console.log(ul.firstChild);
+        console.log(ul.lastChild);
+
+        // 这个只返回元素节点，但是只支持ie11以上的，所以兼容性较差    XXXXXXXX
+        console.log(ul.firstElementChild);
+        console.log(ul.lastElementChild);
+    </script>
+</body>
+</html>

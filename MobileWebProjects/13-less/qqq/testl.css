@@ -1,0 +1,11 @@
+.father {
+  color: red;
+  width: 1.81333333rem;
+}
+.father .son {
+  background-color: pink;
+  font-size: 16px;
+}
+.father .sun {
+  font-size: 15px;
+}

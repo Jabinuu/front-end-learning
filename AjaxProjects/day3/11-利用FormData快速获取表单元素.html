@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="./ss">
+        <!-- autocomplete是控制有没有鼠标点击输入框而出现下拉填充栏的 -->
+        <input type="text" name="uname" autocomplete="off">
+        <input type="password" name="upwd">
+        <button type="submit">提交</button>
+    </form>
+
+    <script>
+        var fm = document.querySelector('form');
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            var fd = new FormData(fm);    //获取表单数据非常方便
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://www.liulongbin.top:3006/api/formdata');
+            xhr.send(fd);
+            xhr.addEventListener('readystatechange', function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    console.log(JSON.parse(xhr.responseText));
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

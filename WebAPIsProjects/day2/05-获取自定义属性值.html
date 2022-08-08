@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 自定义属性 直接手动写上就是了 -->
+    <div id="demo" jiabin="666" class="cal"></div>
+
+    <script>
+        var div = document.querySelector('div');
+        console.log(div.id);
+        console.log(div.className);                // .获取类名比较特殊 需要是className
+        console.log(div.getAttribute('jiabin'));   // 获取自定义属性，只能用getAttribute('属性')  ,而自带的内置属性可以用.
+      
+        // 设置自定义属性  setAttribute('属性'，'值')
+        div.setAttribute('jiabin', '888');
+        console.log(div.getAttribute('jiabin'));
+
+        div.setAttribute('calss','nav');  //类名比较特殊，他在这里就是class而不是className
+    </script>
+</body>
+</html>

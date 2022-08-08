@@ -1,0 +1,146 @@
+@import './base.less';
+@vw: 3.75vw;
+@colora: #fb7299;
+
+header {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    background-color: #fff;
+    height: (84 / @vw);
+
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 (12 / @vw) 0 (18 / @vw);
+        height: (44 / @vw);
+
+        .left {
+            .iconfont {
+                font-size: (28 / @vw);
+                color: @colora;
+            }
+        }
+
+        .right {
+            display: flex;
+
+            .iconfont {
+                font-size: (22 / @vw);
+                color: #ccc;
+            }
+
+            .login {
+                margin-left: (24 / @vw);
+                height: (24 /@vw);
+                width: (24 /@vw);
+            }
+
+            .download {
+                margin-left: (24 / @vw);
+                width: (72 / @vw);
+                height: (24 / @vw);
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        height: (40 / @vw);
+        border-bottom: 1px solid #eee;
+
+        .tab {
+            ul {
+                display: flex;
+
+                li {
+                    padding: 0 (16 /@vw);
+
+                    a {
+                        display: block;
+                        height: (38 /@vw);
+                        font-size: (14 / @vw);
+                        line-height: (38 /@vw);
+
+                        &.current {
+                            color: @colora;
+                            border-bottom: 2px solid @colora;
+                        }
+                    }
+                }
+            }
+        }
+
+        .more {
+            width: (40 / @vw);
+            text-align: center;
+
+            .iconfont {
+                line-height: (38 / @vw);
+                font-size: (22 / @vw);
+                color: #ccc;
+            }
+        }
+    }
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: (84 / @vw);
+    height: (600 / @vw);
+
+    section {
+        padding: (8 / @vw) 0;
+        width: (172 / @vw);
+
+        .pic {
+            position: relative;
+
+            .bofang {
+                z-index: 1;
+                position: absolute;
+                bottom: (8 / @vw);
+                left: (8 / @vw);
+            }
+
+            .danmu {
+                z-index: 1;
+                position: absolute;
+                bottom: (8 / @vw);
+                right: (8 / @vw);
+            }
+
+            .mask {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: (172 / @vw);
+                height: (34 / @vw);
+                background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+            }
+
+            .iconfont {
+                font-size: (16 / @vw);
+                color: #fff;
+            }
+
+            span {
+                vertical-align: top;
+                font-size: (12 / @vw);
+                color: #fff;
+            }
+        }
+
+        .txt {
+            h4 {
+                margin-top: (5 / @vw);
+                font-weight: normal;
+                font-size: (12 / @vw);
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 消除浮动实际上就是，当浮动元素的父元素height没有定义时，使得父元素的height
+        由父元素的内容大小而定的。从而消除了浮动给后面的标准流元素带来的覆盖影响 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .top {
+            margin: 0 auto;
+            width: 1000px;
+            /* height: 400px; */
+            background-color: pink;
+            /* 在父级标签添加overflow以消除浮动 */
+            overflow: hidden;
+        }
+
+        .left {
+            float: left;
+            width: 200px;
+            height: 400px;
+            background-color: gray;
+        }
+
+        .right {
+            float: right;
+            width: 790px;
+            height: 400px;
+            background-color: green;
+        }
+
+        .bottom {
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="bottom"></div>
+</body>
+
+</html>

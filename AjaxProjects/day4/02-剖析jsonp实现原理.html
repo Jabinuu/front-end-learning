@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function abc(data) {
+            console.log(data);
+        }
+    </script>
+    <!-- 由于同源策略对script标签的src属性不生效，因此可以利用它进行跨域的数据请求 -->
+    <script src="./js/getData.js?callback=abc">
+    </script>
+</body>
+
+</html>

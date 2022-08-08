@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 消除浮动实际上就是，当浮动元素的父元素height没有定义时，使得父元素的height
+        由父元素的内容大小而定的。从而消除了浮动给后面的标准流元素带来的覆盖影响 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .top{
+            margin: 0 auto;
+            width: 1000px;
+            /* height: 400px; */
+            background-color: pink;
+        }
+        .left{
+            float: left;
+            width: 200px;
+            height: 400px;
+            background-color: gray;
+        }
+        .right{
+            float: right;
+            width: 790px;
+            height: 400px;
+            background-color: green;
+        }
+        .bottom{
+            height: 100px;
+            background-color: blue;
+        }
+        /* 双伪元素法：使用一个方法，可以提供两个问题的解决方案(塌陷和浮动)。 */
+        /* 塌陷是因为，对于父子级元素，而且是都块级元素，在给子级元素设置margin时会发生父子
+        一起移动，而解决这个问题的方法之一就是， 在父级的第一个元素里设置一个talbe显示模式的
+        元素，因为table比较特殊，他不是块级元素，因此就没有引起塌陷的条件了*/
+        /* 在使用时，需要解决塌陷就写上clearfix类名，需要消除浮动也写clearfix类名 */
+
+        /* 双伪元素法 */
+        .clearfix::before,
+        .clearfix::after{
+            content: '';
+            display: table;
+        }
+        /* 真正的清除浮动部分。虽然清除浮动需要添加块级伪元素，但table是一个特例*/
+        .clearfix::after{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="top clearfix">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="bottom"></div>
+</body>
+</html>

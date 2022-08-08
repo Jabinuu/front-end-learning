@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    手机号码： <input type="text"> <button>发送</button>
+    <script>
+        var input = document.querySelector('input');
+        var btn = document.querySelector('button');
+
+        btn.addEventListener('click', function () {
+            var second = 5;
+            // 这里的btn可以写成this
+            this.disabled = true;
+            this.innerHTML = '还剩5秒再次点击发送';
+
+            var timer = setInterval(function () {
+                second--;
+                if (second == 0) {
+                    clearInterval(timer);
+                    // 这里的btn不能写this，因为他是在setInterval函数里的，这个函数的调用对象是window，所以在这个函数的作用域里this指向window
+                    btn.disabled = false;
+                    btn.innerHTML = '发送';
+                }
+                else {
+                    btn.innerHTML = '还剩' + second + '秒再次点击发送';
+                }
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>

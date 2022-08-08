@@ -1,0 +1,153 @@
+.xtx_body{
+    background-color: #f6f6f6;
+    padding-top: 29px;
+}
+
+.xtx_body .wrapper{
+    display: flex;
+}
+
+.xtx_body .aside{
+    width: 227px;
+    min-height: 500px;
+    margin-right: 18px;
+    background-color: pink;
+}
+
+.xtx_body .main{
+    flex: 1;
+    min-height: 500px;
+}
+
+/* 子级没有设置height时，他的height默认是弹性拉伸至跟他的父级一样高
+   如果想限制这个高度，可以在他的父级添加上下padding
+*/
+.xtx_body .overview{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 18px;
+    height: 132px;
+    background-color: #fff;
+}
+
+.xtx_body .overview div{
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+}
+
+.xtx_body .overview .left{
+    border-right: 1px solid #f4f4f4;
+}
+
+.xtx_body .overview a{
+    text-align: center;
+}
+
+.xtx_body .overview i{
+    font-size: 25px;
+    color: #e05e30;
+}
+
+.xtx_body .overview img{
+    margin-bottom: 16px;
+    width: 25px;
+}
+
+.xtx_body .overview .left a:last-child img{
+    width: 18px;
+}
+
+.xtx_body .overview h5{
+    font-weight: normal;
+    font-size: 16px;
+    color: #333;
+}
+
+.xtx_body .main .pannel{
+    padding: 20px 17px 28px 25px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.xtx_body .main .pannel_title{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.xtx_body .main .pannel_title h4{
+    font-weight: normal;
+    font-size: 22px;
+    color: #333;
+}
+
+.xtx_body .main .pannel_title a{
+    margin-top: 8px;
+    margin-right: 8px;
+    font-size: 16px;
+    color: #999;
+}
+
+.order .content li{
+    display: flex;
+    margin: 0 0 20px 18px;
+}
+
+.order .content li:last-child{
+    margin-bottom: 0;
+}
+
+.order .content li>div{
+    border-right: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.order .content li .goods{
+    display: flex;
+    align-items: center;
+    padding: 17px 128px 14px 12px;
+    flex: 1;
+}
+
+.order .content li .status{
+    width: 120px;
+}
+
+.order .content li .pay{
+    width: 200px;
+}
+
+.order .content li .action{
+    width: 180px;
+}
+
+.order .content li .goods img{
+    width: 107px;
+}
+
+.order .content li .goods .text{
+    flex: 1;
+    /* 这里需要给个width才能知道到哪里进行省略号，但是我不用去量具体的width，只需要设置flex为1就好了
+        也就是说，他们两个是搭配使用的
+    */
+    width: 0;
+}
+
+.order .content li .goods h5{
+    /* 头三行是为了写出省略号 */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: normal;
+    font-size: 16px;
+    color: #333;
+}
+
+.order .content li .goods p{
+    font-size: 14px;
+    color: #999;
+}

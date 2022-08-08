@@ -1,0 +1,4 @@
+布局属性：display, positon, float, overflow
+盒子模型+背景相关：margin, padding, width, height, border, backgrond(背景色，图相关属性)
+文本内容属性：color, font, text-decoration, text-align, line-height, vertical-align
+点缀属性：cursor, boeder-radius, box-shadow

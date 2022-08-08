@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        
+        .change {
+            background-color: purple;
+            color: #fff;
+            font-size: 25px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="first">文本</div>
+    <script>
+        // 1. 使用 element.style 获得修改元素样式  如果样式比较少 或者 功能简单的情况下使用
+        var test = document.querySelector('div');
+        test.onclick = function() {
+            // this.style.backgroundColor = 'purple';
+            // this.style.color = '#fff';
+            // this.style.fontSize = '25px';
+            // this.style.marginTop = '100px';
+            // 让我们当前元素的类名改为了 change
+
+            // 2. 我们可以通过 修改元素的className更改元素的类名，这样就避免了在js里写大量修改css样式的语句，实现把这些转移到css里去，js只写类名
+            // 3. className是把元素的class给重写了，所以会覆盖掉之前的类，想要避免这样，需要把多个的类名都写上
+            // this.className = 'change';
+            this.className = 'first change';
+        }
+    </script>
+</body>
+
+</html>

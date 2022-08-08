@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ee{
+            /* 宽度300，高度200，背景色粉色 */
+            /* w300+h200+bc 再手动改pink即可 */
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- p+div+a自动生成统计标签 -->
+    <p></p>
+    <div></div>
+    <a href=""></a>
+
+    <!-- div>p+div 生成父级标签 -->
+    <div>
+        <p></p>
+        <div></div>
+    </div>
+
+    <!-- ul>li*3 在ul下生成3个li -->
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <!-- ul>li{111}*3 带内容的li-->
+    <ul>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+    </ul>
+
+    <!-- ul>li{$}*3 内容按数字递增的li-->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>

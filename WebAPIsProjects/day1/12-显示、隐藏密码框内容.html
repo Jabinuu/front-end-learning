@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            justify-content: space-between;
+            margin: 100px auto;
+            width: 500px;
+            height: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        input {
+            width: 450px;
+            height: 24px;
+            border: none;
+            /* outline是鼠标选中表单时出现的边框 */
+            outline: none;
+        }
+
+        img {
+            width: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="password" name="" id="pwd">
+        <img src="./images/close.png" alt="" id="eye">
+    </div>
+
+    <script>
+        var eye = document.getElementById('eye');
+        var inp = document.getElementById('pwd');
+        // 设置flag的目的是为了可以实现来回切换形态
+        var flag = 0;
+        eye.onclick = function () {
+            if (flag == 0) {
+                inp.type = 'text';
+                eye.src = './images/open.png';
+                flag = 1;    // 记得把flag修改，不然就只会来这个分支
+            }
+            else {
+                inp.type = 'password';
+                eye.src = './images/close.png';
+                flag = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

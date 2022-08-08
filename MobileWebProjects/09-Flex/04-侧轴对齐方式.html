@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侧轴对齐方式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            display: flex;
+
+            /* 给box下的所有的弹性盒子都侧轴方向居中 */
+            /* 在没有给height的情况下给侧轴对齐设置center时，弹性盒子的高是内容的高 */
+            /* align-items: center; */
+            height: 300px;
+            margin: auto;
+            border: 1px solid #000;
+        }
+        
+        /* 弹性盒子不给height的话，就会默认拉伸到跟他爹一样的height，这也是strech的效果 */
+        .box div {
+            width: 100px;
+            /* 当给了height值后，align-items: stretch是无效的 */
+            height: 100px;
+            background-color: pink;
+        }
+
+        /* 用align-self给单独某个弹性盒子侧轴居中 */
+        .box div:nth-child(2){
+            align-self: center;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>1111</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+@import './base.less';
+@import './normalize.less';
+// 定义根字号变量值，直接把单位也给上
+@rootSize: 37.5rem;
+
+body{
+    background-color: #F0F0F0;
+}
+
+.main{
+    // padding-bottom: (50 / 37.5rem);
+    padding-bottom: (50 / @rootSize);
+    .banner{
+        height: (160 / @rootSize);
+    }
+    .title{
+        padding: (10 / @rootSize) 0 (15 / @rootSize) (15 / @rootSize);
+        h4{
+            font-size: (14 / @rootSize);
+            color: #3C3C3C;
+        }
+    }
+    .item {
+        .pic{
+            position: relative;
+            i{
+                position: absolute;
+                top: (15/@rootSize);
+                right: (18/@rootSize);
+                font-size: (24/@rootSize);
+                color: #fff;
+            }
+            .active{
+                position: absolute;
+                top: (-4 / @rootSize);
+                left: (15 / @rootSize);
+                width: (68/@rootSize);
+                height: (29/@rootSize);
+                background-image: url(../images/status_active.png);
+                background-size: cover;
+                font-size: (12/@rootSize);
+                color: #fff;
+                text-align: center;
+                line-height: (24/@rootSize);
+                &.off{
+                    background-image: url(../images/status_default.png);
+                }
+            }
+        }
+        .txt{
+            background-color: #fff;
+            .top{
+                padding: (8 / @rootSize) (15 / @rootSize) (16 / @rootSize);
+                display: flex;
+                justify-content: space-between;
+                h5{
+                    width: (295 / @rootSize);
+                    font-size: (15 / @rootSize);
+                    color: #3C3C3C;
+                    font-weight: normal;
+                }
+                p{
+                    font-size: (15/@rootSize);
+                    color: #FE6249;
+                }
+            }  
+            .bottom{
+                display: flex;
+                padding-bottom: (12 / @rootSize);
+                p{
+                    margin-left: (15/@rootSize);
+                    font-size: (11 / @rootSize);
+                    color: #b4b4b4;
+                    .iconfont{
+                        font-size: (11 / @rootSize);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: (50 / @rootSize);
+    background-color: #FECA49;
+    a{
+        p{
+            font-size: (11/@rootSize);
+            color: #fff;
+        }
+        .iconfont{
+            font-size: (24/@rootSize);
+            color: #D78809;
+            &.cur{
+                color: #fff;
+            }
+        }
+    }
+}

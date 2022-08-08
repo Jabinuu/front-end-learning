@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        div {
+            margin: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        var now = +new Date();
+        var end = +new Date('2022-07-15 19:00:00');
+        var diff = (end - now) / 1000;
+        console.log(diff);
+        var h = document.querySelector('.hour');
+        var m = document.querySelector('.minute');
+        var s = document.querySelector('.second');
+
+        getTime(diff);
+
+        var timer = setInterval(function () {
+            diff--;
+            getTime(diff);
+        }, 1000);
+
+        function getTime(diff) {
+            var hour = parseInt(diff / 60 / 60);
+            var minute = parseInt(diff / 60 % 60);
+            var second = parseInt(diff % 60);
+            hour = hour < 10 ? '0' + hour : hour;
+            minute = minute < 10 ? '0' + minute : minute;
+            second = second < 10 ? '0' + second : second;
+            h.innerHTML = hour;
+            m.innerHTML = minute;
+            s.innerHTML = second;
+        }
+    </script>
+</body>
+
+</html

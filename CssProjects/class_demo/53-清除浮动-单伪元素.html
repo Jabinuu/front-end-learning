@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 消除浮动实际上就是，当浮动元素的父元素height没有定义时，使得父元素的height
+        由父元素的内容大小而定的。从而消除了浮动给后面的标准流元素带来的覆盖影响 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .top{
+            margin: 0 auto;
+            width: 1000px;
+            /* height: 400px; */
+            background-color: pink;
+        }
+        .left{
+            float: left;
+            width: 200px;
+            height: 400px;
+            background-color: gray;
+        }
+        .right{
+            float: right;
+            width: 790px;
+            height: 400px;
+            background-color: green;
+        }
+        .bottom{
+            height: 100px;
+            background-color: blue;
+        }
+        /* 伪元素法，其实就是在父元素的最后加上一个元素，设置该css样式即可 */
+        .clearfix::after{
+            /* 伪元素的content属性是必须的，但内容可以为空 */
+            content: '';
+            /* 消除浮动要用到的伪元素一定得是块级元素，因为浮动是解决块级元素的问题的，
+            所以消除浮动的这个元素也得是块级的*/
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="top clearfix">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <div class="bottom"></div>
+</body>
+</html>

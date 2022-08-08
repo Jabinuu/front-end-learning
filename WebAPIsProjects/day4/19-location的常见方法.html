@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击我</button>
+    <script>
+
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            // assign()  跳转至某个url，与lacation.href= 等价
+            // assign() 会记录浏览历史，所以可以回退
+            // location.assign('http://www.baidu.com');
+
+            // replace() 不记录浏览历史，只是把网页的url替换掉，所以无法回退
+            // location.replace('http://www.baidu.com');
+
+            //reload()是刷新页面  ,如果参数为true则是强制刷新，即从服务器重新发一份数据。因为缓存的存在，有时候网页更新不及时，所以就需要强制刷新了
+            location.reload();
+        })
+
+    </script>
+</body>
+
+</html>

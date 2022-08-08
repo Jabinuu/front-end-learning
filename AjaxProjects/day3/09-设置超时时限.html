@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();
+        // 设置该ajax请求的超时时限，如果在这个时限里，ajax请求还没有执行完成，则超时，并且触发timeout事件，可用这个添加回调函数
+        xhr.timeout = 30;   //单位ms
+        xhr.addEventListener('timeout', function () {
+            console.log('请求超时！');
+        })
+
+        xhr.open('GEt', 'http://www.liulongbin.top:3006/api/getbooks');
+        xhr.send();
+        xhr.addEventListener('readystatechange', function () {
+            if (xhr.readyState == 4 && xhr.status == 200)
+                console.log(xhr.responseText);
+        })
+    </script>
+</body>
+
+</html>

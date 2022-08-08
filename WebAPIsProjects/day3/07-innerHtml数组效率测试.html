@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var start = +new Date();
+        var arr = [];
+        for (var i = 0; i < 5000; i++) {
+            // 先给数组赋值，再用join方法将数组中的元素转化为字符串，再赋值给innerHtml，这种方式最快
+            arr.push('<div style="width:100px; height:2px; border:1px solid blue;"></div>');
+        }
+        document.body.innerHTML = arr.join('');
+        var end = +new Date();
+        console.log(end - start);
+    </script>
+</body>
+
+</html>

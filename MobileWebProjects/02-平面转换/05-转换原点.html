@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转换原点</title>
+    <style>
+        img {
+            /* img缩放只需改变width和height其中一个即可 */
+            width: 250px;
+            border: 1px solid #000;
+            transition: all 2s;
+
+            /* tf-origin这个属性是写在元素本身的，不要写在hover里 */
+            /* 第一个为x轴，第二个为y轴。写方位的话意思就是取右下顶点 */
+            /* transform-origin: right bottom; */
+
+            /* 改变原点为左上顶点 */
+            transform-origin: left top;
+        }
+        
+        img:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/rotate.png" alt="">
+</body>
+</html>

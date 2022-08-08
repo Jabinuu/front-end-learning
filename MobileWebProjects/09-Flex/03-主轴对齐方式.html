@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主轴对齐方式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* jus设置的是主轴方向，align-items是设置侧轴方向，而轴的方向是可以变化的 */
+        .box {
+            display: flex;
+            /* 所有弹性盒子居中 */
+            justify-content: center;
+
+            /* 所有弹性盒子之间有间距，且两边贴着边界flex容器边界 */
+            justify-content: space-between;
+
+            /* 所有弹性盒子之间 及 flex容器边界间距相同 */
+            justify-content: space-evenly;
+
+            /* 盒子两边都设置间距，所以盒子之间的间距是flex容器间距的两倍 */
+            justify-content: space-around;
+            height: 200px;
+            margin: auto;
+            border: 1px solid #000;
+        }
+        
+        .box div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>传统注册事件方式</button>
+    <button>方法监听注册方式</button>
+    <script>
+        var btns = document.querySelectorAll('button');
+        // 传统注册事件方式 的同一个元素的同一个事件只能有一个事件处理程序生效(局限性)
+        btns[0].onclick = function () {
+            alert('我是谁');
+        }
+        btns[0].onclick = function () {
+            alert('我是贾宾');
+        }
+
+        // 方法监听 addEventListner('事件类型'，事件处理程序)
+        // 注意：这个方式的事件类型统统不加on，比如'click' 'mouseout'
+        // 用这个注册事件方式就可以实现同一个元素的同一个事件添加多个事件处理程序（监听器）
+        // 也可以用函数名代替匿名函数
+        btns[1].addEventListener('click', function () {
+            alert("我是谁");
+        })
+
+        btns[1].addEventListener('click', function () {
+            alert('我是贾宾');
+        })
+    </script>
+</body>
+
+</html>

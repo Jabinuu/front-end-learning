@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //实现倒计时的思路就是，用未来目标时间的时间戳 减去 当前时间的时间戳，获得他们之间相差的
+        //总毫秒数，然后按照如下公式转换为 天 时 分 秒:  parseInt是为了向下取整
+        // d = parseInt(总秒数 / 60 / 60 / 24)
+        // h = parseInt(总秒数 / 60 / 60 % 24)
+        // m = parseInt(总秒数 / 60 % 60)
+        // s = parseInt(总秒数 % 60)
+        function countDown(time) {
+            var date1 = Date.now();
+            var date2 = +new Date(time);
+            var total = (date2 - date1) / 1000;
+            var d = parseInt(total / 60 / 60 / 24);
+            var h = parseInt(total / 60 / 60 % 24);
+            var m = parseInt(total / 60 % 60);
+            var s = parseInt(total % 60);
+            d = d < 10 ? '0' + d : d;
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+            console.log('倒计时：' + d + '天' + h + '时' + m + '分' + s + '秒');
+        }
+        countDown('2022-7-10 18:00:00');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

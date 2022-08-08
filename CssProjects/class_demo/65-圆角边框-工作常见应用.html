@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 正圆形状 */
+        .one{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 需要是正方形，四个角的半径应为边长的一半 */
+            border-radius: 50%;
+        }
+
+        /* 胶囊形状 */
+        .two{
+            width: 400px;
+            height: 150px;
+            background-color: skyblue;
+            /* 首先得是长方形，其次四个角的半径应为高的一半 */
+            border-radius: 75px;
+        }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+</body>
+</html>

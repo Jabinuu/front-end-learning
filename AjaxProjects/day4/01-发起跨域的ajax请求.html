@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/axios.js"></script>
+</head>
+
+<body>
+    <script>
+        // 出现Access-Control-Allow-Origin报错，就是因为发起了跨域请求，而浏览器将服务器返回的数据进行了拦截
+        axios({
+            method: 'GET',
+            url: 'http://www.liulongbin.top:3006/api/jsonp',
+            params: { name: 'zs', age: 20 }
+        }).then(function (res) {
+            console.log(res);
+        })
+    </script>
+</body>
+
+</html>

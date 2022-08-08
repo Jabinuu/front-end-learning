@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>123</li>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul');
+        // 首先创建节点 createElement(tagName)
+        var li = document.createElement('li');
+        // 然后向某个父级节点添加新创建的元素
+        ul.appendChild(li);   //appendChild 像后面追加元素
+
+        var lili = document.createElement('li');    //如需再次添加，需要重新创建节点，之前那个已经名花有主了
+        // insertBedfore(新节点，要插入的同级节点的位置)  ，实现在某个同级节点的前面插入新节点
+         ul.insertBefore(lili,ul.children[0]);   
+    </script>
+</body>
+</html>

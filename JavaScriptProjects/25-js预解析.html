@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //问一
+        // console.log(num);  //由于没有生命num变量，故报错
+
+        //问二
+        console.log(num1);  //变量提升，把声明变量提到前面，但不包括赋值，所以他的值输出为undifined
+        var num1=3;
+
+        //问三
+        fn();  //函数提升，把函数的定义提到前面，所以函数调用在前在后都正常运行
+        function fn(){
+            console.log('success');
+        }
+
+        //问四
+        fn1();  //这是变量式的函数定义方式，也属于变量提升，但由于var fn1;没有给他赋值成函数之前，fn1也只是个变量，当然无法当作函数来调用，因此报错
+
+        // 分解执行过程
+        // var fn1;
+        // fn1=function(){
+        //     console.log('ss');
+        // }
+        var fn1=function(){
+            console.log('ss');
+        }
+
+        //1. 我们js引擎运行js分为两步：  预解析  代码执行
+        //(1). 预解析  js引擎会把js里面所有里面所有的var 还有 function 提升到当前作用域的最前面
+        //（2）.代码执行  按照代码的书写顺序从上到下开始执行
+        // 2.  预解析分为 变量预解析(变量提升)，  函数预解析(函数提升)
+        //（1）. 变量提升 就是把所有的变量声明提升到当前作用域的最前面 ，但不提升赋值操作
+        //（2）. 函数提升 就是把所有的函数声明提升到当前作用域的最前面，但不调用函数
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

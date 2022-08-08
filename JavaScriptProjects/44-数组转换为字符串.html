@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr=[1,2,3];
+        // 1. toString() 分割符只能是逗号
+        console.log(arr.toString());
+
+        var arr1=['pink','blue','red'];
+        // 2. join(分隔符) 可以指定分隔符是什么，默认是逗号
+        console.log(arr1.join());  //pink,blue,red
+        console.log(arr1.join('|')); //pink|blue|red
+
+        // 其他：
+        // concat() 链接两个或多个数组，不影响原数组，返回新数组
+        // splice(begin, n) 从begin开始删除n个元素，返回新数组 
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

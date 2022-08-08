@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 立即执行函数就是无需调用，立马就能生效执行的函数。有两种定义方式，(function(){})()   和(function(){}())
+        // 这两种定义方式的第二个括号相当于调用的意思，用来填实参 。第一个括号里填形参
+        // 立即执行函数也可以有函数名，比如 (function xxx(){})()
+        // 1.
+        (function (a, b) {
+            console.log(a);
+            console.log(b);
+        })(1, 2);
+        // 2.
+        (function sum(a, b) {
+            console.log(a + b);
+        }(2, 3));
+        // 立即执行函数的作用是，创建独立的作用域，避免变量命名冲突
+    </script>
+</body>
+
+</html>

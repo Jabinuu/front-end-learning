@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多重转换</title>
+    <style>
+        .box {
+            width: 800px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        
+        img {
+            width: 200px;
+            transition: all 8s;
+        }
+        
+        .box:hover img {
+            /* 注意：只能用transform的复合属性来写，并且，旋转一定要放在最后，否则旋转会导致x轴y轴方向变化 */
+            transform: translate(600px) rotate(720deg);
+
+            /* 这样写是错的 */
+            transform: translate(6000px);
+            transform: rotate(720deg);
+
+            /* 这也是错的 */
+            transform: rotate(720deg) translate(600px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="./images/tyre1.png" alt="">
+    </div>
+</body>
+
+</html>

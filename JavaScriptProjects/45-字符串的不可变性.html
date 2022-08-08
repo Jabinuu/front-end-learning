@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 字符串的不可变是指：为了赋值green而开辟的存储空间不会销毁，在改为red后，只是str指向了red开辟的存储空间，而green依然
+        // 在内存中，因此不要大量拼接字符串(str += str1)，很浪费内存空间
+        var str='green';
+        console.log(str);
+        str = 'res';
+        console.log(str);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

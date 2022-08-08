@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str1 = 'oabcoefoxyozzopp';
+        console.log(str1.replace('oab', 'ccc'));
+        // replace(x,x)函数只替换第一个o
+        console.log(str1.replace('o', '*'));
+        // 替换所有的o要用循环
+        while (str1.indexOf('o') !== -1) { // 检测str1中是否还有o
+            str1 = str1.replace('o', '*');
+        }
+        console.log(str1);
+
+        //字符串转数组，与join()是一对。split(分隔符),按照那个分隔符分割
+        str2 = 'red,pink,green';
+        str2 = str2.split(',')
+
+        str3 = "red&pink&green";
+        str3 = str3.split('&');
+        console.log(str2);
+        console.log(str3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

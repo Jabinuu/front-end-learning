@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 脱标的 */
+        /* 绝对定位是拼爹型的，即以他的一个已被定位长辈的位置为参照进行位置变换 */
+
+        /* 绝对定位需要他的长辈(就近原则)中有已经定位的(即添加了position属性的)， 如果往上找
+           没有一个长辈是被定位的，那就根据浏览器窗口为参照进行位置变换
+        */
+        .father {
+            /* 就近原则，孙子的爹已经被定位了，那么孙子就不会根据爷爷的位置进行偏移 */
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        .son {
+            /*工作中子级绝对定位，需要父级被定位时，父级常用相对定位，即子绝父相 */
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+        }
+
+        .grandson {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+            <div class="grandson">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

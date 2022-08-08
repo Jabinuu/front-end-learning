@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>知否知否，点我应有弹框在手！</li>
+        <li>知否知否，点我应有弹框在手！</li>
+        <li>知否知否，点我应有弹框在手！</li>
+        <li>知否知否，点我应有弹框在手！</li>
+        <li>知否知否，点我应有弹框在手！</li>
+    </ul>
+    <script>
+        // 事件委托的核心原理：给父节点添加侦听器， 利用事件冒泡影响每一个子节点
+        // 通俗来说，要操作每一个li的话，我们需要添加很多个监听器，这样很耗时。所以我们利用事件冒泡的原理，只给子节点的父节点创建1个监听器
+        //        然后利用 e.target来获得触发事件的li，进而对齐进行操作。  因为target指向的是触发这个事件的元素，this指向的是调用这个函数的对象
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function (e) {
+            e.target.style.backgroundColor = 'pink';
+        })
+    </script>
+</body>
+
+</html>

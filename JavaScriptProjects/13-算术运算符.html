@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log(1 + 1);  //2
+        console.log(1 - 1);  //0
+        console.log(1 * 1);  //1
+        console.log(1 / 2);  //1
+
+        //小数运算会因为ieee754标准 和 某些小数无法完全准确表示为二进制 而导致运算不准确
+        console.log(0.1 + 0.2);  //0.3000000004
+        console.log(0.07 * 100);  //7.000000001
+
+        //正因为浮点数有精度问题，所以不要用浮点数进行==判断
+        console.log(0.1 + 0.2 == 0.3)    //false
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        // 在此之前，我们操作元素都是为了修改 该元素的属性（如img的src和title，a的href，input的type），而不是他的样式，比如width color
+        // 为了修改元素的样式，我么需要在中间使用一下style属性。   也就是说元素除了它本身的属性外，在js里还有style属性，负责修改样式
+        var div = document.querySelector('div');
+        div.onclick = function() {
+            this.style.backgroundColor = 'purple';
+            this.style.width = '250px';
+        }
+        // 为什么js里的样式能覆盖css文件里的样式？
+        // 因为js里修改的样式是写在了元素行内样式里，而行内样式的优先级比内嵌式要高，所以就覆盖了
+    </script>
+</body>
+</html>

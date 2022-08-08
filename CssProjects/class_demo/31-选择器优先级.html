@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 父级标签写!important也没用，因为子标签有的永远不会用他爹的 */
+        body{
+            color: red;
+        }
+        /* 加上!important的优先级是最高的 */
+        div{
+            color: green !important;
+        }
+        .cal{
+            color: blue;
+        }
+        #cc{
+            color: yellow;
+        }
+        /* 优先级顺序：继承<标签选择器<类选择器<id选择器<行内css<!important */
+        /* 规律是选择器越精准，优先级越高 */
+        /* css只会生成优先级高的样式；只有优先级相同时，才会有层叠性一说 */
+    </style>
+</head>
+<body>
+    <div class="cal" id="cc" style="color: pink;">这是一个div标签</div>
+</body>
+</html>

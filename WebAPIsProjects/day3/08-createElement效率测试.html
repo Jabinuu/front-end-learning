@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var start = +new Date();
+        for (var i = 0; i < 5000; i++) {
+            // 先创建元素，再写样式，这种方式也很快，但没有数组型的innerHtml块，但这种方式结构清晰，创建多个的时候用这个
+            var div = document.createElement('div');
+            div.style.height = '2px';
+            div.style.width = '100px';
+            div.style.border = '1px solid blue';
+            document.body.appendChild(div);
+        }
+        var end = +new Date();
+        console.log(end - start);
+    </script>
+</body>
+
+</html>

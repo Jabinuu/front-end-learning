@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = 'oabcoefoxyozzopp';
+        //思路：用一个对象的属性和值来模拟实现哈希表的作用
+        var o = new Object();
+        for (var i = 0; i < str.length; ++i) {
+            if (o[str[i]]) {   //如果对象中的这个属性存在，则自增1
+                o[str[i]]++;
+            }
+            else {
+                o[str[i]] = 1;
+            }
+        }
+        console.log(o);
+
+        var maxx = 0;
+        var ch;
+        for (var k in o) {
+            // for in 遍历的k值是 对象的属性名，是数组的索引值
+            if (maxx < o[k]) {
+                maxx = o[k];
+                ch = k;
+            }
+        }
+        console.log('出现最多的字符是' + ch + '，共计' + maxx + '次');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

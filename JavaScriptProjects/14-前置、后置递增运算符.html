@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = 10;
+        var num1 = 10;
+        //若单独使用，则num++和++num的作用是一样的
+        //若不是单独使用，就有差别了..前置是先加1，再返回值。。后置是先返回原值，再给原变量加1
+        console.log(++num + 10);
+        console.log(num1++ + 10);
+        console.log(num1);
+
+        var e = 10;
+        //10+12=22    e++执行完毕后，虽然参与运算的返回值是10，但是最终e自身变成了11
+        console.log(e++ + ++e); //22
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

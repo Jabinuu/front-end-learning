@@ -1,0 +1,290 @@
+/* 存放各个网页自己的css代码 */
+.banner{
+    margin-bottom: 48px;
+    height: 500px;
+    background-color: #f5f5f5;
+}
+
+.wrapper{
+    position: relative;
+}
+
+.banner .aside{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 251px;
+    height: 500px;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.banner .aside li:hover{
+    background-color: #27ba9b;
+}
+
+.banner .aside li a{
+    display: block;
+    width: 251px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.banner .aside li h3{
+    float: left;
+    margin: 0 15px 0 36px;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.banner .aside li span{
+    display: block;
+    float: right;
+    margin-right: 19px;
+    margin-top: 19px;
+    width: 6px;
+    height: 11px;
+    background-image: url(../images/sprites.png);
+    background-position: -80px -110px;
+}
+
+.banner .wrapper .left,
+.banner .wrapper .right{
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 22px;
+}
+
+.banner .wrapper .left{
+    top: 230px;
+    left: 260px;
+}
+
+.banner .wrapper .right{
+    top: 230px;
+    right: 12px;
+}
+
+.banner .wrapper .left span,
+.banner .wrapper .right span{
+    display: block;
+    width: 14px;
+    height: 23px;
+    background-image: url(../images/sprites.png);
+}
+
+.banner .wrapper .left span{
+    margin-top: 11px;
+    margin-left: 14px;
+    background-position: 0 -70px;
+}
+
+.banner .wrapper .right span{
+    margin-top: 11px;
+    margin-left: 18px;
+    background-position: -40px -70px;
+}
+
+.banner .wrapper ol{
+    position: absolute;
+    left: 680px;
+    bottom: 31px;
+    height: 10px;
+}
+
+.banner .wrapper ol li{
+    float: left;
+    margin-right: 24px;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255,255,255,0.43);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.banner .wrapper ol .current{
+    background-color: rgb(255,255,255,1);
+}
+
+.goods .hd{
+    margin-bottom: 37px;
+}
+
+.goods .hd h2{
+    display: inline-block;
+    line-height: 1;
+    font-weight: normal;
+    font-size: 29px;
+    color: #333;
+}
+
+.goods .hd>span{
+    margin-left: 34px;
+    font-size: 16px;
+    color: #999;
+}
+
+.goods .hd a span:first-child,
+.clothes .hd a span:first-child{
+    float: right;
+    display: block;
+    margin-top: 14px;
+    width: 7px;
+    height: 13px;
+    background-image: url(../images/sprites.png);
+    background-position: 0 -110px;
+}
+
+.goods .hd a span:last-child,
+.clothes .hd a span:last-child{
+    float: right;
+    margin-top: 7px;
+    margin-right: 13px;
+    font-size: 16px;
+    color: #999;
+}
+
+.goods .bd li{
+    float: left;
+    margin-right: 8px;
+    width: 304px;
+    height: 405px;
+    background-color: #f0f9f4;
+}
+
+.goods .bd li:last-child{
+    margin-right: 0;
+}
+
+/* ****对img进行等比缩放，直接写目标宽高就可以 */
+.goods .bd img{
+    width: 304px;
+}
+
+.goods .bd h3{
+    margin-top: 22px;
+    font-weight: normal;
+    line-height: 1;
+    color: #333;
+    font-size: 20px;
+    text-align: center;
+}
+
+.goods .bd div{
+    margin-top: 19px;
+    color: #9a2e1f;
+    font-size: 17px;
+    text-align: center;
+}
+
+.goods .bd div span{
+    line-height: 1;
+    font-size: 23px;
+}
+
+.goods .bd li{
+    position: relative;
+}
+
+.goods .bd b{
+    position: absolute;
+    top: 18px;
+    left: 17px;
+    display: block;
+    padding-top: 5px;
+    width: 28px;
+    height: 51px;
+    border: 2px solid #27ba9b;
+    line-height: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    color: #27ba9b;
+    border-radius: 5px;
+}
+
+.clothes{
+    margin-top: 34px;
+}
+
+.clothes .hd{
+    margin-bottom: 35px;
+}
+
+.clothes .hd h2{
+    float: left;
+    margin-right: 640px;
+    font-size: 29px;
+    color: #333;
+    line-height: 1;
+    font-weight: normal;
+}
+
+.clothes .hd li{
+    float: left;
+    margin-right: 20px;
+    margin-top: 6px;
+    padding: 0 5px;
+}
+
+.clothes .hd li:hover{
+    background-color: #27ba9b;
+}
+
+.clothes .hd li:hover a{
+    color: #fff;
+}
+
+.clothes .bd>img{
+    float: left;
+    margin-right: 8px;
+    width: 240px;
+}
+
+.clothes .bd ul{
+    float: left;
+    /* ****这里一定要给出宽度，否则 将会导致第二行li无法正常换行！！
+       你不给人家宽度，人家怎么知道到那里换行？ */
+    width: 992px; 
+}
+
+.clothes .bd a{
+    display: block;
+    width: 242px;
+    height: 304px;
+}
+
+.clothes .bd li{
+    float: left;
+    margin-right: 8px;
+}
+
+.clothes .bd li:nth-child(4n){
+    margin-right: 0;
+}
+
+.clothes .bd li:nth-child(n+5){
+    margin-top: 2px;
+}
+
+.clothes .bd li img{
+    height: 184px;
+    margin: 20px 20px;
+}
+
+.clothes .bd li h3{
+    margin-left: 20px;
+    font-weight: normal;
+    line-height: 1.2;
+    font-size: 16px;
+    color: #333;
+}
+
+.clothes .bd li div{
+    margin-left: 20px;
+    font-size: 20px;
+    color: #9a2e1f;
+}

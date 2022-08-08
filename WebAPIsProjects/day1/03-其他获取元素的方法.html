@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+
+   <div class="nav">
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+   </div>
+
+   <script>
+        // 1. 按类名 获取元素
+        var lis = document.getElementsByClassName('box');
+        console.log(lis);
+
+        // 2. 根据选择器 获取元素（仅返回该选择器的第一个元素）
+        var elem = document.querySelector('.box');    //参数就是选择器的句子： 类选择器.box   id选择器 #box   标签选择器 div
+        console.log(elem);
+
+        // 3. 根据选择器 获取元素（返回该选择器的所有元素）
+        var lis2 = document.querySelectorAll('div');
+        console.log(lis2);
+   </script>
+</body>
+</html>

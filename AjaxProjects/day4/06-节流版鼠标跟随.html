@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./angel.gif" alt="">
+    <script>
+        // 原始的方法mousemove事件触发的频率非常之高，比较浪费计算机资源。因此可以设置一个节流阀，在不影响用户
+        // 使用的情况下，大大降低mousemove的触发频率。
+        var img = document.querySelector('img');
+        var timer = null;        // 这个计时器就是节流阀的角色
+        document.addEventListener('mousemove', function (e) {
+            if (timer)
+                return;
+            timer = setTimeout(function () {
+                img.style.left = e.pageX + 'px';
+                img.style.top = e.pageY + 'px';
+            }, 10);
+            timer = null;
+        })
+        // 节流 vs 防抖动
+        // 节流是为了只响应第一次的请求，对后面的重复的请求予以无视，只有在第一次请求处理完毕后才响应其他的请求。
+        // 防抖动是为了只响应最后一次请求。一个行为总在事件触发5ms后才执行，如果在5ms内再次触发事件，则清除前面的等待过程，重新开一个新的5ms等待，从而防止高频率触发事件（搜索框的搜索建议）
+    </script>
+</body>
+
+</html>

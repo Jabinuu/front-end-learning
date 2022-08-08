@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 150px;
+            /* 给父级元素添加这个，解决塌陷问题 */
+            overflow: hidden;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+
+    <script>
+        var d1 = document.querySelector('.father');
+        var d2 = document.querySelector('.son');
+        // offSetTop 表示该元素与离他最近的已定位的父级元素的偏移量，如果一直都没有已定位的父级元素，那就返回与body的偏移量了
+        // 这个规则跟绝对定位一样
+        console.log(d1.offsetTop);
+        console.log(d1.offsetLeft);
+        console.log('------------------------');
+        console.log(d2.offsetLeft);
+        console.log(d2.offsetTop);
+
+        // 获取元素的宽高  ，包含内容区，padding和边框的宽度
+        console.log(d1.offsetWidth);
+        console.log(d1.offsetHeight);
+
+        // 返回已定位的父级元素，如果一个都没有，返回body
+        console.log(d2.offsetParent);
+
+        // 这个就无脑返回父级，不需要定位
+        console.log(d2.parentNode);
+    </script>
+</body>
+
+</html>

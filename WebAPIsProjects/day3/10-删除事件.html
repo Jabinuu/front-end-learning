@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <script>
+        // 实现点一次有反应，再点就不会再有反应
+        var divs = document.querySelectorAll('div');
+        // 1.传统方式
+        divs[0].onclick = function () {
+            alert('222');
+            this.onclick = null;
+        }
+
+        // 2.方法监听器方式
+        divs[1].addEventListener('click', fn);   // 这个函数里的监听器参数不是调用函数，所以不加小括号，只写函数名就好了
+        function fn() {
+            alert('222');
+            divs[1].removeEventListener('click', fn);   // 因为删除时需要写函数名，所以事件处理程序不能采用匿名方式声明了
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.json中的键必须用双引号，值中的字符串也必须用双引号
+        // 2.json中不允许存在单引号
+        // 3.json的值的数据类型只能是 数字，字符串，null，布尔值   。 undifined和函数值都是违法的
+        // 4.json的最外层必须得是花括号或者中括号
+        // 5.json的值可以是数组 如 [20, "jiabin", false, null, 某个对象]
+        // 5.json的本质是字符串（有以上语法要求的）
+        var JSONstr = '{"a":"jiabin","b":23,"c":null}';
+        var obj = JSON.parse(JSONstr);   // json字符串---> js对象
+        console.log(obj);
+
+        var obj2 = { a: 1, b: 'jiabin', c: false };
+        var str2 = JSON.stringify(obj2);
+        console.log(str2);
+        console.log(typeof str2);
+    </script>
+</body>
+
+</html>

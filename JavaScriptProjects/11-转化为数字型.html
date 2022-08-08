@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 用parseInt和parseFloat
+        console.log(parseInt('18'));
+        //用parseInt的话，如果是小数，会直接截断小数部分
+        console.log(parseInt('3.14'));
+        // parseInt函数会自动把单位去掉
+        console.log(parseInt('120px'));
+        //如果要转小数，用parseFloat
+        console.log(parseFloat('3.14'));
+
+        //2.用Number
+        console.log(Number('123'));
+        console.log(Number('3.76'));
+
+        //3.用算数运算 - * / 隐式转换
+        console.log('12' -0);
+        console.log('12' * 1);
+        console.log('12'-'10');   //相减-是数字，相加+是字符串
+        console.log('12'-10);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

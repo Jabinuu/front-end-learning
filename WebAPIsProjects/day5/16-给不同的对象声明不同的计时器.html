@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: green;
+        }
+
+        span {
+            position: absolute;
+            display: block;
+            margin-top: 250px;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点我，蓝的动</button>
+    <div></div>
+    <span></span>
+    <script>
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        var btn = document.querySelector('button');
+
+        function animation(obj, target) {
+            // 旧的写法会导致有很多个同名timer的计时器，这样名字都一样，容易搞混淆
+            // 新的写法是利用对象的属性，给各个不同的对象添加一个timer属性，所以各个对象的计时器名字就能区别开了
+            window.clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft > target) {
+                    clearInterval(obj.timer);
+                }
+                obj.style.left = obj.offsetLeft + 5 + 'px';
+            }, 30)
+        }
+
+        // 调用动画函数
+        animation(div, 450);
+
+        // 当我们不断的点击按钮，这个元素的速度会越来越快，因为开启了太多的定时器
+        // 解决方案就是 让我们元素只有一个定时器执行
+        // 在动画函数创建定时器之前，先清除以前的定时器，只保留当前的一个定时器执行
+        btn.addEventListener('click', function () {
+            animation(span, 300);
+        })
+
+    </script>
+</body>
+
+</html>

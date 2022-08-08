@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        /* 垂直布局的块级元素，上下的margin会合并，取大的那个值 */
+        /* 所以，在此例中的margin是60px，而不是110px，因为；两个进行了合并 */
+        .one{
+            margin-bottom: 60px;
+        }
+        .two{
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">ddd</div>
+    <div class="two">sss</div>
+</body>
+</html>

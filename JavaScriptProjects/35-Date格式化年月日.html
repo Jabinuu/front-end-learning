@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;  //月份返回的是0-11的索引值，所以要加1 才是正确的月份，一定要记住！！
+        var dates = date.getDate();
+        var day = date.getDay();  // 周一是1，周六是6，但周日是0，因为周日是第一天
+        console.log(day);
+        //格式化
+        var arr=['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']; //因为day是阿拉伯数字，所以建立中文索引，来换成星期X的格式
+        console.log('今天是：' + year + '年' + month + '月' + dates + '日' + arr[day]);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

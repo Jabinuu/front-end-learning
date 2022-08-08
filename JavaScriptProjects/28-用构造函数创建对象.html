@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 构造函数 <---> 对象  ===   类class <---> 对象/实例  ，类是说的一个类里面的所有东西，而对象是类中一个具体的单位
+        // 定义构造函数的语法 ,构造函数名称首字母大写
+        // function 函数名(){
+        //     this.属性1 = ;
+        //     this.属性2 = ;
+        //     this.方法 = function() {}
+        // }
+        // 用new 函数名()来使用构造函数
+
+        function Star(uname, age, sex) {
+            // 语法规定构造函数里要用this，因为构造函数中的this指向的是实例，比如var ldh= new Star()，就是在内存中开辟一块空间，
+            // 用于ldh这个实例，而this就是指向的这块内存空间（对象）
+            this.age = age;
+            this.sex = sex;
+            this.name = uname;
+            this.sing = function (sang) {
+                console.log(sang);
+            }
+        }
+        // new Star() 这就是用new声明了一个对象，先开辟了存储空间，然后才进入构造函数，再赋值给一个变量
+        var ldh = new Star('ldh', 23, '男'); //因此，用构造函数创建多个同类型(class)的对象很方便，不用一个属性一个属性的复制
+        console.log(ldh.name);
+        ldh.sing('冰雨');
+        // Star.sing();   xxxx
+        console.log(Math.max(1, 2, 3));   //只有内置对象才能这样调用他的方法
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //对于同样的变量名称num，它的全局变量 和 局部变量是分家的
+
+        //作用域链： 内部函数调用外部函数的变量，采取的是链式查找的方式来决定取哪个值，  采取就近原则
+        var num=10;
+        function fn(){
+            var num=20;
+            fn1();
+            function fn1(){
+                // bb='ss';    //在局部作用域里面对一个变量不声明就直接赋值的话，那他将成为一个全局变量
+                console.log(num);
+            }
+        }
+        fn();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

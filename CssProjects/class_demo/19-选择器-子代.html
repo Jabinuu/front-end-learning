@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 子代选择器只选div的子代p，而不选他的孙子p */
+        div>p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>zheshi yige </p>
+    <div>
+        <span><p>ggggggg</p></span>
+        <p>sssssssss</p>
+    </div>
+</body>
+</html>

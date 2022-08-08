@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+        /* 伪元素其实就是用css产生一个元素，而不是html。常用于不重要的装饰性小图标 */
+        /* *******伪元素默认是行内标签，需要转换他的显示模式才能设置宽高****** */
+        /* ::before意为在父标签的开头加上这个伪元素 */
+        .father::before{
+            content: '老鼠';
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            display: inline-block;
+        }
+        /* ::after意为在父标签的末尾加上这个伪元素 */
+        .father::after{
+            content: '大米';
+        }
+    </style>
+</head>
+<body>
+    <div class="father">爱</div>
+</body>
+</html>

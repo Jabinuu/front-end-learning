@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            // setTimeout（）第一个参数：倒计时到了之后执行什么函数，第二个参数：倒计时的时长，单位毫秒
+            var timer1 = setTimeout(function () {
+                console.log('爆炸了1');
+            }, 3000)
+
+            // 第一个参数可以填匿名函数，也可以填函数名（只是函数名，不是调用，所以不写括号）
+            var timer2 = setTimeout(fn, 5000);
+
+            // 通常会设置很多计时器，所以给一个变量赋值给他，以便于标记定时器
+            function fn() {
+                console.log('爆炸了2');
+            }
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

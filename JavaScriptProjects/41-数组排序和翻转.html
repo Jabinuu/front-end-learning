@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = ['pink', 'blue', 'red'];
+        var arr1 = [5, 1, 77, 16, 25];
+        
+        //如果只是单纯的sort()，里面不加内置函数的话，这个函数是默认把数组里的值都视为字符串，按照字符串的标准排序的
+        arr1.sort(function (a, b) {
+            return a - b;
+        });
+        console.log(arr.reverse());
+        console.log(arr1);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

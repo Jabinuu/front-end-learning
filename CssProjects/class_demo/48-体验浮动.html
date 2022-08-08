@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        div:first-child{
+            background-color: skyblue;
+            /* 浮动是针对块级元素设计的，其他类型的无效 */
+            /* 设置浮动属性，使得多个div可以完美的在同一行里排列(之间没有浏览器自带的空格，且不需要代码写在同一行) */
+            /* 作为对比，传统的方法是将div转为行内块元素使得它们同行排列，但是浏览器默认会给两个行内块元素或行内元素之间设置一个空格，要想删掉这个空格吗，只能让这两个div标签代码写在同一行，这样代码很不清晰 */
+            float: left;
+        }
+        div:last-child{
+            background-color: pink;
+            /* flr */
+            float: right;
+            /* float: left; */
+        }
+    </style>
+</head>
+<body>
+    <div class="one">one</div>
+    <div class="two">two</div>
+</body>
+</html>

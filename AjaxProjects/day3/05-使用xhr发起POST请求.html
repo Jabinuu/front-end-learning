@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 定义xhr对象
+        var xhr = new XMLHttpRequest();
+        // 2. open
+        xhr.open('POST', 'http://www.liulongbin.top:3006/api/addbook');
+
+        // 3. 设置 Content-Type属性  (post请求的特有固定写法，必须要写在open后面)
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+
+        // 4. send，在post里send函数的参数需要写上，即要上传的数据(以查找字符串的格式)  url中?后面的字符串就是查找字符串，负责携带参数和索引键
+        xhr.send('bookname=哈哈哈&author=是多少&publisher=说啥说');
+        xhr.addEventListener('readystatechange', function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        })
+    </script>
+</body>
+
+</html>

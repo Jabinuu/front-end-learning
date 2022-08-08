@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 浮动的元素是脱离标准流的，因此浏览器会半无视浮动元素而对其他元素进行标准流排列，因此会产生元素的覆盖，而之所以是半无视，是因为针对元素的内容而言，浮动的元素还是存在着的，因此内容不会被覆盖掉 */
+        div:first-child {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            /* 向左浮动 */
+            float: left;
+            margin-top: 150px;
+        }
+
+        div:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            float: left;
+            /* 浮动标签是不能版心居中的，因此这行代码无效 */
+            /* margin: 0 auto; */
+        }
+
+        div:last-child {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">one</div>
+    <div class="two">two</div>
+    <div class="three">three</div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //一元表达式 ++num,  二元表达式3 + 5,  三元表达式? :
+        //表达式都是有返回值的
+        //三元表达式返回boolean变量，其作用等同于 if{} else{}这个双分支语句
+        // 条件表达式 ？表达式1 : 表达式2  ,条件表达式为真，则返回表达式1的值，若为假，则返回表达式2的值
+        var res= 3>5 ? '是的':'不是的';
+        alert(res);
+        // 该三元表达式等价于
+        // var res;
+        // if(3>5){
+        //     res='是的';
+        // }
+        // else{
+        //     res='不是的';
+        // }
+
+        //数字补0
+        var num=prompt('请输入数字：');
+        var res=num>=10 ? num : 0+num;
+        alert(res);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

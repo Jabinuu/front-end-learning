@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缩放效果</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 210px;
+            margin: 100px auto;
+            background-color: pink;
+            /* overflow: hidden; */
+        }
+
+        .box img {
+            width: 100%;
+            transition: all 0.5s;
+        }
+        
+        .box:hover img {
+            /* 这个只是普通的放大，跟我们的需求不一样 */
+            /* width: 120%; */
+
+            /* 用平面转换的scale才是我们要的四个方向一起放大 */
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="./images/product.jpeg" alt="">
+    </div>
+</body>
+
+</html>

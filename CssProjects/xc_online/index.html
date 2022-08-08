@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学成在线</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <!-- 布局：从外到内，从上到下 -->
+    <div class="header wrapper">
+        <h1>
+            <a href="#"><img src="./images/logo.png" alt="加载失败"></a>
+        </h1>
+        <!-- 只要是做导航，一定是用ul>li的 -->
+        <div class="nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">课程</a></li>
+                <li><a href="#">职业规划</a></li>
+            </ul>
+        </div>
+        <!-- 搜索框 -->
+        <div class="search">
+            <input type="text" placeholder="输入关键词">
+            <a href="#"></a>
+        </div>
+        <!-- 用户区 -->
+        <div class="user">
+            <img src="./images/user.png" alt="加载失败">
+            <span>lilei</span>
+        </div>
+    </div>
+    <!-- 轮播图 -->
+    <div class="banner">
+        <div class="wrapper">
+            <div class="left">
+                <ul>
+                    <li><a href="#">前端开发<span>></span></a></li>
+                    <li><a href="#">后端开发<span>></span></a></li>
+                    <li><a href="#">移动开发<span>></span></a></li>
+                    <li><a href="#">人工智能<span>></span></a></li>
+                    <li><a href="#">商业预测<span>></span></a></li>
+                    <li><a href="#">云计算&大数I据<span>></span></a></li>
+                    <li><a href="#">运维&测试<span>></span></a></li>
+                    <li><a href="#">UI设计<span>></span></a></li>
+                    <li><a href="#">产品<span>></span></a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="title"><h2>我的课程表</h2></div>
+                <div class="content">
+                    <dl>
+                        <dt>继续学习 程序语言设计</dt>
+                        <dd>正在学习-使用对象</dd>
+                    </dl>
+                    <dl>
+                        <dt>继续学习 程序语言设计</dt>
+                        <dd>正在学习-使用对象</dd>
+                    </dl>
+                    <dl>
+                        <dt>继续学习 程序语言设计</dt>
+                        <dd>正在学习-使用对象</dd>
+                    </dl>
+                </div>
+                <a href="#">全部课程</a>
+            </div>
+        </div>
+    </div>
+    <!-- 精品推荐 -->
+    <div class="goods wrapper">
+        <div class="recommend">精品推荐</div>
+        <ul>
+            <li><a href="#">JQuery</a></li>
+            <li><a href="#">Spark</a></li>
+            <li><a href="#">MySQL</a></li>
+            <li><a href="#">JavaWeb</a></li>
+            <li><a href="#">MySQL</a></li>
+            <li><a href="#">JavaWeb</a></li>
+        </ul>
+        <div class="alter"><a href="#">修改兴趣</a></div>
+    </div>
+    <!-- 推荐课程 -->
+    <div class="course wrapper">
+        <div class="box">
+            <div class="title">精品推荐</div>
+            <div class="more"><a href="#">查看更多</a></div>
+        </div>
+        <!-- 这里不给这个盒子设高，因为不确定下面的课程有多少，所以根据内容来 -->
+        <div class="content clearfix">
+            <!-- 遇到除了文字图片不一样，其他大致形状一样的多个区域，要用li标签 -->
+            <ul>
+                <li>
+                    <a href="#"><img src="./images/course01.png">
+                        <h3>Think PHP 5.0 博客系统实战项目演练</h3>
+                        <p><span>高级</span>  •  1125人在学习</p>
+                    </a>
+                    <img src="./images/hot.png" class="hot">
+                </li>
+                <li>
+                    <a href="#"><img src="./images/course02.png">
+                        <h3>Android网络图片加载框架详解</h3>
+                        <p><span>高级</span>  •  1347人在学习</p>
+                    </a>
+                    <img src="./images/hot.png" class="hot">
+                </li>
+                <li>
+                    <a href="#"><img src="./images/course03.png">
+                        <h3>Angular2劲爆来袭 打造你的今日头条</h3>
+                        <p><span>高级</span>  •  1185人在学习</p>
+                    </a>
+                    <img src="./images/hot.png" class="hot">
+                </li>
+                <li>
+                    <a href="#"><img src="./images/course04.png">
+                        <h3>Android Hybrid App实战开发</h3>
+                        <p><span>高级</span>  •  2623人在学习</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><img src="./images/course05.png">
+                        <h3>Android Hybrid APP开发实战 H5+原生！</h3>
+                        <p><span>高级</span>  •  728人在学习</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><img src="./images/course06.png">
+                        <h3>Kami2首页界面切换效果 升级版</h3>
+                        <p><span>高级</span>  •  154人在学习</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><img src="./images/course07.png">
+                        <h3>Unity Profiler入门 打造你的游戏世界</h3>
+                        <p><span>高级</span>  •  1527人在学习</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><img src="./images/course08.png">
+                        <h3>Cocos2d-x 引擎源码中的纹理优化</h3>
+                        <p><span>高级</span>  •  1365人在学习</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><img src="./images/course01.png">
+                        <h3>Think PHP 5.0 博客系统实战项目演练</h3>
+                        <p><span>高级</span>  •  365人在学习</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><img src="./images/course02.png">
+                        <h3>Android网络图片加载框架详解</h3>
+                        <p><span>高级</span>  •  764人在学习</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <!--版权区域 -->
+    <div class="footer">
+        <div class="content wrapper">
+            <div class="left_contnet">
+                <img src="./images/logo.png">
+                <p>学成在线致力于普及中国最好的教育它与中国一流大学和机构合作提供在线课程。</p>
+                <p>© 2017年XTCG Inc.保留所有权利。-沪ICP备15025210号</p>
+                <a href="#">下载App</a>
+            </div>
+            <dl>
+                <dt>合作伙伴</dt>
+                <dd><a href="#">合作机构</a></dd>
+                <dd><a href="#">合作导师</a></dd>
+            </dl>
+            <dl>
+                <dt>新手指南</dt>
+                <dd><a href="#">如何注册</a></dd>
+                <dd><a href="#">如何选课</a></dd>
+                <dd><a href="#">如何拿到毕业证</a></dd>
+                <dd><a href="#">学分是什么</a></dd>
+                <dd><a href="#">考试未通过怎么办</a></dd>
+            </dl>
+            <dl>
+                <dt>关于学成网</dt>
+                <dd><a href="#">关于</a></dd>
+                <dd><a href="#">管理团队</a></dd>
+                <dd><a href="#">工作机会</a></dd>
+                <dd><a href="#">客户服务</a></dd>
+                <dd><a href="#">帮助</a></dd>
+            </dl>
+        </div>
+    </div>
+</body>
+</html>

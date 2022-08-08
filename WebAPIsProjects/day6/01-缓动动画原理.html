@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            margin-top: 200px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点我触发缓动动画</button>
+    <div></div>
+
+    <script>
+        var div = document.querySelector('div');
+        var btn = document.querySelector('button')
+        btn.addEventListener('click', function () {
+            animation(div, 500);
+        })
+
+        // 定义的缓动动画函数
+        function animation(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                }
+                // 这个公式是实现缓动的核心：每次移动的步长 = （目标位置 - 现在的位置） / x
+                var step = (target - obj.offsetLeft) / 40;
+                console.log(step);
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 10);
+        }
+    </script>
+</body>
+
+</html>

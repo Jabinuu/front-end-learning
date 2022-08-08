@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/s.gif" alt="" title="上午好">
+    <p>上午好</p>
+
+    <script>
+        var date = new Date();
+        var h = date.getHours();
+        var img = document.querySelector('img');
+        var p = document.querySelector('p');
+
+        if(h<12){
+            img.src = "./images/s.gif"; 
+            p.innerHTML = '亲，上午好 ，好好学习';
+        }
+        else if(h<18){
+            img.src = "./images/x.gif"; 
+            p.innerHTML = '亲，下午好 ，好好学习';
+        }
+        else {
+            img.src = "./images/w.gif"; 
+            p.innerHTML = '亲，晚上好 ，好好学习';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 极少情况是转化为inline的，因为本来需求就是有定义宽高的，inline就没定义的宽高了 -->
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            /* 将块级元素转为其他类型的 */
+            /* display: inline-block; */
+            display: inline;
+        }
+
+        span{
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            /* 将行内元素转为其他类型的 */
+            /* display: block; */
+            /* inline-block是行内块 */
+            display: inline-block;
+        }
+
+        input{
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <!-- 块级元素：分行(独占一行)，可自定义宽高 -->
+    <div>div</div>
+    <div>div</div>
+    <!-- 行内元素：同行显示，不可定义宽高，宽高由内容决定 -->
+    <span>span</span>
+    <span>span</span>
+    <!--  行内块元素：同行显示，且可定义宽高-->
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+</body>
+</html>

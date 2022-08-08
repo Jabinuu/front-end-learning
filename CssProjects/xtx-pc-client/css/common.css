@@ -1,0 +1,421 @@
+/* 存放各个网页中相同部分的代码，比如头和脚 */
+.wrapper{
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.shortcut{
+    height: 52px;
+    background-color: #333;
+}
+
+.shortcut ul li{
+    height: 52px;
+    line-height: 52px;
+}
+
+.shortcut ul li a{
+    padding: 0 16px;
+    border-right: 1px solid #666;
+    font-size: 14px;
+    color: #dcdcdc;
+}
+
+.shortcut ul li span{
+    display: inline-block;
+    margin-right: 8px;
+    width: 11px;
+    height: 16px;
+    background-image: url(../images/sprites.png);
+    background-position: -160px -70px;
+    vertical-align: -2px;
+}
+
+.shortcut ul li:first-child a {
+    border-right: 0;
+}
+
+.header{
+    height: 130px;
+}
+
+.header .logo{
+    margin: 30px 0 30px 25px;
+    width: 207px;
+    height: 70px;
+}
+
+.header .logo a{
+    display: block;
+    width: 207px;
+    height: 70px;
+    background-image: url(../images/logo.png);
+    background-size: cover;
+    font-size: 0;
+}
+
+.header .nav {
+    margin: 53px 0 46px 40px;
+    height: 31px;
+}
+
+.header .nav ul li{
+    margin-right: 48px;
+}
+
+.header .nav li a{
+    padding-bottom: 7px;
+}
+
+.header .nav li a:hover{
+    border-bottom: 1px solid #27ba9b;
+    color: #27ba9b;
+}
+
+.header .car{
+    position: relative;
+    margin: 58px 12px 0 15px;
+    width: 23px;
+    height: 23px;
+}
+
+.header .car .a{
+    display: block;
+    width: 23px;
+    height: 23px;
+}
+
+.header .car a span{
+    display: block;
+    width: 23px;
+    height: 23px;
+    background-image: url(../images/sprites.png);
+    background-position: -120px -70px;
+}
+
+.header .search{
+    margin: 54px 0 46px;
+    border-bottom: 2px solid #e7e7e7;
+    width: 172px;
+    height: 30px;
+}
+
+.header .search button{
+    display: inline-block;
+    border: 0;
+    background-color: #fff;
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/sprites.png);
+    background-position: -80px -70px;
+}
+
+.header .search input{
+    width: 144px;
+    height: 23px;
+}
+
+.header .search input::placeholder{
+    color: #ccc;
+    font-size: 14px;
+}
+
+.header .car .redpoint{
+    position: absolute;
+    top: -4px;
+    right: -12px;
+    width: 20px;
+    height: 15px;
+    background-color: #e26237;
+    border-radius: 8px;
+}
+
+.header .car>span{
+    position: absolute;
+    top: -6px;
+    right: -5px;
+    font-size: 13px;
+    color: #fff;
+}
+
+.footer .top{
+    height: 303px;
+}
+
+.footer .top dl{
+    margin-top: 79px;
+    color: #999;
+}
+
+.footer .top dl:first-child{
+    margin-left: 58px;
+}
+
+.footer .top dl:nth-child(2){
+    margin-left: 122px;
+}
+
+.footer .top dl:first-child,
+.footer .top dl:nth-child(2){
+    width: 192px;
+    height: 143px;
+}
+
+.footer .top dl:nth-child(3){
+    margin-left: 94px;
+    padding-right: 33px;
+    border-right: 2px solid #f2f2f2;
+    width: 274px;
+    height: 189px;
+}
+
+.footer .top dl:last-child{
+    margin-left: 74px;
+    width: 160px;
+    height: 122px;
+}
+
+.footer .top dt{
+    line-height: 1;
+    text-align: center;
+}
+
+.footer .top dl:first-child dt,
+.footer .top dl:nth-child(2) dt{
+    margin-bottom: 35px;
+}
+
+.footer .top dl:nth-child(3) dt{
+    margin-bottom: 24px;
+}
+
+.footer .top dl:last-child dt{
+    margin-bottom: 56px;
+}
+
+.footer .top dl:first-child .one
+{
+    width: 93px;
+    height: 92px;
+    border: 1px solid #eee;
+}
+
+.footer .top dl:first-child .two{
+    margin-left: 6px;
+    width: 93px;
+    height: 92px;
+    border: 1px solid #eee;
+}
+
+.footer .top dl:nth-child(2) .one
+{
+    width: 93px;
+    height: 92px;
+    border: 1px solid #eee;
+}
+
+.footer .top dl:nth-child(2) .two{
+    margin-left: 6px;
+    width: 93px;
+    height: 92px;
+    border: 1px solid #eee;
+}
+
+.footer .top dl:nth-child(3) .one
+{
+    width: 113px;
+    height: 111px;
+    border: 1px solid #eee;
+}
+
+.footer .top dl:first-child .one a,
+.footer .top dl:first-child .two a{
+    display: block;
+    width: 93px;
+    height: 92px;
+}
+
+.footer .top dl:first-child span
+{
+    /* 两个行内块标签换行显示时，会出现垂直方向的空格，所以要用block */
+    display: block;
+    margin: 22px 32px 10px;
+    width: 29px;
+    height: 27px;
+    background-image: url(../images/sprites.png);
+}
+
+.footer .top dl:first-child .two span{
+    height: 28px;
+}
+
+.footer .top dl:first-child .one span{
+    background-position: -250px -70px;
+}
+
+
+.footer .top dl:first-child .one span:hover{
+    background-image: url(../images/sprites.png);
+    background-position: -205px -70px;
+}
+
+.footer .top dl h3
+{
+    font-weight: normal;
+    line-height: 1;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+}
+
+.footer .top dl:first-child .two span{
+    background-position: -350px -70px;
+}
+
+.footer .top dl:first-child .two span:hover{
+    background-position: -300px -70px;
+}
+
+.footer .top dl:nth-child(2) .one span,
+.footer .top dl:nth-child(2) .two span{
+    display: block;
+    width: 36px;
+    height: 29px;
+    margin: 19px 28px 11px;
+    background-image: url(../images/sprites.png);
+}
+
+.footer .top dl:nth-child(2) .one span{
+    background-position: -250px -15px;
+}
+
+.footer .top dl:nth-child(2) .one span:hover{
+    background-position: -205px -15px;
+}
+
+.footer .top dl:nth-child(2) .two span{
+    background-position: -350px -15px;
+}
+
+.footer .top dl:nth-child(2) .two span:hover{
+    background-position: -300px -15px;
+}
+
+.footer .top dl:nth-child(3) img{
+    display: block;
+    margin: 4px;
+    width: 105px;
+    height: 103px;
+}
+
+.footer .top dl:nth-child(3) a{
+    display: block;
+    margin-top: 18px;
+    width: 103px;
+    height: 32px;
+    background-color: #27ba9b;
+    line-height: 32px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+
+.footer .top dl:nth-child(3) h3{
+    text-align: left;
+    margin-top: 13px;
+    margin-bottom: 8px;
+}
+
+.footer .top dl:last-child .one{
+    width: 160px;
+    font-size: 22px;
+    color: #666;
+    line-height: 1;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.footer .top dl:last-child .two{
+    width: 160px;
+    font-size: 15px;
+    color: #999;
+    line-height: 1;
+    text-align: center;
+}
+
+.footer .bottom{
+    height: 343px;
+    background-color: #333;
+}
+
+.footer .bottom .wrapper{
+    width: 1393px;
+}
+
+.footer .bottom .one{
+    border-bottom: 3px solid #434343;
+    height: 174px;
+}
+
+.footer .bottom .one li{
+    margin-top: 60px;
+    margin-left: 300px;
+    width: 186px;
+    height: 58px;
+}
+
+.footer .bottom .one li:first-child{
+    margin-left: 134px;
+}
+
+.footer .bottom .one li span{
+    display: inline-block;
+    width: 58px;
+    height: 58px;
+    background-image: url(../images/sprites.png);
+}
+
+.footer .bottom .one li:nth-child(2) span{
+    background-position: -130px 0;
+}
+
+.footer .bottom .one li:last-child span{
+    background-position: -65px 0;
+}
+
+.footer .bottom .one h3{
+    line-height: 58px;
+    font-size: 28px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.footer .bottom .two ul{
+    /* ****如何让ul在div里居中！！！！学习 */
+    display: table;
+    margin: 0 auto;
+    margin-top: 41px;
+
+}
+.footer .bottom .two a{
+    font-size: 14px;
+    color: #999;
+}
+
+.footer .bottom .two li{
+    line-height: 1;
+    padding: 0 11px;
+    border-right: 1px solid #999;
+}
+
+.footer .bottom .two li:last-child{
+    border: 0;
+}
+
+.footer .bottom .two p{
+    margin-top: 20px;
+    line-height: 1;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+}

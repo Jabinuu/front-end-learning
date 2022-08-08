@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding: 50px;
+            border: 10px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+
+    <script>
+        // 注意区分，前面的clientX是鼠标事件元素的属性，而这里的clientWidth和clientTop是相对于offset系列属性的，都是属于元素的属性
+        var div = document.querySelector('div');
+        console.log(div.clientWidth);    //只包含内容区和padding，不包含边框
+        console.log(div.offsetWidth);    //包含内容区，padding和边框
+
+        // clientLeft和clientTop返回的是这个元素的边框宽度
+        console.log(div.clientLeft);
+        console.log(div.clientTop);
+    </script>
+</body>
+
+</html>

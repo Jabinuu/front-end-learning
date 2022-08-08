@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr=['blue','red','green'];
+        var arr1=['blue','red','green'];
+        //方法1
+        arr.length=5; //js数组的长度是可修改的，现在arr的长度就是5了，最后两个元素是空的，这样就增加了数组的长度
+        //方法2  直接给要增加的元素索引赋值
+        arr1[3]='yellow';
+        arr1[4]='pink';
+        console.log(arr);
+        console.log(arr1);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

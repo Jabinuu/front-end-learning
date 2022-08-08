@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            /* 子绝父相，绝对定位需要父级也是定位了的 */
+            position: relative;
+            width: 1226px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        .mask{
+            position: absolute;
+            bottom: 0;
+            /* 按平常来说 这里的宽度不用写了，因为默认是跟他爹的宽度相同，
+               但是对于绝对定位的来说，他改变了显示模式的特点，块级变成了行内块
+               所以，默认就不是他爹(块级)的宽高了，必须得设定好宽高 
+            */
+            width: 1226px;
+            height: 150px;
+            background-color: rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./materials/bg.jpg" alt="">
+        <div class="mask"></div>
+    </div>
+</body>
+</html>

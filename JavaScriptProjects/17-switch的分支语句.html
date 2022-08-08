@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //switch是转换、开关的意思，case是事例、结果的意思 ，实现多分支语句
+        //switch于if {} else if{}的不同是：switch只能匹配表达式的特定值，而if else if可以匹配表达式的取值范围
+        //switch匹配表达式的值的时候是 === ，即值和数据类型都相等。
+        //写switch时一定要记得在每个case和default里写break，否则，如果选中没有break的case，则下一个case里的语句也会执行。
+
+        // switch(表达式){
+        //     case value1:
+        //         执行语句1
+        //         break;
+        //     case value2:
+        //         执行语句2
+        //         break;
+        //     ...
+        //     default:
+        //         执行语句n；
+        // }
+
+        switch(3){
+            case 1:
+                alert('这是1');
+                break;
+            case 3:
+                alert('这是3');
+                // break;
+            case 5:
+                alert('这是5');
+                break;
+            default:
+                alert('没有匹配结果');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

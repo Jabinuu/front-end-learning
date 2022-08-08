@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="timer">2022-7-11</div>
+    <!-- 因为浏览器解析html是从上到下，必须有元素了，才能写对应的js语句，所以script标签写在所有元素的下面 -->
+    <script>
+        var tt = document.getElementById('timer');
+
+        //数据类型是object，可见getElementById()返回的是对象
+        console.log(typeof tt);
+        //dir是用来显示这个对象的所有信息
+        console.dir(tt);
+    </script>
+</body>
+
+</html>

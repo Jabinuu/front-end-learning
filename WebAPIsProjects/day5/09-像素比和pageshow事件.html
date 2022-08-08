@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var scale = window.devicePixelRatio;
+        console.log(scale);
+
+        // 有些浏览器是假刷新，只是重新渲染了本地缓存的html，所以就不会触发load和DOMContnetloaded事件了，这个时候就需要用pageshow事件
+        // pageshow事件在点刷新，后退，a标签时触发，不管你有没有load服务器数据
+        window.addEventListener('pageshow', function () {
+            alert(11);
+        })
+    </script>
+</body>
+
+</html>

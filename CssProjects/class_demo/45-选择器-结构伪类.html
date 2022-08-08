@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 这个含义是：选中父元素的第n个子元素，且这个元素是li */
+        /* 用这个就不用给一个个class或id起名字了 */
+        li:first-child{
+            background-color: red;
+        }
+        li:nth-child(5){
+            background-color: green;
+        }
+        li:nth-last-child(2){
+            background-color: blue;
+        }
+        li:last-child{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <!-- ul>li{这是第$个li}*8 -->
+        <li>这是第1个li</li>
+        <li>这是第2个li</li>
+        <li>这是第3个li</li>
+        <li>这是第4个li</li>
+        <li>这是第5个li</li>
+        <li>这是第6个li</li>
+        <li>这是第7个li</li>
+        <li>这是第8个li</li>
+        <p>sssss</p>
+    </ul>
+</body>
+</html>

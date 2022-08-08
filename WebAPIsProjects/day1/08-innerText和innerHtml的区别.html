@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>今天是：星期二</div>
+    <p>
+        我是p标签
+        <span>span</span>
+    </p>
+
+    <script>
+        var div  = document.querySelector('div');
+        var p = document.querySelector('p');
+        // 首先这两个属性都是可读写的
+
+        // text不会识别出来html标签，而html会
+        div.innerText = '<strong>今天是:</strong> 星期二';
+        div.innerHTML = '<strong>今天是:</strong> 星期二';
+
+        // 总之，innerText只会显示纯文本，因此 我们指用innerHtml就好了
+        console.log(p.innerText);
+        console.log(p.innerHTML);
+    </script>
+</body>
+</html>

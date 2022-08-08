@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //比较运算符 ==, <, >返回的是一个布尔型变量
+        console.log(3 >= 5);
+        console.log(3 <= 5);
+        console.log(3 <= '5');   //true,js的比较运算符会将字符串型隐式转换为数字型
+        console.log(3 == 5);
+        console.log(18 == '18');   //true,因为js的 == 含隐式类型转换，他只比较值是否相等，而不关心数据类型
+        console.log(18 === '18');  //false，因为===要求值和数据类型都要相等
+        console.log(18 != '18');  // false
+        console.log(18 !== '18');  //true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
