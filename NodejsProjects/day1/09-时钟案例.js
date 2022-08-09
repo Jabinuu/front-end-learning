@@ -14,7 +14,7 @@ fs.readFile(path.join(__dirname, './时钟案例/index.html'), (err, dataStr) =>
 })
 
 function resloveHtml(dataStr) {
-
+    console.log('sss');
 }
 
 function resolveCss(dataStr) {
