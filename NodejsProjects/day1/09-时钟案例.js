@@ -4,6 +4,7 @@ const path = require('path');
 const regStyle = /<style>[\s\S]*<\/style>/
 const regScript = /<script>[\s\S]*<\/script>/
 
+// 只要有中文，就一定要指定读取文件内容的编码格式为utf8，不然后患无穷！！！！
 fs.readFile(path.join(__dirname, './时钟案例/index.html'), 'utf-8', (err, dataStr) => {
     if (err) {
         return console.log('读取文件失败！' + err.message);

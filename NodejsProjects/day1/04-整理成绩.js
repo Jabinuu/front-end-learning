@@ -2,7 +2,7 @@ const fs = require('fs');
 
 fs.readFile('./files/成绩.txt', 'utf-8', function (err, dataStr) {
     if (err) {
-        return console.log('读取文件失败' + err.message);
+        return console.log('读取该文件失败' + err.message);
     }
     const oldArr = dataStr.split(' ');
     const newArr = [];

@@ -4,7 +4,7 @@ const fs = require('fs');
 // 但是他只会创建文件，而不会创建一个本不存在的文件夹（即目录）
 fs.writeFile('./files/2.txt', 'adf', function (err) {
     if (err) {
-        return console.log('写入文件失败' + err.message);
+        return console.log('写入该文件失败' + err.message);
     }
     console.log('写入文件成功！');
 })

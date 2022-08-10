@@ -10,7 +10,7 @@ fs.readFile('./files/1.txt', 'utf8', function (err, dataStr) {
 
 // 所以以后都这样写文件路径，__dirname：是当前js文件所处的目录，然后将它和文件子目录进行字符串拼接，从而得到最终路径
 // 不要用+号拼接，用path的join方法拼接是常态
-fs.readFile(__dirname + '/files/成绩-ok.txt', 'utf-8', function (err, dataStr) {
+fs.readFile(__dirname + '/files/成绩-ok.txt', 'utf8', function (err, dataStr) {
     console.log(err);
     console.log('-------------------------')
     console.log(dataStr);
