@@ -1,3 +1,4 @@
+// 使用path模块处理路径
 const path = require('path');
 const fs = require('fs');
 // join比 + 号更智能 能够识别./和../

@@ -1,0 +1,5 @@
+node.js是一个基于V8引擎的后端javascript运行环境，这个运行环境包括了v8引擎和内置node.js的API,
+而浏览器是基于V8引擎的前端javascript运行环境，它包括了v8引擎和DOM，BOM的API
+
+v8引擎是js解释器，用来解析和执行js代码。浏览器中有v8，node.js里也有v8
+js代码运行在浏览器就是前端，运行在终端里就是后端。
