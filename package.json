@@ -1,12 +1,8 @@
 {
-  "dependencies": {
-    "moment": "^2.22.2"
-  },
   "name": "jabins",
   "description": "前端学习代码&amp;笔记",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/JiaBin521/front-end-learning/issues"
   },
-  "homepage": "https://github.com/JiaBin521/front-end-learning#readme"
+  "homepage": "https://github.com/JiaBin521/front-end-learning#readme",
+  "dependencies": {
+    "moment": "^2.29.4"
+  }
 }
