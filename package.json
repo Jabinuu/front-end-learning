@@ -19,6 +19,7 @@
   "homepage": "https://github.com/JiaBin521/front-end-learning#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "mysql": "^2.18.1"
   }
 }
