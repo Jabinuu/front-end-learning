@@ -17,6 +17,7 @@
             $('#btnJSONP').on('click', function () {
                 $.ajax({
                     url: 'http://www.liulongbin.top:3006/api/jsonp?address=北京&location=顺义',
+                    // 表示我们发起的是jsonp数据请求（即script标签发起的请求），而不是ajax数据请求
                     dataType: 'jsonp',
                     // jsonpCallback: 'abc',
                     success: function (res) {
