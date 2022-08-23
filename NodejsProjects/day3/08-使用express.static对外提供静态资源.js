@@ -3,10 +3,10 @@ const express = require('express');
 const app = express();
 
 // 1.默认托管静态资源，url里面写127.0.0.1/xxxx就能访问到files文件夹里的文件，url里不需要写files文件夹了
-app.use(express.static('files'));
+app.use(express.static('./files'));
 
 // 2.挂载虚拟前缀，url里写/jiabin/index.css才能访问到，这样就实现了在url里把clock换成jia才能访问
-app.use('/jia', express.static('clock'));
+app.use('/jia', express.static('./clock'));
 // 在托管多个文件夹的时候，如果要访问index.html，而多个文件夹里均有index.html，那么只访问第一个托管的文件夹里的
 
 app.listen(80, () => {

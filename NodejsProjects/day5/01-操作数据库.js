@@ -9,13 +9,13 @@ const db = mysql.createPool({
 })
 
 // 查询数据
-// db.query('select * from users', (err, res) => {
-//     if (err) {
-//         return console.log(err.message);
-//     }
-//     console.log(res);
-// })
-
+// select与语句返回的res是一个数组，元素是对象，每一个对象是一个数据行
+db.query('select * from ev_users', (err, res) => {
+    if (err) {
+        return console.log(err.message);
+    }
+    console.log(res);
+})
 
 // 插入数据
 // const user = { username: 'jiabin', password: 'jiabn789' };    //这里的key名一定要跟表的字段对应
