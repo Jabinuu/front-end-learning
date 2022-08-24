@@ -61,7 +61,7 @@ module.exports.login = (req, res) => {
         }
 
         // 如果用户存在，那么接下来验证密码 
-        const checkResult = bctyptjs.compareSync(userinfo.password, results[0].password);
+        const checkResult = bctyptjs.compareSync(userinfo.password, results[0].password);  //直接明文和加密文比较即可
         if (!checkResult) {
             return res.cc('密码错误！请重新输入。')
         }

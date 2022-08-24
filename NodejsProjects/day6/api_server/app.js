@@ -5,7 +5,9 @@ const expressJwt = require('express-jwt');  //用于服务器解析token字符�
 const config = require('./config');
 
 // 导入路由
-const router = require('./router/user');
+const userRouter = require('./router/user');
+const userinfoRouter = require('./router/userinfo');
+
 app.use(express.urlencoded({ extended: false }));    //解析请求体数据
 
 // 为了避免多次调用send发送响应数据，比较臃肿，在res下挂载cc函数，把每次响应都封装在cc里，简化代码
@@ -22,7 +24,8 @@ app.use((req, res, next) => {
 // .unless设置了url除了以/api为开头的都要进行身份验证
 app.use(expressJwt({ secret: config.secretKey }).unless({ path: [/^\/api/] }));  //解析出来的用户信息挂载到req.user下，生成token时用的什么信息，解析出来就是什么
 
-app.use('/api', router);   //注册路由全局中间件，前缀一定要写/xxx
+app.use('/api', userRouter);   //注册路由全局中间件，前缀一定要写/xxx
+app.use('/my', userinfoRouter);
 
 // 注册错误级别的中间件，识别验证用户名密码时throw的error（错误级别的中间件是写在路由之后的，这是特例）
 app.use((err, req, res, next) => {
