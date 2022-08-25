@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: false }));  //解析x-www-urlencoded格�
 app.use(express.json());             //解析json格式的请求体
 
 
-// 必须在配置 cors 中间件之前，配置 JSONP 的接口
+// 配置 JSONP 的接口，必须在配置 cors 中间件之前，
 app.get('/api/jsonp', (req, res) => {
     // TODO: 定义 JSONP 接口具体的实现过程
     // 1. 得到函数的名称
