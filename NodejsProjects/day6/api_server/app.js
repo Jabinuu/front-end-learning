@@ -7,8 +7,13 @@ const config = require('./config');
 // 导入路由
 const userRouter = require('./router/user');
 const userinfoRouter = require('./router/userinfo');
+const artcate = require('./router/artcate');
+const article = require('./router/article');
 
-app.use(express.urlencoded({ extended: false }));    //解析请求体数据
+// 托管静态资源文件
+app.use('/uploads', express.static('./uploads'))
+// 解析请求体数据
+app.use(express.urlencoded({ extended: false }));
 
 // 为了避免多次调用send发送响应数据，比较臃肿，在res下挂载cc函数，把每次响应都封装在cc里，简化代码
 app.use((req, res, next) => {
@@ -26,6 +31,8 @@ app.use(expressJwt({ secret: config.secretKey }).unless({ path: [/^\/api/] })); 
 
 app.use('/api', userRouter);   //注册路由全局中间件，前缀一定要写/xxx
 app.use('/my', userinfoRouter);
+app.use('/my/article', artcate);
+app.use('./my/article', article);
 
 // 注册错误级别的中间件，识别验证用户名密码时throw的error（错误级别的中间件是写在路由之后的，这是特例）
 app.use((err, req, res, next) => {

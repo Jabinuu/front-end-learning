@@ -1,3 +1,4 @@
+// 路由处理函数模块
 const db = require('../db/index');      //自定义模块
 const bctyptjs = require('bcryptjs');   //加密npm包
 const jwt = require('jsonwebtoken');    //用于生成token的包
