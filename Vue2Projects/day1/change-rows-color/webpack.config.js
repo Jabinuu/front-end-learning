@@ -19,7 +19,7 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.css$/, use: ['style-loader', 'css-loader']
+            test: /\.css$/, use: ['style-loader', 'css-loader']      //实现用loader协助webpack把css文件也打包到boudle.js文件中，因为webpack自己只会打包js文件
         }]
     },
     mode: 'production'    //意为当前项目所处模式是什么，如果是在开发阶段则设置为development，如果处于项目上线阶段则设置为production
