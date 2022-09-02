@@ -5,9 +5,8 @@ $(function () {
     // 3. 实现奇偶行变色
     // 奇数行为红色
     $('li:odd').css('background-color', 'red')
-    $('li:even').css('background-color', 'green')
+    $('li:even').css('background-color', 'blue')
     // 0 是偶数
-    // 1 是奇数
 })
 
 
