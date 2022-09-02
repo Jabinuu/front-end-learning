@@ -12,7 +12,12 @@ module.exports = {
         filename: 'bundle.js'    //存放的文件名
     },
     plugins: [htmlPlugin],  //plugins数组里面存放各个插件
-    mode: 'development'    //意为当前项目所处模式是什么，如果是在开发阶段则设置为development，如果处于项目上线阶段则设置为production
+    devServer: {
+        open: true,   // 首次打包后自动打开浏览器
+        port: 80,      // 还可以自定义端口号
+        host: '127.0.0.1'   // 也可以用设置为ip取代默认的域名访问网页
+    },
+    mode: 'production'    //意为当前项目所处模式是什么，如果是在开发阶段则设置为development，如果处于项目上线阶段则设置为production
 }
 
 // development的打包速度快，但是体积大。由于开发时追求打包速度快，所以用dev
