@@ -17,6 +17,11 @@ module.exports = {
         port: 80,      // 还可以自定义端口号
         host: '127.0.0.1'   // 也可以用设置为ip取代默认的域名访问网页
     },
+    module: {
+        rules: [{
+            test: /\.css$/, use: ['style-loader', 'css-loader']
+        }]
+    },
     mode: 'production'    //意为当前项目所处模式是什么，如果是在开发阶段则设置为development，如果处于项目上线阶段则设置为production
 }
 

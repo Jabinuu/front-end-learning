@@ -1,5 +1,5 @@
 import $ from 'jquery'    // es6高级语法，目前没有引擎能解析import，所以都要通过webpack进行兼容性处理
-
+import './css/index.css'
 
 $(function () {
     $('li:odd').css('background-color', 'red')
