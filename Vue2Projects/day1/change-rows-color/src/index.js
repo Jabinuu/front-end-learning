@@ -9,3 +9,7 @@ $(function () {
     // 0 是偶数
     // 1 是奇数
 })
+
+
+// npm install命令安装包时，是把包安装在与package.json同目录下的node_modules文件夹里的
+// 所以说，先npm init -y 在相应的目录下生成package.json，再安装包
