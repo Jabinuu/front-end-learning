@@ -18,9 +18,13 @@ module.exports = {
         host: '127.0.0.1'   // 也可以用设置为ip取代默认的域名访问网页
     },
     module: {
-        rules: [{
-            test: /\.css$/, use: ['style-loader', 'css-loader']      //实现用loader协助webpack把css文件也打包到boudle.js文件中，因为webpack自己只会打包js文件
-        }]
+        // 这里定义了不同类型的loader
+        rules: [
+            //实现用loader协助webpack把css文件也打包到boudle.js文件中，因为webpack自己只会打包js文件
+            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            // 用loader协助webpack把img文件导入并转为base64字符串，limit表示<22229字节的图片才转base64，大图片不转，因为体积会变大
+            { test: /\.png|jpg|gif$/, use: ['url-loader?limit = 22229'] }
+        ]
     },
     mode: 'production'    //意为当前项目所处模式是什么，如果是在开发阶段则设置为development，如果处于项目上线阶段则设置为production
 }
