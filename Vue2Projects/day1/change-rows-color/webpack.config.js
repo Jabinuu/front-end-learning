@@ -29,6 +29,9 @@ module.exports = {
     },
     // devtool: 'eval-source-map',    //使报错的行号是源码文件的行号，而不是bundle.js的行号。开发时打开，上线时关闭
     devtool: 'nosources-source-map',   //上线时建议使用这个，只暴露源码行号不暴露源码，完美！
+    resolve: {
+        alias: { '@': path.join(__dirname, './src') }
+    },
     mode: 'production'    //意为当前项目所处模式是什么，如果是在开发阶段则设置为development，如果处于项目上线阶段则设置为production
 }
 
