@@ -9,18 +9,24 @@
 </head>
 
 <body>
-    <!-- 用双花括号包括一个数据名，连接vm -->
-    <div id="app">{{ username }}</div>
-
     <script src="./lib/vue-2.6.12.js"></script>
+
+    <div id="app">
+        <!-- v-text和插值表达式只能传递纯文本 -->
+        <p v-text="username">111</p>
+        <hr>
+        <p>性别：{{ gender }}</p>
+        <hr>
+        <!--只有v-html能识别带html标签的字符串 -->
+        <p v-html="tag"></p>
+    </div>
     <script>
-        // 创建vue实例对象。即ViewModel
         const vm = new Vue({
-            // el是固定属性，用来指定该vm控制哪个视图区域。值是一个选择器。即View视图
             el: '#app',
-            // data对象里就是要渲染的数据。即Model数据源
             data: {
-                username: 'jiabin'
+                username: 'jiabin',
+                gender: '男',
+                tag: "<span style='color:red'>hhh</span>"
             }
         })
     </script>

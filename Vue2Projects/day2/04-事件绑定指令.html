@@ -9,18 +9,27 @@
 </head>
 
 <body>
-    <!-- 用双花括号包括一个数据名，连接vm -->
-    <div id="app">{{ username }}</div>
+    <div id="app">
+        <button v-on:click="add">点我</button>
+        <button v-on:click="sub">sub</button>
+    </div>
 
     <script src="./lib/vue-2.6.12.js"></script>
     <script>
-        // 创建vue实例对象。即ViewModel
         const vm = new Vue({
             // el是固定属性，用来指定该vm控制哪个视图区域。值是一个选择器。即View视图
             el: '#app',
-            // data对象里就是要渲染的数据。即Model数据源
             data: {
                 username: 'jiabin'
+            },
+            methods: {
+                add: function () {
+                    console.log('ok');
+                },
+                sub() {
+                    console.log('sub');
+                }
+
             }
         })
     </script>

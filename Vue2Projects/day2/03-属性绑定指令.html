@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue-2.6.12.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- ************ v-bind:可以简写为: -->
+        <input type="text" v-bind:placeholder="tips">
+        <input type="text" :placeholder="tips">
+        <hr>
+        <img v-bind:src="url" alt="" style="width:150px">
+        <hr>
+        <div>1+2的结果是：{{ 1+2 }}</div>
+        <hr>
+        <!-- 插值表达式 和 v-bind绑定属性可以使用js语句 -->
+        <div>{{ tips }} 反转的结果是：{{ tips.split('').reverse().join('') }}</div>
+        <div :title="'box'+index">这是一个div</div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                tips: '请输入你的名字',
+                url: 'C:/Users/JaBin‘s/Pictures/Saved Pictures/410185199906150010.JPG',
+                index: 2
+            }
+        })
+    </script>
+</body>
+
+</html>
