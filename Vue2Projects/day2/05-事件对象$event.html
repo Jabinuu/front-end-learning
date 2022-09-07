@@ -11,27 +11,31 @@
 <body>
     <div id="app">
         <p>当前的计数器数值为：{{ counter }}</p>
-        <button v-on:click="add(2)">点我+1</button>
+        <!-- 如果处理函数不传参的话，那么该函数的默认形参就是事件对象，习惯上写为e或event；如果需要传参，则实参会将默认事件对象覆盖 -->
+        <!-- 用$event对象手动传递事件对象，即可实现在传递参数的时还能用到事件对象 -->
+        <!-- $event是vue内置的对象，他指向的就是js原生的DOM事件对象 -->
+        <button v-on:click="add(1,$event)">点我+1</button>
         <button @click="sub">点我-1</button>
     </div>
 
     <script src="./lib/vue-2.6.12.js"></script>
     <script>
         const vm = new Vue({
-            // el是固定属性，用来指定该vm控制哪个视图区域。值是一个选择器。即View视图
+
             el: '#app',
             data: {
                 counter: 0
             },
             methods: {
-                add: function (n) {
-                    // vm.counter++;
-                    // this全等于vm，所以平常用this表示vm 。而且data里面的属性是vm对象里的属性
+                add: function (n, e) {
                     this.counter += n;
+                    if (this.counter % 2 === 0)
+                        e.target.style = 'background-color:skyblue';
+                    else
+                        e.target.style = 'background-color:none'
                 },
                 // 处理函数的简写形式
                 sub() {
-                    // vm.counter--;
                     this.counter -= 1;
                 }
 

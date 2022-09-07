@@ -37,18 +37,48 @@
 
 + 在vue中，可以使用`v-bind:` 指令，为元素的属性动态绑定值；
 
-+ 简写是英文的`:`
++ `v-bind` 的简写是英文的`:`，例如：
+
+  ```html
+  <input type="text" :placeholder="tips">
+  <input type="text" v-bind:placeholder="tips">
+  ```
 
 + 在使用v-bind 属性绑定期间，如果绑定内容需要进行动态拼接，则字符串的外面应该包裹单引号，否则会被视为是vm的数据，例如：
 
-  ```javascript
+  ```html
   <div :title="'box'+index">这是一个div</div>   // 对的
   <div :title="box+index">这是一个div</div>  //错的，vue会认为box是数据源的一个数据
   ```
 
-  
-
-  
 
 
+
+#### 3.事件绑定指令
+
+1. vm 的`methods` 属性里用`vm.xxx` 或 `this.xxx` 表示`data` 里的数据项，且vm === this；
+
+2. `v-on:`  的简写是 `@` ，例如：
+
+   ```html
+   <button v-on:click="add(2)">点我+1</button>
+   <button @click="sub">点我-1</button>
+   ```
+
+3. vue内置有事件对象`$event` 等价于事件处理函数的形参e，如若默认的形参e被手动传递的参数覆盖了，则可以自己手动传递一个事件对象
+
+4. 事件修饰符
+
+   + `@xxx.prevent = "fn"` 中的prevent等价于`e.preventDefault() ` 阻止默认响应行为
+
+   + `@xxx.stop = "fn"` 中的stop等价于`e.stopPropgation()` 阻止事件冒泡
+
+   + `@keyup` 后面可以添加按键修饰符，直接具体到绑定哪一个按键
+     ```html
+     <input type="text" @keyup.esc="clearInput" @keyup.enter="commitAjax">
+     ```
+
+     
+
+ 
 

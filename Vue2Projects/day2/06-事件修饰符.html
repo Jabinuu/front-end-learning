@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div style="background-color: red; height:150px;" @click="redhandler">
+            <!-- @xxx.stop 等价于 e.stopPropgation() 即阻止事件冒泡 -->
+            <div style="background-color: green; height: 100px; margin: 10px 50px;" @click.stop="greenhandler"></div>
+        </div>
+        <!-- @xxx.prevent 等价于 e.preventDefault() 即阻止默认事件响应 -->
+        <a href="http://www.baidu.com" @click.prevent="tz">跳转到百度</a>
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                username: 'jiabin',
+                gender: '男',
+                tag: "<span style='color:red'>hhh</span>"
+            },
+            methods: {
+                redhandler() {
+                    console.log('red');
+                },
+                greenhandler() {
+                    console.log('green');
+                },
+                tz() {
+                    console.log('发生跳转');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

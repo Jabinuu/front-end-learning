@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.number="n1"> + <input type="text" v-model.number="n2">
+        <span> = {{ n1 + n2 }}</span>
+        <hr>
+        <!-- trim修饰符用来把表单里输入的字符串头尾的空格给删去 -->
+        <input type="text" v-model.trim="username">
+        <button @click="showName">点击</button>
+        <hr>
+        <!-- lazy修饰符会时表单数据变化时不会实时在数据源里更新，而是在表单失去焦点后才更新数据源 -->
+        <input type="text" v-model.lazy="username">
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                username: 'zhangsan',
+                n1: 11,
+                n2: 2
+            },
+            methods: {
+                showName() {
+                    console.log(`当前用户名为："${this.username}"`);
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
