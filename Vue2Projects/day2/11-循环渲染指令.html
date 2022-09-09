@@ -18,6 +18,7 @@
                 <th>姓名</th>
             </thead>
             <tbody>
+                <!-- 需要获取索引号的时候，就用下面的固定写法，参数一是元素，参数二是索引号；不需要索引号时，只写item元素就好了 -->
                 <tr v-for="(item, index) in list" :title="item.username">
                     <td>{{ index }}</td>
                     <td>{{ item.ID}}</td>

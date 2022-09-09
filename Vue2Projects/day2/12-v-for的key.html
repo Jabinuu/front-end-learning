@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <button @click="addNew">添加</button>
+        <ul>
+            <!-- 用v-for的时候要添加key属性，值一定要是数据项的id，类似主键与数据，是唯一的绑定，而index不是唯一的绑定 -->
+            <li v-for="(item,index) in list" :key="item.id">
+                <input type="checkbox">
+                姓名：{{item.name}}
+            </li>
+        </ul>
+    </div>
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { id: 0, name: 'jiabin' },
+                    { id: 1, name: 'zhangqing' },
+                    { id: 2, name: 'doubao' }
+                ],
+                nextID: 3,
+                name: ''
+            },
+            methods: {
+                addNew() {
+                    this.list.unshift({ id: this.nextID, name: this.name })
+                    this.name = ''
+                    this.nextID++
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
