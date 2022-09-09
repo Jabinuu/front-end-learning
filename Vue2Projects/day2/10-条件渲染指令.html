@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-show="flag">这是v-show控制的</p>
+        <hr>
+        <p v-if="rank==='A'">优秀</p>
+        <p v-else-if="rank === 'B'">良好</p>
+        <p v-else-if="rank === 'C'">一般</p>
+        <p v-else> 差</p>
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false,
+                rank: 'A'
+            }
+        })
+    </script>
+</body>
+
+</html>

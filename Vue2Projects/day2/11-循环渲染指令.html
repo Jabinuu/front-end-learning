@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css">
+</head>
+
+<body>
+    <div id="app">
+        <table class="table table-dordered table-hover table-striped">
+            <thead>
+                <th>索引</th>
+                <th>ID</th>
+                <th>姓名</th>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in list" :title="item.username">
+                    <td>{{ index }}</td>
+                    <td>{{ item.ID}}</td>
+                    <td>{{ item.username}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { ID: 0, username: 'jiabin' },
+                    { ID: 1, username: 'zhangqing' },
+                    { ID: 2, username: 'doubao' }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>
