@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-v3.6.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="info.username">
+    </div>
+
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                info: {
+                    username: 'jiabin'
+                }
+            },
+            watch: {
+                // info: {
+                //     handler(newVal) {
+                //         console.log(newVal.username);
+                //     },
+                //     // 正常来说，侦听器侦听不到对象里属性的变化，这时候就要设置deep，开启深度监听，可以真听到所有属性的变化
+                //     deep: true
+                // },
+
+                // 如果仅监听1个属性的变化，那么用初始写法写侦听器即可，只需要用obj.xxx作为函数名上并包裹上''
+                'info.username'(newVal) {
+                    console.log(newVal);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
