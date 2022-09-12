@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="postBtn">POST</button>
+    <button id="getBtn">GET</button>
+
+    <script src="./lib/axios.js"></script>
+    <script>
+        const postBtn = document.querySelector('#postBtn')
+        const getBtn = document.querySelector('#getBtn')
+        // 哪些情况下可用await？
+        // 如果调用某个方法返回值是 Promise 实例，则前面可以添加 await
+        // await 只能用在被 async “修饰”的方法中
+        postBtn.addEventListener('click', async function () {
+            const { data } = await axios({   // 解构赋值
+                method: 'POST',
+                url: 'http://www.liulongbin.top:3006/api/post',
+                data: {    //POST的请求体对象（按需）
+                    name: 'zs',
+                    age: 23
+                },
+                params: {}    // GET时的url查询字符对象（按需）
+            })
+            console.log(data);
+        })
+
+        // 结构赋值的时候，使用: 进行重命名
+
+        // 使用axios的必要操作：
+        // 1. 调用axios后，使用async和await进行简化，不用写then了
+        // 2. 使用解构赋值，从axios封装的大量对象中，把data属性解构出来
+        // 3. 把结构出来的 data 属性，使用: 进行重命名，一般都命名为res
+        getBtn.addEventListener('click', async function () {
+            const { data: res } = await axios({
+                method: 'GET',
+                url: 'http://www.liulongbin.top:3006/api/getbooks'
+            })
+            // console.log(data.data);     //一般返回的数据会出现用data.data 访问下一级属性的情况，这容易有歧义
+            console.log(res.data);     //这样就清晰多了
+        })
+    </script>
+</body>
+
+</html>
