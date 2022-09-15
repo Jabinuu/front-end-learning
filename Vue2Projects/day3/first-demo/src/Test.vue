@@ -6,7 +6,7 @@
   </div>
 </template>
 
-// script写操作组件的代码
+// script写操作组件行为的代码
 <script>
 export default {
   // 默认导出，固定写法
