@@ -3,6 +3,7 @@
     <h1>App 根组件</h1>
     <hr />
 
+    <Test></Test>
     <div class="box">
       <!-- 渲染 Left 组件和 Right 组件 -->
       <Left> </Left>
@@ -14,6 +15,7 @@
 <script>
 import Left from "@/components/Left.vue";
 import Right from "@/components/Right.vue";
+import Test from "@/components/Test.vue";
 
 export default {
   data() {
@@ -25,6 +27,7 @@ export default {
     // Left:Left   键值对同名的话，可以简写成如下
     Left,
     Right,
+    Test,
   },
 };
 </script>
