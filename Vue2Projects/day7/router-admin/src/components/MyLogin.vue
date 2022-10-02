@@ -36,7 +36,12 @@
           <button type="button" class="btn btn-secondary mr-2" @click="reset">
             重置
           </button>
-          <button type="button" class="btn btn-primary" @click="login">
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="login"
+            ref="loginRef"
+          >
             登录
           </button>
         </div>
@@ -68,6 +73,13 @@ export default {
         localStorage.removeItem("token");
       }
     },
+  },
+  created() {
+    window.addEventListener("keyup", (e) => {
+      if (e.keyCode === 13) {
+        this.$refs.loginRef.click();
+      }
+    });
   },
 };
 </script>

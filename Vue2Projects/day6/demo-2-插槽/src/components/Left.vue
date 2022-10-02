@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  // name: "MyLeft",
+  name: "AAA",
 };
 </script>
 
