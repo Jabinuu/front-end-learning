@@ -1,13 +1,12 @@
 <template>
   <div class="home-container">
     <h3>Home 组件</h3>
+    <router-link to="/main">跳转到后台页面</router-link>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Home'
-}
+export default {};
 </script>
 
 <style lang="less" scoped>
