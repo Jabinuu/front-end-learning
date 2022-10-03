@@ -15,12 +15,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>xxx</td>
-          <td>xxx</td>
-          <td>xxx</td>
-          <td>xxx</td>
-          <td>xxx</td>
+        <tr v-for="item in userlist" :key="item.id">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.age }}</td>
+          <td>{{ item.position }}</td>
+          <td><a href="#" @click.prevent="getDetail(item.id)">详情</a></td>
         </tr>
       </tbody>
     </table>
@@ -29,19 +29,24 @@
 
 <script>
 export default {
-  name: 'MyUser',
+  name: "MyUser",
   data() {
     return {
       // 用户列表数据
       userlist: [
-        { id: 1, name: '嬴政', age: 18, position: '始皇帝' },
-        { id: 2, name: '李斯', age: 35, position: '丞相' },
-        { id: 3, name: '吕不韦', age: 50, position: '商人' },
-        { id: 4, name: '赵姬', age: 48, position: '王太后' }
-      ]
-    }
-  }
-}
+        { id: 1, name: "嬴政", age: 18, position: "始皇帝" },
+        { id: 2, name: "李斯", age: 35, position: "丞相" },
+        { id: 3, name: "吕不韦", age: 50, position: "商人" },
+        { id: 4, name: "赵姬", age: 48, position: "王太后" },
+      ],
+    };
+  },
+  methods: {
+    getDetail(id) {
+      this.$router.push("/home/userinfo/" + id);
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped></style>
