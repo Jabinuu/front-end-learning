@@ -42,8 +42,24 @@
 </template>
 
 <script>
+import { getArticleList } from "@/api/articleAPI";
 export default {
   name: "User",
+  data() {
+    return {
+      page: 1,
+      limit: 5,
+    };
+  },
+  methods: {
+    async initArtivleList() {
+      const { data: res } = await getArticleList(this.page, this.limit);
+      console.log(res);
+    },
+  },
+  created() {
+    this.initArtivleList();
+  },
 };
 </script>
 
