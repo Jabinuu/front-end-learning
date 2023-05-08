@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let book = {};  //直接定义对象时，以下这些属性的特性默认为true
+    // 而在defineProperties函数中如果不指定Configurable、Enumerable、Writable，那就默认是false
+    Object.defineProperties(book, {
+      // 把他想象为一个私有变量，外界无法访问
+      year_: {
+        writable: true,      //不指定就默认为false
+        value: 2017
+      },
+      edition: {
+        writable: true,
+        value: 1
+      },
+      // 访问器属性，可设置get和set方法
+      year: {
+        get() {
+          return this.year_
+        },
+        set(newValue) {
+          this.year_ = newValue;
+          this.edition += newValue - 2017
+        }
+      }
+    })
+
+    console.log(book.year);    //调用了year访问器属性的get方法，实现了对私有变量的访问
+    book.year = 2018;  //调用了year的set属性，表面上改变year的值，却在set函数的作用下改变了year_和edition的值
+    console.log(book.year);
+    console.log(book.edition);
+    // 获得对象所有属性的特性描述符对象
+    let descriptors = Object.getOwnPropertyDescriptors(book);
+    console.log(descriptors);
+  </script>
+</body>
+
+</html>

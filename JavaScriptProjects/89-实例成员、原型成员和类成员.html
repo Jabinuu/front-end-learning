@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Person {
+      /* 构造函数中的属性和方法都是实例的成员 */
+      constructor() {
+        this.name_ = 'jiabin';  //一般来说，数据成员定义为实例的成员。不推荐定义原型、类数据成员
+      }
+
+      set name(newValue) {    // get和set函数，也是原型上的访问器属性
+        this.name_ = newValue;
+      }
+      get name() {
+        return this.name_
+      }
+
+      job = 'engineer'  // 但是跟方法不同，类块中的属性是会自动放到构造器中的
+
+      /* 类块中声明的是类原型的方法成员*/
+      eat() {
+        console.log('I am eating')
+      }
+
+      /* 静态方法成员，定义在类本身上。只能由类直接调用，实例无法调用 */
+      static walk() {
+        console.log('I am a static method');
+      }
+      static create() {    //静态方法非常适合用来封装一个工厂函数
+        return new Person();
+      }
+
+
+    }
+    let p1 = new Person();
+    console.log(p1.hasOwnProperty('name'));
+    console.log(p1.name);
+    p1.eat();
+    Person.walk();
+    console.log(Person.create() instanceof Person);   //通过工厂函数创建新的实例
+  </script>
+
+</body>
+
+</html>

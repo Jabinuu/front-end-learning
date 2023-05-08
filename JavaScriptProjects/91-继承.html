@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 继承类 */
+    class Vehicle {
+      getTag() {
+        console.log('Benz');
+      }
+    };
+    class Bus extends Vehicle { };
+    let b = new Bus();
+    console.log(b instanceof Vehicle);  //true
+    console.log(b instanceof Bus);     //true
+    b.getTag();    //派生类实例会根据原型链访问到基类的成员方法和成员变量
+
+
+    /* 继承普通构造函数 */
+    function Person() { };
+    class Student extends Person {
+      constructor() {
+        super();    //继承类中调用过super()才有this的指向
+        this.age = 23;
+      }
+    };
+    let s = new Student();
+    console.log(s instanceof Student);  //true
+    console.log(s instanceof Person);  //true
+    console.log(s.age);
+    /* 派生类创建一个实例
+    1. 调用super()，相当于调用了父类的构造函数，创建并返回一个新的父类实例
+    2. 让该对象的内部[[prototype]]指向该派生类的原型
+    3. this指向super()返回的父类实例
+    4. 执行派生类构造函数的代码
+    5. 如果有return一个非空对象则返回该对象；否则返回刚才新建的对象.
+     */
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // &&和||返回的是表达式中的值，而非布尔值，
+    // 而这些值在if条件判断时，会先被Boolean()转化为布尔值再判定为是f还是t
+    console.log(true && 4);  // 4 
+    console.log(true && 4 && 'aaa'); //aaa
+    console.log(null && 4);  //null
+    console.log(4 && undefined);  //undefined
+    console.log(NaN && 4);  //NaN
+
+    console.log(null || undefined);  //undifined
+    console.log(4 || NaN); //4
+    console.log(null || 4); //4
+    console.log(3 || 4); //3
+
+    // 比起if(1),以下写法更加严谨，因为!!相当于调用了Boolean()先将表达式的值转化为
+    // 布尔值再进行判断（第一个!负责转化为布尔值然后取反，第二个负责再次取反）
+    if (!!1) {
+      console.log('判定为true');
+    }
+    if (!!null) {
+    } else {
+      console.log('判定为false');
+    }
+
+    function getColor(airIndex) {
+      return (airIndex > 200 && '#A257D0') || (airIndex > 150 && "#D96161") || (airIndex > 100 && '#E0991D') || (airIndex > 50 && '#a9a538') || '#95B359'
+    }
+    console.log(Number.MAX_SAFE_INTEGER, Number.MAX_VALUE);
+  </script>
+</body>
+
+</html>

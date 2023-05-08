@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+    console.log(numbers.indexOf(4));   // 3 
+    console.log(numbers.lastIndexOf(3));  // 5
+    console.log(numbers.includes(5));  // true
+    // 第一个参数是要搜索的元素，第二个参数是搜索的起始位置....全等的时候才算匹配
+    // indexOf和includes从前往后搜索; lastIndexOf从后往前搜索
+    console.log(numbers.indexOf(4, 5));    //5
+    console.log(numbers.lastIndexOf(5, 4));  // 4
+    // includes的妙用，用来判断参数是否跟数组里的一个值相等，用于替代if-else
+    console.log(numbers.includes(4, 7));  //false
+
+    /***********************************************************/
+    const people = [
+      {
+        name: 'jiabin',
+        age: 23
+      },
+      {
+        name: 'zhangqing',
+        age: 22
+      }
+    ];
+    // 每一个索引都会执行断言函数,当断言函数返回真值时即为匹配成功,不再继续搜索
+    console.log(people.findIndex((elem, idx, arr) => elem.age >= 23));   //findIndex查找匹配元素的索引。
+    console.log(people.find((elem, idx, arr) => elem.age >= 23));     //find查找匹配的元素本身
+
+
+  </script>
+</body>
+
+</html>

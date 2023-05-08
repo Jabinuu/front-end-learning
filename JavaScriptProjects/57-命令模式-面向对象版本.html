@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="execute">点击我执行execute命令</button>
+  <button id="undo">点击我执行undo命令</button>
+</body>
+<script>
+  // 命令的接收者对象
+  var Tv = {
+    open: function () {
+      console.log('打开电视机');
+    },
+    close: function () {
+      console.log('关闭电视机');
+    }
+  };
+
+  // 命令的发起者对象的构造函数
+  var TvCommand = function (recevier) {
+    this.recevier = recevier;   // 植入命令的接收者。这里是以对象的属性保存起来
+  }
+  TvCommand.prototype.execute = function () {
+    this.recevier.open();
+  }
+  TvCommand.prototype.undo = function () {
+    this.recevier.close();
+  }
+
+  // 执行命令函数
+  var setCommand = function (tvCommand) {
+    document.getElementById('execute').addEventListener('click', () => {
+      tvCommand.execute();
+    })
+    document.getElementById('undo').addEventListener('click', () => {
+      tvCommand.undo();
+    })
+  }
+  // 命令模式的意图在于把请求封装为对象，从而分离请求的发起者和请求的接收者（执行者）之间的耦合关系
+  // 在命令被执行之前，可以预先往命令对象中植入命令的接收者
+  var tvCommand = new TvCommand(Tv);
+  setCommand(tvCommand);
+</script>
+
+</html>

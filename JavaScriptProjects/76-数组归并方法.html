@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 归并常用于做累加运算，一行代码搞定，比较简洁且高校
+    let values = [1, 2, 3, 4, 5];
+    // 只给一个参数的时候默认第一次调用时的prev是values[0],cur是values[1]
+    let sum = values.reduce((prev, cur, idx, arr) => prev * cur);
+    console.log(sum);
+
+    // reduceRight是从末尾到头部进行归并计算，第一次调用时prev是values[4], cur是values[3]
+    sum = values.reduceRight((prev, cur, idx, arr) => prev + cur);
+    console.log(sum);
+  </script>
+</body>
+
+</html>

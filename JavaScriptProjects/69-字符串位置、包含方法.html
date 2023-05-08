@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let stringValue = 'hello world';
+    let pos = stringValue.indexOf('o');   // 返回字符所在位置的下标
+    console.log(pos);
+
+    pos = stringValue.indexOf('o', 5);    // 第二个可选参数，意为从下标5处开始搜索
+    console.log(pos);
+
+    console.log(stringValue.startsWith('hel'));  //true
+    console.log(stringValue.endsWith('rld'));   //true
+    console.log(stringValue.includes('llo'));   //true
+
+    console.log(stringValue.startsWith('ell')); //false
+    console.log(stringValue.startsWith('ell', 1));  //true
+    console.log(stringValue.includes('llo', 3));   //false
+    console.log(stringValue.endsWith('rld', 10));   //false,对长度为10的第一个子串进行判断
+  </script>
+</body>
+
+</html>

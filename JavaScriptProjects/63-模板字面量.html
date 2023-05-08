@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let myMultiLineString = 'first line\nsecond line';
+    let myMultiLineTemplateLiteral = `first line
+  second line`  // 模板字面量会保持反引号内部的所有空格。不小心就会导致格式不当
+    console.log(myMultiLineString);
+    console.log(myMultiLineTemplateLiteral);
+
+    // 字符串插值
+    let value = 5;
+    let exponent = 'second';
+    // 以前，字符串的插值是这样实现的：
+    let interpolatedString =
+      value + ' to the ' + exponent + ' power is ' + value * value;
+    // 现在，可以用模板字面量这样实现：
+    // ${}中填入的是js表达式
+    // 所有插入的值都会强制转化为字符串
+    let interpolatedTemplateLiteral =
+      `${value} to the ${exponent} power is ${value * value}`;
+
+    console.log(interpolatedString);
+    console.log(interpolatedTemplateLiteral);
+    let obj = {
+      name: 111,
+      age: 11
+    }
+    console.log(obj);
+  </script>
+</body>
+
+</html>

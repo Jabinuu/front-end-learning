@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      {{message.split('').reverse().join('')}}
+    </div>
+    <div>
+      {{ reversedMessage }}
+    </div>
+  </div>
+
+  <script src="./lib/vue-2.6.12.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'I am a robot!'
+      },
+      /* 你可能会问:定义一个方法也能实现复杂逻辑,那计算属性和方法有什么不一样的吗? 
+        回答是:不同之处在于计算属性的值是基于他们的响应式依赖进行缓存的,只有他们的
+        依赖发生变化时计算属性才会重新求值。
+          这意味着当有许多计算属性依赖依赖于另一个需要进行大量复杂运算的计算属性时，
+        可以不必每次都进行这个复杂运算，而方法会每次都进行一次运算。
+      */
+      computed: {
+        reversedMessage() {
+          return this.message.split('').reverse().join('');
+        }
+      }
+    })
+    // 计算属性和监听器的最主要区别是计算属性不支持异步请求
+  </script>
+</body>
+
+</html>

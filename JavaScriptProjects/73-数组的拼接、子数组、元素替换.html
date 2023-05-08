@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*******************************************************/
+    // 数组的拼接
+    let colors = ['red', 'green', 'blue'];
+    let colors2 = colors.concat('yellow', ['black', 'brown']);   // concat会把数组参数的每一项元素都分开添加
+    console.log(colors2);
+
+    let newColors = ['black', 'brown'];
+    newColors[Symbol.isConcatSpreadable] = false;   // 强制不展开数组
+
+    let moreNewClors = {
+      length: 2,
+      [Symbol.isConcatSpreadable]: true,    // 强制展开数组
+      0: 'pink',
+      1: 'cyan'
+    }
+    let colors3 = colors.concat(newColors);
+    let colors4 = colors.concat(moreNewClors);
+    console.log(colors3);
+    console.log(colors4);
+
+    /*******************************************************/
+    // 获取子数组
+    let arr = ['jiabin', 'zhang', 'li', 'wang'];
+    let newArr = arr.slice(1, 3);    //跟fill和copyWitin一样不包括索引3
+    console.log(newArr);
+    newArr = arr.splice(-3);
+    console.log(newArr);
+
+    /********************************************************/
+    // 数组删除、插入、替换
+    let removed = colors.splice(0, 1);    //在索引0处删除1个元素
+    console.log(colors);
+    console.log(removed);
+
+    removed = colors.splice(1, 0, 'yellow', 'brown');   //在索引1处不删除元素，然后添加yellow和brown
+    console.log(colors);
+    console.log(removed);
+
+    removed = colors.splice(2, 1, 'pink', 'skyblue');   //把索引2的元素删除，再在同样位置添加pink和skyblue
+    console.log(colors);
+    console.log(removed);
+  </script>
+
+</body>
+
+</html>

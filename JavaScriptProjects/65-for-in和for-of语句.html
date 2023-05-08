@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr = [1, 2, 3, 4, 5];  //可迭代的对象 for-in和for-of都可
+    let stringValue = 'jiabin'; //字符串也可迭代
+    // 不可迭代的普通对象   for-in可，for-of报错
+    obj = {
+      name: 'jiabin',
+      age: 20,
+      sex: 'male',
+      tel: 123456
+    }
+    for (property in obj) {
+      document.write(property + ' ');
+    }
+    for (const iterator of arr) {
+      document.write(iterator + ' ')
+    }
+    // 使用迭代器输出每一个字符
+    for (const iterator of stringValue) {
+      console.log(iterator);
+    }
+    // 解构赋值，每一个字符组成的数组
+    console.log([...stringValue]);
+    let person = { name: "Amy", age: 15 }
+    let someone = { ...person }
+    console.log(someone);
+  </script>
+</body>
+
+</html>

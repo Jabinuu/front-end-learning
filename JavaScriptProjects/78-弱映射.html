@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const key1 = { id: 1 }, key2 = { id: 2 }, key3 = { id: 3 };
+    // 使用嵌套数组初始化弱映射
+    const wm = new WeakMap([
+      [key1, 'v1'],
+      [key2, 'v2'],
+      [key3, 'v3']
+    ])
+    console.log(wm.get(key1));    //映射都是用get获取值的，用has来查询的，用set新增键值对的，用delete删除键值对的
+    console.log(wm.get(key2));
+    console.log(wm.get(key3));
+
+    // 报错：因为WeakMap的键只能是对象或继承自对象的类型
+    const wm1 = new WeakMap([
+      [key1, 'vv1'],
+      [function () { }, 'vv2'],   // 对的
+      ['jiabin', 'vv4'],      //错的
+      [key3, 'vv3']
+    ])
+    // 不过，原始值可以用显示的构造函数来包装成对象
+    let stringKey = new String('zhangqing');
+    wm1.set(stringKey, 'vv5');
+  </script>
+
+</body>
+
+</html>

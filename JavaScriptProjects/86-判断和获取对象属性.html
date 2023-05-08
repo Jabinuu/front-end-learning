@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* in操作符
+      1.单独使用时，会在通过对象可以访问到该属性时返回true，不管该属性是在实例上还是原型上  
+      2.for...inz中使用
+    */
+    function Person() { };
+    Person.prototype.name = 'jiabin';
+    let person = new Person;
+    person.age = 23;
+    person.job = 'Software engineer';
+    console.log('name' in person);  //true
+    console.log('age' in person);   //true
+
+    // for-in会遍历实例和原型中所有可枚举的属性
+    for (const x in person) {
+      console.log(x);
+    }
+
+    /* 获取对象属性keys()、getOwnPropertyNames() */
+    console.log(Object.keys(Object.getPrototypeOf(person)));   //keys()只返回实例本身的可枚举属性
+    console.log(Object.getOwnPropertyNames(person.__proto__));  //getOwnPropertyNames()可以返回实例本身的所有属性，不管是否可枚举
+
+    let arr = new Array();
+    console.log(arr);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // double()是异步函数
+    function double(value) {
+      console.log('entered');
+      setTimeout(() => {
+        setTimeout(console.log, 0, value * 2)   //这个叫回调函数
+      }, 1000)
+      console.log(444);
+    }
+    double(3);
+    console.log(333);
+
+
+    /* 如果想利用异步函数的返回值该怎么办呢？ */
+    // 答案是在异步函数中把回调函数作为一个参数，并把有用的值作为回调函数的参数
+    function double_(value, callback) {
+      setTimeout(() => callback(value * 2), 1000);
+    }
+    double_(3, (x) => console.log(x));   //输出6
+  </script>
+</body>
+
+</html>

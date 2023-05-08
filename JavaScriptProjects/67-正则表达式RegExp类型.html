@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // let pattern = /.at/gi;    // 字面量定义法，匹配字符串中以at为结尾的3字符组合，全局模式且不区分大小写
+    let pattern = new RegExp('.at', 'gi');  //构造函数定义法，参数1是匹配模式（字符串类型），参数2是匹配模式的标记（字符串类型）
+    let str = 'cat, GaT, naa';
+    let matches = pattern.exec(str);
+    console.log(matches.index);
+    console.log(matches[0]);
+    console.log(matches[1]);   // (.at)
+    console.log(pattern.lastIndex);
+
+    matches = pattern.exec(str);     // 对str字符串执行匹配模式
+    console.log(matches.index);     //此次匹配的起始位置
+    console.log(matches[0]);        // 匹配的到的子串
+    console.log(pattern.lastIndex);   //lastIndex：下一次匹配的开始位置
+
+  </script>
+</body>
+
+</html>

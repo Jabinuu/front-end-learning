@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="execute">点击我执行execute命令</button>
+  <button id="undo">点击我执行undo命令</button>
+  <script>
+    // 命令的接收者对象
+    var Tv = {
+      open: function () {
+        console.log('打开电视机');
+      },
+      close: function () {
+        console.log('关闭电视机');
+      }
+    };
+
+    // 把请求封装为对象
+    var createCommand = function (recevier) {
+      var execute = function () {
+        return recevier.open()
+      };
+      var undo = function () {
+        return recevier.close()
+      };
+      // 下面这个是闭包，以此形成包含接收者的环境
+      return {
+        execute,
+        undo
+      };
+    }
+
+    // 执行命令函数
+    var setCommand = function (command) {
+      document.getElementById('execute').addEventListener('click', () => {
+        command.execute();
+      })
+      document.getElementById('undo').addEventListener('click', () => {
+        command.undo();
+      })
+    }
+    setCommand(createCommand(Tv));
+  </script>
+</body>
+
+</html>

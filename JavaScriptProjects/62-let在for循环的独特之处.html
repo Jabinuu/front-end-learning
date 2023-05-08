@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 问题1：用var声明的迭代变量会渗透到循环体的外部, 而let不会，因为let变量的作用域是块级的
+    for (var i = 0; i < 5; i++) {
+    }
+    console.log(i);  // 5 
+
+    for (let j = 0; i < 5; i++) {
+    }
+    // console.log(j);  //报错
+
+    // 问题2：用let在for循环里声明循环变量的话，V8引擎会为每次迭代声明一个新的对应值的迭代变量
+    for (var i = 0; i < 5; i++) {
+      setTimeout(() => { console.log(i); }, 1)
+    }
+    for (let i = 0; i < 5; i++) {
+      // 每次迭代引用的都是不同的独立的变量实例
+      setTimeout(() => { console.log(i); }, 1)
+    }
+  </script>
+</body>
+
+</html>

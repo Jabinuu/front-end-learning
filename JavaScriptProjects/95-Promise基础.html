@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // /* 通过执行函数控制Promise的状态 */
+    // let p1 = new Promise((resolve, reject) => resolve());   // 通过执行器函数的两个函数参数实现状态的初始化
+    // setTimeout(console.log, 0, p1);
+    // let p2 = new Promise((resolve, reject) => reject());
+    // setTimeout(console.log, 0, p2)
+    // // 只要调用了resolve()或reject(),promise对象的状态就不能改变了
+
+    // /* 初始化promise声明时的状态 */
+    // setTimeout(console.log, 0, Promise.resolve());   // 调用Promise的静态方法resolve() 实例化一个初始状态为resolved的promise
+    // setTimeout(console.log, 0, Promise.resolve(3, 4, 5));  //resolve()的第一个参数是传给promise的值，后面的参数无效。这个相当于把原始值包装成了promise实例
+    // // resolve()静态方法可以包装任何类型的值，包括error对象
+    // setTimeout(console.log, 0, Promise.resolve(new Error('foo')));
+    // setTimeout(console.log, 0, Promise.reject(3));
+
+    let p3 = new Promise((resolve, reject) => { setTimeout(reject, 2000, new Error('my error')) });
+    p3.catch((err) => console.log('捕获'));
+    console.log(p3);
+    setTimeout(console.log, 2000, p3);
+  </script>
+</body>
+
+</html>

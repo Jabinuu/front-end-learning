@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let num = 0;
+    // 加一个标签
+    outermost:
+    for (let i = 0; i < 10; i++) {
+      for (let j = 0; j < 10; j++) {
+        if (i === 5 && j === 5) {
+          //使用break或continue引用标签。使得本来break只跳出内层循环，现在可以跳到outermost那层循环
+          break outermost;
+        }
+        num++;
+      }
+    }
+    console.log(num); //55
+
+    let num1 = 0;
+    outermost:
+    for (let i = 0; i < 10; i++) {
+      for (let j = 0; j < 10; j++) {
+        if (i === 5 && j === 5) {
+          continue outermost;
+        }
+        num1++;
+      }
+    }
+    console.log(num1); //95
+  </script>
+</body>
+
+</html>

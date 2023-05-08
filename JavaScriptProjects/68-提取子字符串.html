@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let stringValue = 'hello world';
+    console.log(stringValue.slice(3));    //提取从idx = 3到字符串结束的子串
+    console.log(stringValue.substring(3));
+    console.log(stringValue.substr(3));
+
+    console.log(stringValue.slice(3, 7));   // 从idx = 3到idx = 7提取子串
+    console.log(stringValue.substring(3, 7));
+    console.log(stringValue.substr(3, 7));    // 从idx = 3开始提取长度为 7 的子串
+
+    // 参数为负数时
+    console.log(stringValue.slice(-3, -1));    //slice的负数参数意为：所有负数参数视为倒数第n位
+    console.log(stringValue.substring(-3));    //substring的负数参数意为：所有负数参数视为0
+    console.log(stringValue.substr(3, -2));   //substr的负数参数意为：第一个是倒数第n位，第二个视为0
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.name = 'anne';
+    // 外层的function是作为对象的方法调用的，所以this指向对象；而return的函数不是作为对象的方法调用，那么他里面的this指向的就是window了
+    Function.prototype.bind = function (context) {
+      var self = this;    //这里的this是21行的那个函数
+      return function () {
+        return self.apply(context, arguments);
+        // console.log(this);  这里的this是window
+      }
+    }
+    var obj = {
+      name: 'sven'
+    }
+    var Func = function () {
+      alert(this.name)
+    }.bind(obj);
+    // Function.prototype.bind(arg)用于指定this指向arg对象，作用类似于call和apply，是他俩的套壳函数
+    Func();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

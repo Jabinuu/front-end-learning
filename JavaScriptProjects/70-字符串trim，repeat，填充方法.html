@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 消除两端多余空格
+    let stringValue = '   hello world  ';
+    console.log(stringValue.trim());   // 去除字符串两边的空格
+
+    // 重复复制n遍字符串
+    stringValue = 'na ';
+    console.log(stringValue.repeat(5));   //对字符串复制5次
+
+    // 填充字符串
+    stringValue = 'foo';
+    console.log(stringValue.padStart(6, '.'));  //指定字符串的长度，若原字符串长度小于6，则在开头填充字符（默认是空格）
+    console.log(stringValue.padEnd(6));  //在字符串末尾填充
+
+    // 字符串比较大小
+    console.log(stringValue.localeCompare('abb'));   // 字符串比字符串参数大，返回正值
+    console.log(stringValue.localeCompare('foo'));   // 相等返回0
+    console.log(stringValue.localeCompare('zoo'));   // 字符串比字符串参数小，返回负值
+
+    let valus = [1, { name: 'jiabin' }, 6, 11];
+    let va = Array.from(valus);
+    // let va = valus;
+    valus[0] = 2;
+    valus[1].name = 'zq';
+    alert(valus === va);
+    console.log(va);
+    console.log(valus);
+  </script>
+
+</body>
+
+</html>

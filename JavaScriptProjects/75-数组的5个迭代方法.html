@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+    console.log(numbers.every((elem) => elem > 2));         // 全部元素都符合条件才返回true
+    console.log(numbers.some((elem, idx, arr) => elem > 2));   //有一个元素符合条件就返回true
+    console.log(numbers.map((elem, idx, arr) => elem **= 2));  //返回一个经映射后的数组
+    console.log(numbers.filter((elem, dix, arr) => elem > 2));  //返回符合条件的元素组成的数组
+    numbers.forEach((elem, idx, arr) => {
+      console.log(elem);
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* promise.prototype.then()方法 */
+    function onResolved(id) {
+      setTimeout(console.log, 0, id, 'resolved');
+    }
+    function onRejected(id) {
+      setTimeout(console.log, 0, id, 'rejected');
+    }
+    let p1 = new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    let p2 = new Promise((resolve, reject) => setTimeout(reject, 3000));
+    let p3 = p1.then(() => onResolved('p1'), () => onRejected('p2'));   // then()的参数1为解决处理程序，参数2为拒绝处理程序
+    let p4 = p2.then(null, () => onRejected('p2'));   //如果不添加解决处理程序，那就设为null，节约空间时间
+    console.log(p3);// then()方法返回一个新的promise
+    console.log(p4);
+
+    /* promise.prototype.catch()方法，其实就是then(null, () => onRejected())的语法糖 。用于给promise添加拒绝处理程序*/
+    /* promise.prototype.finally()方法，无论是解决还是拒绝都会执行其内的finally处理程序。 */
+
+    /* 非重入promise方法 */
+    let p = Promise.resolve();
+    p.then(() => setTimeout(console.log, 0, 'onResolved handler'));
+    console.log(111);  //会比then的处理程序先执行。
+    // 即使then处理程序已经被推进任务队列，但这个处理程序在当前线程的同步代码执行完成前不会执行，
+    // 先添加处理程序再解决promise结果也是一样的。
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const nameKey = 'name';
+    const ageKey = 'age';
+    const jobKey = 'job';
+    // 如果想把变量的值作为对象的属性（动态属性赋值），在ES6之前只能通过中括号语法实现
+    let person = {};
+    person[nameKey] = 'Matt';
+    person[ageKey] = 22;
+    person[jobKey] = 'programmer';
+    console.log(person);
+    // 而在ES6之后，可以通过可计算属性实现动态属性赋值
+    let newPerson = {
+      [nameKey]: 'jiabin',
+      [ageKey]: 23,
+      [jobKey]: 'engineer'
+    }
+    console.log(newPerson);
+    // 可计算属性的中括号中包围的是个js表达式
+    let uniqueToken = 0;
+    function getUniqueKey(key) {
+      return `${key}_${uniqueToken++}`;
+    }
+    let newPerson1 = {
+      [getUniqueKey(nameKey)]: 'zhangqing',
+      [getUniqueKey(ageKey)]: 22,
+      [getUniqueKey(jobKey)]: 'doctor'
+    }
+    console.log(newPerson1);
+
+    /* 简写方法名 */
+    const methodKey = 'getSpeak'
+    person = {
+      name_: 'jiabin',
+      getName: function () {
+        console.log(this.name_);
+      },
+      newGetName() {    // 这是es6的语法糖，而非vue的功能
+        console.log(`new ${this.name_}`);
+      },
+      // 简写方法名同样适用于set和get函数
+      // 普通方法直接定义了访问器属性name和他的set get函数
+      get name() {
+        return this.name_;
+      },
+      set name(newValue) {
+        this.name_ = newValue
+      },
+      // 简写方法名和可计算属性是可以梦幻联动的
+      [methodKey]() {
+        console.log('I am Chinese');
+      }
+    }
+    person.getName();
+    person.newGetName();
+    person.getSpeak();
+    person.name = 'zhangqing';
+    console.log(person.name_);
+  </script>
+</body>
+
+</html>

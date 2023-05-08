@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 类的定义：类表达式 和 类声明
+    let Vegetable = class Myvegetable { };   //类表达式相当于给类起了个别名,别名有name属性记录原来的类名称
+    let instance = new Vegetable;
+    console.log(instance instanceof Vegetable);
+    console.log(Vegetable.name);
+
+    // 类的构成：函数方法，实例方法，获取函数get，设置函数set，静态类函数,构造函数。但这都不是必须的
+    class Animal { }  // 空类合法
+    class Person {
+      // 构造函数
+      constructor(name) {
+        this.name = name;
+      };
+      get Baz() { };       //获取函数和设置函数
+      set Qux(name) { };
+      static myQux() { };  //静态方法
+    }
+    // 类的实例化
+    let p1 = new Person('jiabin');
+    let p2 = new p1.constructor('zq');  //构造函数也是普通的实例方法，用new调用它，创建一个新的实例
+    console.log(p1.name);
+    console.log(p2.name);
+
+  </script>
+</body>
+
+</html>

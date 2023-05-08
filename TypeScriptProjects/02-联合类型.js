@@ -1,0 +1,13 @@
+"use strict";
+let a;
+let b;
+let c;
+let d;
+let e;
+let f;
+f = 10;
+f = 'jiabin';
+c = f;
+c = f;
+c = 'jiabin';
+c = 'jia';

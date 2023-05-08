@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-开头的是vue指令,可以接收参数(使用:),比如下面的v-bind指令的参数就是href -->
+    <a v-bind:href="url" target="_blank">我的博客</a>
+    <!-- 在这里v-on指令用:指定了一个 click 事件作为该指令的参数 -->
+    <button v-on:click>点击</button>
+    <!-- 在这里v-if指令不需要指定参数 -->
+    <p v-if='false'>hello world</p>
+    <!-- 动态参数 -->
+    <button v-on:[eventName]="doSomething">动态参数</button>
+    <!-- .修饰符,用于指出一个指令应该以特定方式绑定,这里的.prevent表示当submit事件触发时,调用event.preventDefault() -->
+    <form @submit.prevent="onSubmit"></form>
+  </div>
+
+  <script src="./lib/vue-2.6.12.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        url: 'http://www.mongobin.top:32',
+        eventname: 'click'
+      },
+      methods: {
+        doSomething() {
+          console.log(arguments.callee);
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

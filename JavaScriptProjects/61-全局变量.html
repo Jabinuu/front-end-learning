@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 意外声明全局变量。这样相当于是给window添加了一个name属性，一次窗口不关闭，该变量永远不会消失，造成内存泄漏
+    // 解决方法是：声明时加上var，let，const关键字即可，让它成为函数作用域下的局部变量
+    function setName() {
+      name = 'jiabin';
+    }
+    setName()
+    console.log(window.name);
+
+    var cat = 'doubao';   // var会将全局变量挂在window的属性上，而let不会
+    let age = 3;
+
+    console.log(window.age);
+    console.log(window.cat);
+  </script>
+  <script>
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

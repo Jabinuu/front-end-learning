@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    async function foo() {
+      console.log(2);
+      console.log(await Promise.resolve(8));
+      // console.log(await new Promise((resolve, reject) => setTimeout(resolve, 0, 8)));
+      console.log(9);
+    }
+    async function bar() {
+      console.log(4);
+      console.log(await 6);
+      console.log(7);
+    }
+    console.log(1);
+    foo();
+    console.log(3);
+    bar();
+    // 宏任务执行完了，才会逐个出队执行其下的微任务队列
+    console.log(5);
+
+  </script>
+</body>
+
+</html>

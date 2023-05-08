@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function Person() { };
+    Person.prototype.name = 'jiabin';
+    var person1 = new Person();
+    // 1. Object类型的getPrototypeOf()方法可以轻松的获取对象的原型
+    console.log(Object.getPrototypeOf(person1).name);
+
+    var cat = { catName: 'doubao' };
+    function Cat() { this.catName = 'bingbing' };
+    // 2. Object类型的create()方法会创建一个新的对象，并且指定该新对象的原型是谁(指定继承关系)
+    // 该方法是对Object.setPrototypeOf()造成浏览器效率低下的改进方法
+    var person2 = Object.create(cat);
+    console.log(person2.catName);
+    console.log(person2.constructor);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

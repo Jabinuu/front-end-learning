@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // from()的作用是将一个类数组（可迭代的结构,迭代器）转化为数组；也可对一个数组进行浅拷贝
+    // of()的作用是将其参数转化为数组
+    let arr = [1, 2, 3, { name: 'jiabin', age: 20 }];
+    let arrCopy = Array.from(arr);     // 浅拷贝一份arr。 js中的这种函数都是不彻底的拷贝————浅拷贝
+    console.log(arrCopy);
+    console.log(arrCopy === arr);       //false 数组值确实拷贝了一份，但没有拷贝数组元素中的对象的值
+
+    function func() {
+      let args = Array.from(arguments);
+      console.log(args);
+    }
+
+    console.log(Array.of(1, 2, 3, 6, 8));   // 将他的参数转化为数组
+    console.log(Array.prototype);
+    console.log([, , , , ,]);
+    console.log(Array.from(arr.entries()));   // arr.entries()返回的是键值对的迭代器，用from将其转化为数组
+  </script>
+
+</body>
+
+</html>

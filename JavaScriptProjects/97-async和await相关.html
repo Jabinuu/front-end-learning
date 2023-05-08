@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* async关键字的用法 */
+    async function f1() { };    // 函数声明
+    let f2 = async function () { };  //函数表达式
+    async () => { };    //箭头函数
+    class Qux {        // 方法
+      async qux() { }
+    };
+    (async function () { })()   //立即调用函数
+    /* async声明的异步函数的返回值会被Promise.resolve()包装成一个解决的promise实例；如果返回值本身具有thenable接口，那就不需要进行包装了 */
+    async function foo() {
+      console.log(1);
+      return 3;
+    }
+    console.log(foo());
+
+    /* await关键字用法 */
+    async function baz() {
+      console.log('entered');
+      let p = new Promise((resolve, reject) => setTimeout(resolve, 1000, 33));
+      console.log(await p);    //await能够解包promise实例的值！！
+      console.log(111);     //await后面的代码会被暂停，直到awiat的promise对象落定,在此期间异步函数外部的代码继续执行（await类似于生成器函数中的yield）
+    }
+    baz();
+    console.log(222);
+
+
+    async function bar() {
+      console.log(await Promise.resolve('bar'));
+    }
+    bar();
+  </script>
+</body>
+
+</html>

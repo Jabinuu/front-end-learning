@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr = [0, 0, 0, 0, 0, 0];
+    arr.fill(1);   // 全部填充为1；
+    console.log(arr);
+    arr.fill(0);
+
+    arr.fill(2, 3);   //用2填充从索引3开始到数组末尾的元素
+    console.log(arr);
+    arr.fill(0);
+
+    arr.fill(6, 3, 5);  // 用6填充从索引3开始到小于索引5的元素
+    console.log(arr);
+    arr.fill(0);
+    // fill也支持负值索引；忽略超出数组边界，方向相反
+
+
+    let inits = [],
+      reset = () => inits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    reset();
+    // 复制索引0~5(不包含5)的元素到5~end的位置
+    inits.copyWithin(5);
+    console.log(inits);
+    reset();
+
+    // 复制索引5~end的值到索引0开始的位置
+    inits.copyWithin(0, 5);
+    console.log(inits);
+    reset();
+
+    // 复制索引0~3(不包括3)的元素到索引4开始的位置
+    inits.copyWithin(4, 0, 3);
+    console.log(inits);
+    reset();
+
+    // 
+    inits.copyWithin(0, 2, 6);
+    console.log((inits));
+  </script>
+</body>
+
+</html>

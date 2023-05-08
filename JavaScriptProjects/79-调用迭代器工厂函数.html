@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let obj1 = { name: 'jiabin' };
+    const i = obj1;
+    obj1.name = 'zq';
+    console.log(i);
+
+    let num = 1, obj = {};
+    console.log(num[Symbol.iterator]);   //undefined
+    console.log(obj[Symbol.iterator]);   //undefined ,原因是数字类型和对象是不可迭代的
+
+    let str = 'abc', arr = ['a', 'b', 'c'];
+    let map = new Map().set('jia', 'bin').set({}, 2).set(1, 'abc');
+    let set = new Set().add({}).add('abc');
+    console.log(str[Symbol.iterator]);  // 返回valuse()迭代器工厂函数
+    console.log(str[Symbol.iterator]);
+    console.log(str[Symbol.iterator]);
+
+    console.log(str[Symbol.iterator]());  //返回StringIterator迭代器
+    console.log(arr[Symbol.iterator]());  //返回ArrayIterator迭代器
+    console.log(map[Symbol.iterator]());  //返回MapIterator迭代器
+  </script>
+</body>
+
+</html>

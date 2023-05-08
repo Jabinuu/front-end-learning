@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    fa();   // 函数提升只针对于声明式的写法，不提升函数表达式写法
+    fb();
+    var fa = function () {
+      console.log('aa');
+    }
+    function fb() {
+      console.log('bb');
+    }
+    // 函数提升的优先级高于变量提升
+    // 变量提升：在代码执行前，js引擎会进行预编译，将所有var变量声明都提升到其作用域中所有代码之前
+    // 变量提升只提升声明，而不提升初始化
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

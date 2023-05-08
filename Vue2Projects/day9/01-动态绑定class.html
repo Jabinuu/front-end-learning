@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="app1">
+		<div :class="active">{{time}}</div>
+		<button @click="ss">
+			切换class
+		</button>
+	</div>
+	<script src="./lib/vue-2.6.12.js"></script>
+	<script>
+		const vm = new Vue({
+			el: '#app1',    // 一个vue实例控制一个dom
+			data: {
+				active: {
+					person: true,
+					animal: false,
+					engineer: true,
+					doctor: false
+				},
+				time: new Date().toLocaleString()   // toLocaleString()显示的是格式化后的时间，跟win10的格式一样
+			},
+			methods: {
+				ss() {
+					this.active.doctor = !this.active.doctor;
+				}
+			},
+
+		})
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 利用对象的特权方法，模拟实现私有变量和方法 */
+
+    // 把私有变量和方法在构造函数中实现
+    function MyObject() {
+      let privateVariable = 10;
+      function privateFunction() {
+        return false;
+      }
+
+      // 这个对象的私有成员只能由特权函数才能访问到
+      this.publicMethod = function () {  //特权方法，是个闭包，外部函数是构造函数
+        privateVariable++;
+        return privateFunction();
+      }
+    }
+    let myObject = new MyObject();
+    console.log(myObject.publicMethod());
+
+    /* 静态私有变量 */
+    // 与上面的构造函数模式相比，需要区别是静态私有变量和方法是由所有实例共享的。而构造函数模式是独有的，不重用的。
+    (function () {
+      let privateVariable = 10;
+      function privateFunction() {
+        return false;
+      }
+      MyObject = function () { console.log(privateVariable); };  // 未使用声明关键字，是全局变量，形成闭包
+      MyObject.prototype.publicMethod = function () {   //也是闭包
+        privateVariable++;
+        return privateFunction();
+      }
+    })();
+    let obj = new MyObject();
+    console.log(obj.publicMethod());
+
+    /* 模块模式 */
+    // 以上的两种模式都是通过自定义类型创建了私有变量和特权方法。而这里将在单例对象上实现相同的隔离和封装。
+    let singleton = (function () {
+      let privateVariable = 10;
+      function privateFunction() {
+        return false;
+      }
+      // 返回一个单例对象(字面量定义的)
+      return {
+        publicProperty: true,
+        publicMethod() {
+          privateVariable++;
+          return privateFunction();
+        }
+      }
+    })();
+    console.log(singleton.publicMethod());
+
+    /* 模块增强模式 */
+    let single1 = (function () {    //创建一个包含作用域
+      let privateVariable = 10;
+      function privateFunction() {
+        return false;
+      }
+
+      let obj = new Object();   //可以是一个指定的类型
+      obj.publicProperty = true;   //对这个对象进行增强，即赋予公共变量和方法
+      obj.publicMethod = function () {
+        privateVariable++;
+        return privateFunction();
+      }
+      return obj;  // 返回这个单例对象
+    })();
+
+  </script>
+</body>
+
+</html>

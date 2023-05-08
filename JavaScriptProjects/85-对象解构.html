@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let person = {
+      name: 'Matt',
+      age: 27
+    };
+    // 给person的name属性起一个别名personName
+    let { name: personName, age: ageName } = person;
+    console.log(personName);
+    console.log(ageName);
+    // 当要声明的变量名与属性同名时，可以简写如下
+    let { name, age, sex, job = 'engineer' } = person;
+    console.log(name);
+    console.log(age);
+    console.log(sex);// 如果对象中没有此属性，那么会赋值一个undefined
+    console.log(job); // 可以在解构赋值的同时，声明并初始化一个变量，适用于对象中没有此属性的情况
+    /* 嵌套解构 */
+    person = {
+      name: 'Matt',
+      age: 27,
+      job: {
+        title: 'Software engineer'
+      }
+    };
+    // 如果要给已经事先声明过的变量赋值，必须要用括号包含这个解构赋值表达式
+    let personCopy = {};
+    ({ name: personCopy.name, age: personCopy.age, job: personCopy.job } = person)
+    console.log(personCopy);   // 当然解构赋值仍然是浅拷贝，job对象复制的是引用
+
+    // 解构赋值可以使用嵌套解构，以匹配嵌套的属性（解构里面再嵌套一层解构）
+    let { job: { title: titleCopy } } = person;
+    console.log(titleCopy);
+
+    /* 部分解构。 如果在解构赋值过程中有一个error抛出。那么前面已经被赋值的不受影响，而后面的则赋值失败 */
+  </script>
+</body>
+
+</html>

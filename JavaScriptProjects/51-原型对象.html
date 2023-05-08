@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // let Person = function(){};
+    function Person() { };
+    // 创建一个对象的具体流程：
+    // 1. 从根对象复制一个新的对象到内存中
+    // 2. 新对象的[[prototype]]属性被赋值为构造函数的prototype对象
+    // 3. 构造函数中的this指向新对象
+    // 4. 执行构造函数中的程序
+    // 5. 构造函数返回一个创建好的新对象
+    var person1 = new Person;
+    var person2 = new Person;
+    console.log(typeof Person.prototype);
+    console.log(Person.prototype);
+    console.log(Person.prototype.__proto__ === Object.prototype);
+    console.log(Person.prototype.__proto__.constructor === Object);
+    console.log(Person.prototype.__proto__.__proto__);
+    console.log(person1.__proto__ === Person.prototype);  //instanceof 的判断原理
+    console.log(person1.__proto__.constructor === Person);
+    console.log(person1.__proto__ === person2.__proto__);  // 同一个构造器创建的两个对象共享同一个原型对象
+    console.log(person1 instanceof Person);   // 验证对象类型，结果person1既是Person类型又是Object类型
+    console.log(person1 instanceof Object);
+    console.log(person1.__proto__ instanceof Object);
+
+    // 给构造函数的原型对象添加属性和方法。这样即便Person本身没有这些属性和方法，根据原型链Person的实例也会去他它的原型调用这些属性和方法，
+    // 而且这些属性和方法被所有实例所共享
+    Person.prototype.name = 'jiabin';
+    Person.prototype.sayName = function () {
+      console.log('I am ' + this.name);
+    }
+    person1.sayName()
+    person2.sayName()
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

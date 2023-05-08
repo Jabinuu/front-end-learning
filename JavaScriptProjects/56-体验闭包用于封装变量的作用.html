@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // var cache = {};
+    // var mult = function () {
+    //   var args = Array.prototype.join.call(arguments, ',');
+    //   if (cache[args]) {
+    //     console.log('访问缓存');
+    //     return cache[args]
+    //   }
+    //   var a = 1;
+    //   for (var i = 0; i < arguments.length; i++) {
+    //     a *= arguments[i];
+    //   }
+    //   return cache[args] = a;
+    // }
+
+    var mult = function () {    //匿名函数1
+      var cache = {};    //利用闭包特性，将全局变量改为局部变量，封闭在mult内部
+      return function () {      //匿名函数2
+        var args = Array.prototype.join.call(arguments, ',');
+        if (cache[args]) {
+          console.log('访问缓存');
+          return cache[args]
+        }
+        var a = 1;
+        for (var i = 0; i < arguments.length; i++) {
+          a *= arguments[i];
+        }
+        return cache[args] = a;
+      }
+    }();   //通过立即执行函数，mult返回了一个匿名函数2的引用，它可以访问到匿名函数1运行时的环境，
+    //cache正是在这个环境当中，由于这个环境可以一直被mult访问到，所以局部变量cache就有了不被销毁的理由 
+    console.log(mult(1, 2, 3));
+    console.log(mult(1, 2, 3));
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

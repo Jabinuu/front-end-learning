@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // assign将源对象的可枚举属性复制到目标对象，是浅拷贝
+    let dest, src, result;
+    /* 简单复制*/
+    dest = {};
+    src = { id: 'src', name: 'jiabin' };
+    result = Object.assign(dest, src);  // assign既修改目标对象，也返回修改后的目标对象
+    console.log(result);
+    console.log(result === dest);    //true
+
+    /* 多个源对象 */
+    dest = { a: 'jia' };
+    result = Object.assign(dest, { a: 'foo' }, { b: 'bar' });
+    console.log(dest);
+
+    /* 同名属性会覆盖，可以通过目标的set函数观察到 */
+    dest = {
+      a: 'jia',
+      // 修改属性a时调用这个set函数
+      set a(val) {
+        console.log(val);
+      }
+    };
+    Object.assign(dest, { a: 'a' }, { a: 'b' }, { a: 'c' });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <mycom></mycom>
+    <ol class="todo-list">
+      <todo-item v-for="item in groceryList" :key="item.id" :todo="item.text"></todo-item>
+    </ol>
+
+  </div>
+
+  <script src="./lib//vue-2.6.12.js"></script>
+  <script>
+    // 全局api extend()的作用是：使用基类Vue的构造器，创建一个'子类'(即组件)的构造器，
+    // 并将它返回。参数是包含组件选项的对象，其中data必须是函数。原因参考寄生式组合继承，
+    // 为了让每个组件实例都独立的数据。
+    const Profile = Vue.extend({
+      template: '<p>{{firstname}} {{lastname}} aka {{alias}}</p>',
+      data() {
+        return {
+          firstname: 'jia',
+          lastname: 'bin',
+          alias: 'Xiamen'
+        }
+      }
+    })
+    // 全局api component()的作用是利用组件构造器实例化一个组件对象。参数1是组件的名称,参数2是组建的构造器
+    // 不过如果只写选项对象,该方法会自动调用extend()把他变为构造器
+    Vue.component('mycom', Profile);
+    Vue.component('todo-item', {
+      template: '<li>这是个待办项 {{todo}}</li>',
+      data() {
+        return {
+
+        }
+      },
+      props: {
+        todo: {
+          type: String,
+          default: 'sss',
+          required: false
+        }
+      }
+    })
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        groceryList: [
+          { id: 0, text: '蔬菜' },
+          { id: 1, text: '奶酪' },
+          { id: 2, text: '随便其它什么人吃的东西' }
+        ]
+      },
+      // 在选项对象中的函数不要定义为箭头函数,因为箭头函数的this指向的是定义该函数时的上下文对象,在这里是window
+      // 而我们希望的this应该是指向这个Vue实例的,所以应该用标准函数定义,因为标准函数的this指向的是把它当作方法调用的对象
+      created() {
+        console.log(this);
+        console.log(window);
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var currying = function (fn) {
+      args = [];
+      return function () {
+        if (arguments.length === 0) {
+          console.log(args);
+          // fn(args) X 当调用函数内部没有声明形参，用的是arguments时，只能用apply将参数数组推过去，否则是一个字符串
+          return fn.apply(this, args);
+        }
+        else {
+          [].push.apply(args, arguments)
+        }
+      }
+    }
+
+    var cost = function () {
+      let money = 0;
+      console.log(arguments.length);
+      for (let i = 0; i < arguments.length; i++) {
+        money += arguments[i];
+      }
+      return money;
+    }
+    cost = currying(cost);   //传入原cost函数，调用currying将其柯里化
+    cost(100);
+    cost(200);
+    console.log(cost());
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

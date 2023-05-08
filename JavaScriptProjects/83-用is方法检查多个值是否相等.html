@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* Object.is()本身只能传递两个参数，比较两个数据的相等性。如果想判断多个值的相等性，可利用递归从而嵌套出一个api */
+    // 递归的实现相对性传递
+    function recursivelyCheckEqual(x, ...rest) {
+      return Object.is(x, rest[0]) && (rest.length < 2 || recursivelyCheckEqual(...rest));
+    }
+    console.log(recursivelyCheckEqual(1, 1, 1, 1, 1, 1, 1, 2));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function Person() { }
+    Person.prototype.name = 'jiabin';
+    var person1 = new Person();
+    var person2 = new Person();
+
+    person1.name = 'zhangqing';   //给某个对象的属性赋一个特殊需要的值
+    console.log(person1.name);    //zhangqing
+    console.log(person2.name);    //jiabin
+
+    // hasOwnProperty(prop)方法用于确定某属性是在实例上还是在原型对象上。这个方法继承自Object类型
+    console.log(person1.hasOwnProperty('name'));  // true ，因为对象本身的同名属性对原型的造成了遮蔽
+    console.log(person2.hasOwnProperty('name'));  // false，因为其本身没有name属性，是它的原型有name属性
+
+    // 当不需要这个特殊值的时候，用delete操作符消除对原型的属性遮蔽
+    delete person1.name;
+    console.log(person1.name);   //jiabin
+    console.log(person1.hasOwnProperty('name'));  //false
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

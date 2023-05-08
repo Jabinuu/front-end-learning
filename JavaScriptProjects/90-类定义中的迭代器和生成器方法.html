@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Person {
+      constructor() {
+        this.names = ['jiabin', 'zhangiqng', 'bingbing', 'doubao'];
+        this.age = 31;
+      }
+      /* 类定义语法也支持定义生成器 */
+      *createNameItrator() {   //在原型中定义生成器
+        yield* ['jiabin', 'zhangiqng', 'ddoubao'];
+        yield 'bingbing';
+      }
+      static *createJobItrator() {  //在类本身定义生成器
+        yield 'teacher';
+        yield 'software engineer';
+        yield 'student';
+      }
+
+      /* 可以通过添加一个默认的迭代器，把实例变成是可迭代的 */
+      [Symbol.iterator]() {
+        return this.names.entries();    // values()是获取值迭代器、keys()获取键的迭代器、entries()获取键/值对的迭代器
+      }
+    }
+    let p1 = new Person();
+    let nameIter = p1.createNameItrator();
+    for (const x of nameIter) {
+      console.log(x);
+    }
+
+    let jobIter = Person.createJobItrator();
+    console.log(jobIter.next());  // 显式调用next()没啥意义，一般都是迭代
+    console.log(...p1);    // 从此，对象改变了不能迭代的历史
+    console.log(p1[Symbol.iterator]);  //对象也有了迭代接口
+  </script>
+</body>
+
+</html>

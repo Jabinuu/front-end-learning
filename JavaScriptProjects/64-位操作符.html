@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 按位非运算的结果就是：取相反数再减1
+    let num1 = 25;        //           00000000000000000000000000011001
+    let num2 = ~num1;     // 所有位取反 11111111111111111111111111100110
+    console.log(num2); //-26。将补码转化为原码 10000000000000000000000000011010
+    // 位运算比普通的 num2 = -num1 - 1要快很多
+
+    // 按位与
+    let num3 = 8;  //  00001000
+    let num4 = 10;  // 00001010 ，每一位相与得到00001000
+    console.log(num3 & num4); // 8
+
+    // 按位或
+    console.log(num3 | num4); // 00001010 = 10
+
+    // 按位异或
+    console.log(num3 ^ num4); // 00000010 = 2
+
+    // 左移
+    let num5 = -2;
+    console.log(num5 << 3); // 向左移3位，等价于乘上2的三次方。移位不改变符号位
+
+    // 右移
+    console.log(num1 >> 3);  //向右移3位，不改变符号位
+
+    console.log(3 ** 3, num3 **= 2);   //指数运算
+  </script>
+</body>
+
+</html>
