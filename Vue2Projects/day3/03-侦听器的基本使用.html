@@ -2,36 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./lib/jquery-v3.6.0.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="./lib/jquery-v3.6.0.js"></script>
 </head>
 
 <body>
-    <div id="app">
-        <input type="text" v-model="username">
-    </div>
+	<div id="app">
+		<input type="text" v-model="username">
+	</div>
 
-    <script src="./lib/vue-2.6.12.js"></script>
-    <script>
-        const vm = new Vue({
-            el: '#app',
-            data: {
-                username: ''
-            },
-            watch: {
-                // 必须用数据名称作为监听器函数名，形参1是新数据，形参2是旧数据
-                username(newVal, oldVal) {
-                    if (!newVal) return;
-                    $.get('https://www.escook.cn/api/finduser/' + newVal, function (res) {
-                        console.log(res);
-                    })
-                }
-            }
-        })
-    </script>
+	<script src="./lib/vue-2.6.12.js"></script>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				// username: ''
+			},
+			computed: {
+				// 必须用数据名称作为监听器函数名，形参1是新数据，形参2是旧数据
+				username(newVal, oldVal) {
+					if (!newVal) return;
+					$.get('https://www.escook.cn/api/finduser/' + 'newVal', function (res) {
+						console.log(res);
+					})
+				}
+			}
+		})
+	</script>
 </body>
 
 </html>

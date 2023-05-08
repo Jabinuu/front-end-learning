@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,11 +14,13 @@
         var day = date.getDay();  // 周一是1，周六是6，但周日是0，因为周日是第一天
         console.log(day);
         //格式化
-        var arr=['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']; //因为day是阿拉伯数字，所以建立中文索引，来换成星期X的格式
-        console.log('今天是：' + year + '年' + month + '月' + dates + '日' + arr[day]);
+        var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']; //因为day是阿拉伯数字，所以建立中文索引，来换成星期X的格式
+        console.log(`今天是：${year}年${month}月${dates}日${arr[day]}`);
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>

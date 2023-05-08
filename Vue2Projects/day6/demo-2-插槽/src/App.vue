@@ -12,6 +12,9 @@
         <template #myslot>
           <p>我向插槽使用了p标签</p>
         </template>
+
+        <!-- 旧写法 -->
+        <!-- <p slot="myslot">我向插槽使用了p标签</p> -->
       </Left>
     </div>
     <Article style="display: none">

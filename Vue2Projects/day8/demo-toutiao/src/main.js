@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 // 直接在这里引用全部的vant组件
 import Vant from 'vant';
-import 'vant/lib/index.css';    //引入vant的样式
+import 'vant/lib/index.less';    //引入vant的样式
 
 Vue.use(Vant);
 

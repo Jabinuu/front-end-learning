@@ -16,10 +16,11 @@
                 console.log('被暗杀');
             }
         }
+        console.log(obj['uname']);
         //因为对象的属性和方法是无序排列的，所以无法向遍历数组那样用索引按顺序遍历
         //只能用for in，这个遍历方法既可以数组 又可以对象
         for (var key in obj) {
-            console.log(key);   //key是属性名和方法名
+            console.log(typeof key + " " + key);   //key是属性名和方法名
             console.log(obj[key]);   //想要获得属性的值，必须这样才行，参考哈希表的写法
         }
 

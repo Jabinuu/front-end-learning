@@ -28,6 +28,8 @@
         }
         // new Star() 这就是用new声明了一个对象，先开辟了存储空间，然后才进入构造函数，再赋值给一个变量
         var ldh = new Star('ldh', 23, '男'); //因此，用构造函数创建多个同类型(class)的对象很方便，不用一个属性一个属性的复制
+        let jb = new Star('jiabin', 22, '男');
+        console.log(ldh.sing === jb.sing);   // 不同实例的方法是 同名但不相等的
         console.log(ldh.name);
         ldh.sing('冰雨');
         // Star.sing();   xxxx
