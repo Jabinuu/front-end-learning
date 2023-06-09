@@ -1,75 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-
-  <script>
-  // 原型式继承
-  function create(o){
-    function F(){}
-    F.prototype = o
-    return new F()
-  }
-  let sup = {name:'jiabin'};
-  let sub = create(sup);
-  sub.age = 23
-  console.log(sub);
-
-  // 寄生式继承: 在原型式继承的基础上增强这个对象
-  function createAnother(o){
-    let clone = create(o);
-    clone.sayHi = function(){
-      console.log('hello');
-    }
-    return clone
-  }
-  
-  // 组合式继承
-  function SupType(){
-    this.name = 'jiabin';
-    this.age = 23
-  }
-  SupType.prototype.getName = function(){
-    console.log(this.name);
-  }
-  function SubType(){
-    this.job='programmer'
-    SupType.apply(this)    // 盗用父类构造函数
-  }
-  SubType.prototype = new SupType();     // 第二次调用父类构造函数
-  SubType.prototype.constructor = SubType
-  sub = new SubType()
-  console.log(sub);
-
-  // 寄生式组合继承
-  function SupType1(){
-    this.name = 'jiabin';
-    this.age = 23;
-  }
-  SupType1.prototype.getAge = function(){
-    console.log(this.age);
-  }
-
-  function SubType1(){
-    SupType.apply(this)
-    this.job = 'worker'
-  }
-
-  function inheritSupType(SupType,SubType){
-    let prototype = create(SupType.prototype);
-    prototype.constructor = SubType
-    SubType.prototype = prototype
-  }
-  inheritSupType(SupType1,SubType1);
-
-  sub = new SubType1();
-  console.log(sub);
-
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg
+      width="100px"
+      height="100px"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- 利用Z命令 -->
+      <!-- <path d="M10 10 H 90 V 90 H 10 Z" /> -->
+      <!-- 利用V命令 -->
+      <path d="M10 10 H 90 V 90" />
+    </svg>
+    <script>
+      const p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(1);
+        }, 1000);
+        console.log(555);
+      });
+      console.log(p);
+    </script>
+  </body>
 </html>
