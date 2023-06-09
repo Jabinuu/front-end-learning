@@ -67,16 +67,31 @@ class MyPromise {
   }
 
   #runOne(cb, resolve, reject) {
-    if (typeof onFulfilled === "function") {
-      try {
-        const data = cb(this.#result);
-        resolve(data);
-      } catch (error) {
-        reject(error);
+    this.#runMicroTask(() => {
+      if (typeof cb === "function") {
+        try {
+          const data = cb(this.#result);
+          if (this.#isPromiseLike(data)) {
+            data.then(resolve, reject);
+          } else {
+            resolve(data);
+          }
+        } catch (error) {
+          reject(error);
+        }
+      } else {
+        const settled = this.#state === CONSTANT.FULFILLED ? resolve : reject;
+        settled(this.#result);
       }
-    } else {
-      resolve(this.#result);
-    }
+    });
+  }
+
+  #isPromiseLike(value) {
+    return false;
+  }
+
+  #runMicroTask(func) {
+    setTimeout(func, 0);
   }
 }
 
@@ -85,7 +100,8 @@ const p = new MyPromise((resolve, reject) => {
   // reject(2);
   // throw 123;
   setTimeout(() => {
-    resolve(1);
+    resolve(1999);
+    // reject("xxx");
   }, 1000);
   // 异步错误不会引起promise状态改变！
   // setTimeout(() => {
@@ -94,26 +110,11 @@ const p = new MyPromise((resolve, reject) => {
 });
 p.then(
   (res) => {
-    console.log(1);
+    return new MyPromise((resolve, reject) => resolve(5647));
   },
   (err) => {
     console.log(err);
+    return "qqq";
   }
-);
-p.then(
-  (res) => {
-    console.log(2);
-  },
-  (err) => {
-    console.log(err);
-  }
-);
-p.then(
-  (res) => {
-    console.log(3);
-  },
-  (err) => {
-    console.log(err);
-  }
-);
+).then((res) => console.log(111222));
 console.log(p);
