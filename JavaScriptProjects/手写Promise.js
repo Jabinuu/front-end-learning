@@ -42,10 +42,28 @@ class MyPromise {
     });
   }
 
+  catch(onRejected) {
+    return this.then(undefined, onRejected);
+  }
+
+  // 不过promise的结果如何，只要落定了，就要执行onFinally
+  finally(onFinally) {
+    return this.then(
+      (data) => {
+        onFinally();
+        return data;
+      },
+      (err) => {
+        onFinally();
+        throw err;
+      }
+    );
+  }
+
   // 改变promise的状态
   #changeState(state, result) {
     // Promise对象状态一经更改，便不会再改变
-    if (this.#state !== CONSTANT.PENDING) return;
+    if (this.#state !== CONSTANT.PENDING) return; // 卫语句
     this.#state = state;
     this.#result = result;
     // Promise执行器函数是异步函数时，执行这里的#run
@@ -54,7 +72,7 @@ class MyPromise {
 
   // 调用then的回调，以及then的promise返回值
   #run() {
-    if (this.#state === CONSTANT.PENDING) return;
+    if (this.#state === CONSTANT.PENDING) return; // 卫语句：将提前结束的else分支提前写，这样能少代码量和if嵌套层数，代码清爽易读
     while (this.#handlers.length) {
       const { onFulfilled, onRejected, resolve, reject } =
         this.#handlers.shift();
@@ -86,14 +104,41 @@ class MyPromise {
     });
   }
 
+  // 判断是否是promise对象
   #isPromiseLike(value) {
+    // 根据Promise/A+ 规范，只要含有then方法的变量都是Promise，因此自定义Promise便和官方Promise有了互操性
+    if (
+      value !== null &&
+      (typeof value === "object" || typeof value === "function")
+    ) {
+      return typeof value.then === "function";
+    }
     return false;
   }
 
+  // 将任务放到微队列里。分环境，是浏览器的事件循环还是node的事件循环
   #runMicroTask(func) {
-    setTimeout(func, 0);
+    // 如果有process对象，则是node环境
+    if (typeof process === "object" && typeof process.nextTick === "function") {
+      process.nextTick(func); // node环境中，nextTick()充当微队列的作用
+    }
+    // 如果有MutationObserver 且是一个函数，那么就是在浏览器环境下
+    else if (typeof MutationObserver === "function") {
+      const observer = new MutationObserver(func); // new一个观察者对象，是用来观察DOM元素变化的，一旦变化则将回调函数扔到微队列中
+      const textNode = document.createTextNode("1"); // 创建一个DOM元素
+      // 调用观察者对象的observe方法，启动对上述元素的观察
+      observer.observe(textNode, {
+        characterData: true, // 打开观察字符变化的选项
+      });
+      textNode.textContent = "2"; // 手动改变DOM元素，触发观察者把回调函数扔到微队列中
+    } else {
+      // 如果脱离了环境，就没有了环境提供的微队列api，就只能这样了模拟了，事件循环是环境能力而不是语言能力！
+      setTimeout(func, 0);
+    }
   }
 }
+
+// setTimeout(() => console.log(999877), 0);
 
 const p = new MyPromise((resolve, reject) => {
   // resolve(1);
@@ -108,13 +153,23 @@ const p = new MyPromise((resolve, reject) => {
   //   throw 123;
   // }, 0);
 });
-p.then(
-  (res) => {
-    return new MyPromise((resolve, reject) => resolve(5647));
-  },
-  (err) => {
-    console.log(err);
-    return "qqq";
-  }
-).then((res) => console.log(111222));
+// p.then(
+//   (res) => {
+//     return new Promise((resolve, reject) => resolve(5647));
+//     // return 123;
+//   },
+//   (err) => {
+//     console.log(err);
+//     return "qqq";
+//   }
+// ).then((res) => console.log(111222));
+
+// p.catch((error) => {
+//   console.log(error);
+// });
+
+p.finally(() => console.log("finally")).then(
+  (res) => console.log(res),
+  (err) => console.log(err)
+);
 console.log(p);
