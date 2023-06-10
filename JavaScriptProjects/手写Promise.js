@@ -60,10 +60,13 @@ class MyPromise {
     );
   }
 
+  // 如果参数是一个MyPromise则直接返回；
+  // 如果参数是一个thenable的值，则以它的状态变化为依据改变返回的MyPromise的状态；
+  // 如果参数是一个普通的值，则直接resolve
   static resolve(data) {
     if (data instanceof MyPromise) return data;
     let _resolve, _reject;
-    // // 静态成员访问不到实例成员，所以要new一个实例出来，调用实例方法
+    // 静态成员访问不到实例成员，所以要new一个实例出来，调用实例方法
     const p = new MyPromise((resolve, reject) => {
       _resolve = resolve;
       _reject = reject;
@@ -76,6 +79,7 @@ class MyPromise {
     return p;
   }
 
+  // 无论参数是个啥，都作为原因拒绝掉，返回一个新的promise
   static reject(reason) {
     return new MyPromise((resolve, reject) => {
       reject(reason);
