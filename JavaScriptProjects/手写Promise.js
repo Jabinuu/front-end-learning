@@ -60,13 +60,35 @@ class MyPromise {
     );
   }
 
+  static resolve(data) {
+    if (data instanceof MyPromise) return data;
+    let _resolve, _reject;
+    // // 静态成员访问不到实例成员，所以要new一个实例出来，调用实例方法
+    const p = new MyPromise((resolve, reject) => {
+      _resolve = resolve;
+      _reject = reject;
+    });
+    if (p.#isPromiseLike(data)) {
+      data.then(_resolve, _reject);
+    } else {
+      _resolve(data);
+    }
+    return p;
+  }
+
+  static reject(reason) {
+    return new MyPromise((resolve, reject) => {
+      reject(reason);
+    });
+  }
+
   // 改变promise的状态
   #changeState(state, result) {
     // Promise对象状态一经更改，便不会再改变
     if (this.#state !== CONSTANT.PENDING) return; // 卫语句
     this.#state = state;
     this.#result = result;
-    // Promise执行器函数是异步函数时，执行这里的#run
+    // Promise执行器函数是异步函数时，执行这里的#run生效
     this.#run();
   }
 
@@ -168,8 +190,11 @@ const p = new MyPromise((resolve, reject) => {
 //   console.log(error);
 // });
 
-p.finally(() => console.log("finally")).then(
-  (res) => console.log(res),
-  (err) => console.log(err)
-);
+// p.finally(() => console.log("finally")).then(
+//   (res) => console.log(res),
+//   (err) => console.log(err)
+// );
+
+MyPromise.resolve(Promise.resolve(888)).then((res) => console.log(res));
+// MyPromise.reject("aiya").catch((res) => console.log(res));
 console.log(p);
