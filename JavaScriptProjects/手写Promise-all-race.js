@@ -225,9 +225,10 @@ const p3 = new MyPromise((resolve, reject) => {
   // reject("111222");
   // setTimeout(() => reject("拒绝原因"), 1000);
 });
-const promises = [p1, p2, p3];
-MyPromise.race([p1, 2]).then(
-  (res) => console.log(res),
-  (res) => console.log(res)
-);
+p1.then(2).then((res) => console.log(res));
+// const promises = [p1, p2, p3];
+// MyPromise.race([p1, 2]).then(
+//   (res) => console.log(res),
+//   (res) => console.log(res)
+// );
 console.log(p);
