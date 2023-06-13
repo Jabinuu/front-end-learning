@@ -1,13 +1,12 @@
 function myCall(obj, ...args) {
   obj.fn = this;
-  console.log(obj);
   const res = obj.fn(...args);
   delete obj.fn;
   return res;
 }
 
 function myApply(obj, args) {
-  return myCall(obj, ...args);
+  return this.myCall(obj, ...args);
 }
 
 function myBind(obj, ...args) {
@@ -22,13 +21,13 @@ function fn(a, b) {
 }
 
 const obj = {};
-Function.prototype.myCall = myCall;
-Function.prototype.myApply = myApply;
-Function.prototype.myBind = myBind;
+fn.__proto__.myCall = myCall;
+fn.__proto__.myApply = myApply;
+fn.__proto__.myBind = myBind;
 let p = fn.myCall(obj, "jiabin", 23);
 console.log(p, obj);
 
-let p1 = fn.myApply(obj, "zhangqing", 23);
+let p1 = fn.myApply(obj, ["bingbing", 23]);
 console.log(p1, obj);
 
 const bind = fn.myBind(obj, "doubao", 23);
