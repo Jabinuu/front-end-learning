@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <script>
-    function const_(key, val) {
-      if (window.hasOwnProperty(key)) {
-        throw TypeError('该变量已存在，不能重复声明！');
-      } else if (!val) {
-        throw TypeError('const变量必须被初始化！')
-      }
-      window[key] = val;
-      Object.defineProperty(window, key, {
-        get() {
-          return val;
-        },
-        set(newVal) {
-          if (newVal !== window.key) {
-            throw TypeError('const变量声明后不允许被修改！')
-          }
+  <body>
+    <script>
+      function const_(key, val) {
+        if (window.hasOwnProperty(key)) {
+          throw TypeError("该变量已存在，不能重复声明！");
+        } else if (!val) {
+          throw TypeError("const变量必须被初始化！");
         }
-      })
-    }
-    const_('job', 'Software Engineer');
-    console.log(window);
-  </script>
-</body>
-
+        window[key] = val;
+        Object.defineProperty(window, key, {
+          get() {
+            return val;
+          },
+          set(newVal) {
+            if (newVal !== window.key) {
+              throw TypeError("const变量声明后不允许被修改！");
+            }
+          },
+        });
+      }
+      const_("job", "Software Engineer");
+      console.log(window);
+    </script>
+  </body>
 </html>
