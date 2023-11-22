@@ -2,30 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      ul {
+        height: 200px;
+        overflow: auto;
+      }
+    </style>
   </head>
   <body>
-    <svg
-      width="100px"
-      height="100px"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
+    <ul
+      class="foo bar baz boo"
+      data-abc="jiabin"
+      style="background-color: blue; font-size: 30px"
     >
-      <!-- 利用Z命令 -->
-      <!-- <path d="M10 10 H 90 V 90 H 10 Z" /> -->
-      <!-- 利用V命令 -->
-      <path d="M10 10 H 90 V 90" />
-    </svg>
+      <li>text 1</li>
+      <li>text 2</li>
+      <li>text 3</li>
+      <li>text 1</li>
+      <li>text 2</li>
+      <li>text 3</li>
+      <li>text 1</li>
+      <li>text 2</li>
+      <li>text 3</li>
+    </ul>
+    <form action="">
+      <input type="text" name="jiabin" />
+    </form>
     <script>
-      const p = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(1);
-        }, 1000);
-        console.log(555);
+      const ul = document.getElementsByTagName("ul")[0];
+      ul.addEventListener("contextmenu", (event) => {
+        // console.log(event);
+        event.preventDefault();
       });
-      console.log(p);
+      window.addEventListener("beforeunload", (event) => {
+        let message = "确定要离开吗？";
+        event.returnValue = message;
+        return message;
+      });
+      const title = document.getElementsByTagName("title")[0];
+      document.addEventListener("visibilitychange", (event) => {
+        if (document.visibilityState == "hidden") {
+          title.innerText = "给我回来";
+        } else {
+          title.innerText = "Document";
+        }
+      });
     </script>
+
+    <div style="width: 100px; height: 100px; background-color: pink"></div>
   </body>
 </html>

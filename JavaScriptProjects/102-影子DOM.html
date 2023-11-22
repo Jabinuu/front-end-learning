@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      for (let color of ["red", "green", "blue"]) {
+        const div = document.createElement("div");
+        document.body.appendChild(div);
+        // attachShadow()方法创建并在目标元素上挂载一个影子DOM
+        // 接受的参数是一个包含mode属性的对象，值为'open'表示可以通过挂载元素的shadowRoot属性引用影子Dom
+        const shadowDom = div.attachShadow({ mode: "open" });
+        shadowDom.innerHTML = `<p>there is ${color}</p>
+  <style>
+    p{
+      color: ${color};
+    }
+  </style>`;
+      }
+    </script>
+  </body>
+</html>

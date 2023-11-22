@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="width: 200px; background-color: skyblue">
+      鼠标右键点击我显示自定义上下午菜单 鼠标右键点击其他地方显示默认上下文菜单
+    </div>
+    <ul
+      style="
+        visibility: hidden;
+        list-style: none;
+        position: absolute;
+        background-color: silver;
+      "
+    >
+      <li><a href="https://www.baidu.com">跳转到百度</a></li>
+      <li><a href="https://www.taobao.com">跳转到淘宝</a></li>
+      <li><a href="https://www.zhihu.com/">跳转到知乎</a></li>
+    </ul>
+  </body>
+  <script>
+    const div = document.getElementsByTagName("div")[0];
+    const menu = document.getElementsByTagName("ul")[0];
+    div.addEventListener("contextmenu", (event) => {
+      event.preventDefault();
+      menu.style.top = event.clientY + "px";
+      menu.style.left = event.clientX + "px";
+      menu.style.visibility = "visible";
+    });
+
+    document.addEventListener("click", () => {
+      menu.style.visibility = "hidden";
+    });
+  </script>
+</html>
