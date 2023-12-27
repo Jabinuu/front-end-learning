@@ -1,18 +1,36 @@
-function myCall(obj, ...args) {
-  obj.fn = this;
-  const res = obj.fn(...args);
-  delete obj.fn;
-  return res;
-}
+Function.prototype.myCall = function (context) {
+  context = context || window;
+  const args = [...arguments].slice(1);
+  context.fn = this;
+  const result = context.fn(...args);
+  delete context.fn;
+  return result;
+};
 
-function myApply(obj, args) {
-  return this.myCall(obj, ...args);
-}
+Function.prototype.myApply = function (context) {
+  context = context || window;
+  context.fn = this;
+  let result;
+  if (arguments[1]) {
+    result = context.fn(arguments[1]);
+  } else {
+    result = context.fn();
+  }
+  return result;
+};
 
-function myBind(obj, ...args) {
-  const bindFn = this;
-  return () => bindFn.myApply(obj, args);
-}
+Function.prototype.myBind = function (context) {
+  context = context || window;
+  const self = this;
+  const args = Array.from(arguments).slice(1);
+  return function F() {
+    if (this instanceof F) {
+      return new self(...args, ...arguments);
+    } else {
+      self.apply(context, args.concat(arguments));
+    }
+  };
+};
 
 function fn(a, b) {
   this.a = a;
@@ -21,9 +39,6 @@ function fn(a, b) {
 }
 
 const obj = {};
-fn.__proto__.myCall = myCall;
-fn.__proto__.myApply = myApply;
-fn.__proto__.myBind = myBind;
 let p = fn.myCall(obj, "jiabin", 23);
 console.log(p, obj);
 

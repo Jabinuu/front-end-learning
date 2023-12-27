@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      ul {
-        height: 200px;
-        overflow: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <ul
-      class="foo bar baz boo"
-      data-abc="jiabin"
-      style="background-color: blue; font-size: 30px"
-    >
-      <li>text 1</li>
-      <li>text 2</li>
-      <li>text 3</li>
-      <li>text 1</li>
-      <li>text 2</li>
-      <li>text 3</li>
-      <li>text 1</li>
-      <li>text 2</li>
-      <li>text 3</li>
-    </ul>
-    <form action="">
-      <input type="text" name="jiabin" />
-    </form>
-    <script>
-      const ul = document.getElementsByTagName("ul")[0];
-      ul.addEventListener("contextmenu", (event) => {
-        // console.log(event);
-        event.preventDefault();
-      });
-      window.addEventListener("beforeunload", (event) => {
-        let message = "确定要离开吗？";
-        event.returnValue = message;
-        return message;
-      });
-      const title = document.getElementsByTagName("title")[0];
-      document.addEventListener("visibilitychange", (event) => {
-        if (document.visibilityState == "hidden") {
-          title.innerText = "给我回来";
-        } else {
-          title.innerText = "Document";
-        }
-      });
-    </script>
 
-    <div style="width: 100px; height: 100px; background-color: pink"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    ul {
+      height: 200px;
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <svg width="500" height="200" id="svg">
+    <g>
+      <foreignObject width="200" height="30" style="border: 1px solid black">
+        <div contenteditable="true" id="editor">这是可编辑的文本</div>
+      </foreignObject>
+    </g>
+  </svg>
+  <ul class="foo bar baz boo" data-abc="jiabin" style="background-color: blue; font-size: 30px">
+    <li>text 1</li>
+    <li>text 2</li>
+    <li>text 3</li>
+    <li>text 1</li>
+    <li>text 2</li>
+    <li>text 3</li>
+    <li>text 1</li>
+    <li>text 2</li>
+    <li>text 3</li>
+  </ul>
+  <form action="">
+    <input type="text" name="jiabin" />
+  </form>
+  <script>
+    const editor = document.getElementById('editor')
+    const svg = document.getElementById('svg')
+
+    editor.addEventListener('input', () => {
+
+      const lastWidth = editor.parentElement.getAttribute('width')
+      editor.parentElement.setAttribute('width', Number(lastWidth) + 10)
+      setTimeout(() => {
+        editor.remove()
+      }, 500)
+
+    })
+
+    var jiabin = 123;
+    const ul = document.getElementsByTagName("ul")[0];
+    let abc = function () {
+      // console.log(event);
+      console.log(this);
+      event.preventDefault();
+    };
+    abc = abc.bind(document.body);
+    ul.addEventListener("contextmenu", abc);
+
+    window.addEventListener("beforeunload", (event) => {
+      let message = "确定要离开吗？";
+      event.returnValue = message;
+      return message;
+    });
+    const title = document.getElementsByTagName("title")[0];
+    document.addEventListener("visibilitychange", (event) => {
+      if (document.visibilityState == "hidden") {
+        title.innerText = "给我回来";
+      } else {
+        title.innerText = "Document";
+      }
+    });
+  </script>
+
+  <div style="width: 100px; height: 100px; background-color: pink"></div>
+</body>
+
 </html>
