@@ -1,4 +1,4 @@
-function instanceOf(obj, target) {
+function myInstanceOf(obj, target) {
   let temp = obj.__proto__;
   while (temp !== null) {
     if (temp.constructor === target) {
@@ -8,7 +8,6 @@ function instanceOf(obj, target) {
   }
   return false;
 }
-
 // 测试
 class Car {}
 class Animal {
