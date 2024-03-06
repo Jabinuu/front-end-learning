@@ -1,5 +1,5 @@
 Function.prototype.myCall = function (context) {
-  context = context || window;
+  context = context || globalThis;
   const args = [...arguments].slice(1);
   context.fn = this;
   const result = context.fn(...args);
@@ -8,7 +8,7 @@ Function.prototype.myCall = function (context) {
 };
 
 Function.prototype.myApply = function (context) {
-  context = context || window;
+  context = context || globalThis;
   context.fn = this;
   let result;
   if (arguments[1]) {
@@ -19,13 +19,26 @@ Function.prototype.myApply = function (context) {
   return result;
 };
 
+// Function.prototype.myBind = function (context) {
+//   context = context || globalThis;
+//   const self = this;
+//   const args = Array.from(arguments).slice(1);
+//   return function F() {
+//     if (this instanceof F) {
+//       return new self(...args, ...arguments);
+//     } else {
+//       self.apply(context, args.concat(arguments));
+//     }
+//   };
+// };
+
 Function.prototype.myBind = function (context) {
-  context = context || window;
-  const self = this;
   const args = Array.from(arguments).slice(1);
+  context = context || globalThis;
+  const self = this;
   return function F() {
     if (this instanceof F) {
-      return new self(...args, ...arguments);
+      return new F(...args, ...arguments);
     } else {
       self.apply(context, args.concat(arguments));
     }
@@ -48,3 +61,12 @@ console.log(p1, obj);
 const bind = fn.myBind(obj, "doubao", 23);
 let p2 = bind();
 console.log(p2, obj);
+
+function Fac(x, y) {
+  this.x = x;
+  this.y = y;
+}
+const AXisY = Fac.myBind(null, 0);
+const obj1 = new AXisY(5);
+console.log(obj1 instanceof Fac);
+console.log(new Fac(1, 2));

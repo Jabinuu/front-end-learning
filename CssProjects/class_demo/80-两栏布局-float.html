@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .father {
+      overflow: hidden;
+    }
+
+    .left {
+      float: left;
+      width: 200px;
+      background-color: gray;
+      height: 400px;
+    }
+
+    .right {
+      margin-left: 210px;
+      background-color: lightgreen;
+      height: 200px;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="father">
+    <div class="left">左边</div>
+    <div class="right">右边</div>
+  </div>
+  <h1>要给布局容器设置BFC，否则这段话会飘到右边没有浮动的盒子下面</h1>
+</body>
+
+</html>

@@ -36,6 +36,16 @@
     <input type="text" name="jiabin" />
   </form>
   <script>
+    const a = () => {
+      console.log(123);
+      // requestAnimationFrame(a)
+
+    }
+    setTimeout(() => {
+      console.log(111);
+    })
+    requestAnimationFrame(a)
+
     const editor = document.getElementById('editor')
     const svg = document.getElementById('svg')
 

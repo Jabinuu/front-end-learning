@@ -99,7 +99,7 @@ class MyPromise {
     const resolveOne = (data, index) => {
       result[index] = data;
       if (++cnt === promises.length) {
-        _resolve(result[index]);
+        _resolve(result);
       }
     };
     promises.forEach((item, index) => {
