@@ -4,35 +4,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
   <style>
-    .ff {
-      width: 100px;
-      height: 200px;
-      background-color: gray;
-      overflow: hidden;
+    /* Tooltip容器 */
+    .tooltip {
+      position: relative;
+      display: inline-block;
     }
 
-    .ss {
-      margin-top: 50px;
-      width: 100px;
-      height: 150px;
-      background-color: lightcoral;
+    /* Tooltip文本 */
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
     }
 
-    /* .ff::before {
-      content: '';
-       display: table;
-    } */
+    /* Tooltip文本显示 */
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
   </style>
 </head>
 
 <body>
-  <div class="ff">
-    <div class="ss">
 
+  <h2>手写Tooltip组件</h2>
+
+  <!-- 触发tooltip的元素 -->
+  <div class="tooltip">Hover over me
+    <!-- Tooltip文本 -->
+    <div class="tooltiptext">这是一个Tooltip示例
+      <div style="width: 8px;
+      height: 8px; background-color: black; position: absolute; bottom: -4px; left: 50%; transform: rotate(45deg);">
+      </div>
     </div>
   </div>
+
 </body>
 
 </html>

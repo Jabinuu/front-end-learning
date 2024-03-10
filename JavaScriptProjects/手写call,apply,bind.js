@@ -19,26 +19,13 @@ Function.prototype.myApply = function (context) {
   return result;
 };
 
-// Function.prototype.myBind = function (context) {
-//   context = context || globalThis;
-//   const self = this;
-//   const args = Array.from(arguments).slice(1);
-//   return function F() {
-//     if (this instanceof F) {
-//       return new self(...args, ...arguments);
-//     } else {
-//       self.apply(context, args.concat(arguments));
-//     }
-//   };
-// };
-
 Function.prototype.myBind = function (context) {
-  const args = Array.from(arguments).slice(1);
   context = context || globalThis;
   const self = this;
+  const args = Array.from(arguments).slice(1);
   return function F() {
     if (this instanceof F) {
-      return new F(...args, ...arguments);
+      return new self(...args, ...arguments);
     } else {
       self.apply(context, args.concat(arguments));
     }

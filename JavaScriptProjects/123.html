@@ -11,13 +11,36 @@
 
   <div id="we">hello</div>
   <script>
-    console.log(getComputedStyle(document.querySelector('#we')).color);
+    function throttle(fn, interval) {
+      // 上次触发的时间
+      let last = 0
+      return function () {
+        let now = Date.now()
+        if (now - last >= interval) {
+          fn.apply(this, arguments)
+          last = now
+        }
+      }
+    }
+
+    function debounce(fn, delay) {
+      let timer = null
+      return function () {
+        if (timer) {
+          clearTimeout(timer)
+        }
+
+        timer = setTimeout(() => {
+          fn.apply(this, arguments)
+        }, delay)
+      }
+    }
+
+
 
   </script>
   <style>
-    #we {
-      color: blue;
-    }
+
   </style>
 </body>
 

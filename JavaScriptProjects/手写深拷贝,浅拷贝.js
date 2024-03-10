@@ -13,22 +13,22 @@ function shallowCopy(source) {
 
 // 用一个WeakMap防止出现因循环引用导致的无限递归栈溢出，map中以要拷贝的数据为键，以拷贝结果为值，只会在出现循环引用时，才此值为返回值。
 // 用弱映射比映射好，因为当键没有被任何变量引用时，会被垃圾回收程序及时清除，不会驻留内存
-function deepCopy(source, map = new WeakMap()) {
-  if (typeof source !== "object" && typeof source !== "function") {
-    return source;
-  }
-  const res = Array.isArray(source) ? [] : {};
-  if (map.has(source)) {
-    return map.get(source);
-  }
-  map.set(source, res);
-  for (const key in source) {
-    if (source.hasOwnProperty(key)) {
-      res[key] = deepCopy(source[key], map);
-    }
-  }
-  return res;
-}
+// function deepCopy(source, map = new WeakMap()) {
+//   if (typeof source !== "object" && typeof source !== "function") {
+//     return source;
+//   }
+//   const res = Array.isArray(source) ? [] : {};
+//   if (map.has(source)) {
+//     return map.get(source);
+//   }
+//   map.set(source, res);
+//   for (const key in source) {
+//     if (source.hasOwnProperty(key)) {
+//       res[key] = deepCopy(source[key], map);
+//     }
+//   }
+//   return res;
+// }
 
 // 测试
 const person = {

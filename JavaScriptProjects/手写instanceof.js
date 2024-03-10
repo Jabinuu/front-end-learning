@@ -8,6 +8,7 @@ function myInstanceOf(obj, target) {
   }
   return false;
 }
+
 // 测试
 class Car {}
 class Animal {
