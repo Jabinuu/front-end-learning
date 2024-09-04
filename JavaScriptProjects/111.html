@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.5" />
   <title>Document</title>
   <style>
     ul {
@@ -14,13 +14,6 @@
 </head>
 
 <body>
-  <svg width="500" height="200" id="svg">
-    <g>
-      <foreignObject width="200" height="30" style="border: 1px solid black">
-        <div contenteditable="true" id="editor">这是可编辑的文本</div>
-      </foreignObject>
-    </g>
-  </svg>
   <ul class="foo bar baz boo" data-abc="jiabin" style="background-color: blue; font-size: 30px">
     <li>text 1</li>
     <li>text 2</li>
@@ -48,16 +41,6 @@
 
     const editor = document.getElementById('editor')
     const svg = document.getElementById('svg')
-
-    editor.addEventListener('input', () => {
-
-      const lastWidth = editor.parentElement.getAttribute('width')
-      editor.parentElement.setAttribute('width', Number(lastWidth) + 10)
-      setTimeout(() => {
-        editor.remove()
-      }, 500)
-
-    })
 
     var jiabin = 123;
     const ul = document.getElementsByTagName("ul")[0];
