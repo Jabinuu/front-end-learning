@@ -26,4 +26,4 @@ function flaten1(nums) {
   return res;
 }
 
-console.log(flaten1([1, 2, 3, ["a", "b", "c", [4, 5]], 6, 7]));
+console.log(flaten([1, 2, 3, ["a", "b", "c", [4, 5]], 6, 7]));

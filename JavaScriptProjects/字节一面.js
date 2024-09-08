@@ -40,3 +40,29 @@ const cityData = [
     ],
   },
 ];
+
+function fn(id) {
+  let res = [];
+  let isFound = false;
+  function backTracking(root) {
+    if (isFound) return;
+
+    res.push(root.name);
+    if (root.id === id) {
+      isFound = true;
+      return;
+    }
+    if (root.children) {
+      for (let i = 0; i < root.children.length; i++) {
+        backTracking(root.children[i]);
+        if (!isFound) res.pop();
+      }
+    }
+  }
+
+  backTracking(cityData[0]);
+
+  return res.join("");
+}
+
+console.log(fn("ddrr2"));

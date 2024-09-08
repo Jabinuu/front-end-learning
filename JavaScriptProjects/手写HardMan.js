@@ -1,4 +1,5 @@
 function HardMan(name) {
+  // 有观察可知，代码时机运行的结果，并不是根据代码逻辑同步执行的，而是异步执行的，因而应维护一个任务队列，在任务队列里自定义程序执行顺序
   let jobQueue = [],
     after = 0;
 
@@ -61,7 +62,7 @@ HardMan("lilei").rest(10).learn("ennglish");
 // 等待10秒
 //> start learning after 10s
 //> learning chinese
-HardMan("jiabin").restFirst(5).learn("chinese");
+// HardMan("jiabin").restFirst(5).learn("chinese");
 // 等待5s
 //> start learning after 5s
 //> i'm lilei
